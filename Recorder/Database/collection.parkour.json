@@ -9,7 +9,7 @@
           "instruction": {
             "signal": {
               "text": "Frei stehen und Arme ausstrecken!",
-              /* betrifft _OPTIONAL-2
+              /* betrifft _OPTIONAL-1 und _OPTIONAL-2
               "beep": true,
               "vibra": false,
               "random": true,

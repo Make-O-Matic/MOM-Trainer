@@ -1,36 +1,42 @@
 # MOM-Trainer/Recorder
 
-Spezifikationen
-*
+Dieses Tool nimmt Daten von #MOM/Glove über Blueooth (USB-Modul) entgegen und schreibt diese in eine Datenbank.
 
-* starten des Programs über die Konsole
-- eingeben von
-  - experiment-id (neu)
-  - parkour-id (bzw. Auswahl)
-  - observer-id (bzw. Auswahl)
-  - subject-id (bzw. Auswahl)
-(collector-id für Glove-links und Glove-rechts ist fix)
+## Spezifikationen
+- starten des Programs über die Konsole
+
+### _OPTIONAL-0:
+  - das Programm sendet ein Signal (Vibra = Char: '0'-'9', Beep = Char: '*''), um via
+  Vibration bzw. aktustischem Signal die "(Bluetooth-)Verbindung" zwischen Handschuh und
+  Computer/Programm zu bestätigen.
+
+- folgende Parameter werden als Argumente mit dem Aufruf des Programms mitgegeben
+  - EXPERIMENT.id (neu)
+  - PARKOUR.id
+  - OBSERVER.id
+  - SUBJECT.id
 - sind alle Eingaben (korrekt) gemacht worden, so wird ein TRAINSET (mit Datum und Uhrzeit) in der Datenbank erzeugt
-- die zum PARKOUR.id gehörenden EXERCISE werden geladen und eine sortierte Liste (sortierung anhand von EXERCISE.step) angezeigt.
-Die Items in der Liste entsprechen dem Text aus INSTRUCTION.signal.text
-Außerdem wird die Aufforderung "Zum Starten 'Leertaste' drücken" angezeigt
-- drückt man die Leertaste so werden DATA der beiden COLLECTOREN (Glove-links und Glove-rechts) in die Datenbank geschrieben
-Diese Daten werden mit der "id" der zugehörigen EXERCISE und des zugehörigen COLLECTOR versehen.
-Am Bildschirm erscheint nur noch INSTRUCTION.signal.text, der aktuellen EXERCISE.
-- _OPTIONAL: Das Programm sendet einen Befehl an den Handschuh, der vor Beginn jeder Aufnahme ein Signal ausgibt (Vibra oder Summer)
-  Dieses Signal kann auch (zufällig) zeitversetzt erfolgen, damit es nicht zu einer Standardisierung im Bewegungsablauf kommt.
-  siehe EXERCISE.instruction.signal
-- drückt man erneut die Leertaste, so werden alle neuen eintreffenden Daten mit der nächsten EXERCISE.id versehen und
-dieser INSTRUCTION.signal.text am Bildschirm angezeigt.
-- ist der Nutzer am Ende der EXERCISE Liste angekommen, so stoppt die Aufnahme der Daten und man kommt zum Hauptbilschirm zurück
-- dort kann man auswählen ob man erneut mit der selben Konfiguration Daten aufnehmen möchte, oder ob man "von vorne einsteigen möchte".
+  - wurde PARKOUR.id nicht in der Datenbank gefunden, so wird der Fehler "[PARKOUR.id] no found." ausgegeben.
+- die zum PARKOUR.id gehörenden EXERCISEs werden geladen und eine sortierte Liste (Sortierung anhand von EXERCISE.step) angezeigt.
+  - jedes Item der Liste wird als [name = EXERCISE.instruction.signal.text + "-" + EXERCISE.step + "/" + PARKOUR.exercises.all()] angezeigt.
+  - Außerdem wird die Aufforderung "Zum Starten 'Leertaste' drücken..." angezeigt
+- drückt der Nutzer nun die Leertaste so werden DATA der beiden COLLECTORen (Glove-links und Glove-rechts) (abwechselnd) in die Datenbank geschrieben
+  - diese DATA werden mit der zugehörigen EXERCISE.id und des zugehörigen COLLECTOR.id versehen.
+    - die COLLECTOR.id entspricht der MAC-Adresse des Bluetooth-Moduls des jeweiligen Handschuhs
+  - am Bildschirm erscheint nur noch der [name] der aktuellen EXERCISE.
+    - OPTIONAL-1: Die eintreffenden DATA je COLLECTOR werden in je einer Zeile "stehend" angezeigt (siehe ser2file.py). Beispiel:
+      - COLLECTOR.id + ": " + DATA.collection.data.rfid + " | " + DATA.collection.data.muscle + ...
 
+### _OPTIONAL-2:
+  - Das Programm sendet einen Befehl an den Handschuh, der vor Beginn jeder Aufnahme ein Signal ausgibt (Vibra oder Summer). Dieses Signal kann auch (zufällig) zeitversetzt erfolgen, damit es nicht zu einer Standardisierung im Bewegungsablauf kommt. <-- siehe EXERCISE.instruction.signal
 
-Zusatz:
-- mit X kann man einen Parkour beenden, während man aufnimmt. Das TRAINSET wird dann als "fehlerhaft" vermerkt
-- nach der Aufnahme eines Parkours kann man mit X den Parkour als "fehlerhaft" vermerken
-- nach der Aufnahme eines Parkours wird die ID des entsprechen TRAINSETS angezeigt
+- drückt man die erneut Leertaste, so werden alle neuen eintreffenden DATA mit der nächsten EXERCISE.id versehen und wieder [name] der aktuellen EXERCISE am Bildschirm angezeigt.
+  - ist der Nutzer am Ende der EXERCISE Liste angekommen, so stoppt die Aufnahme und die Meldung
+  "Parkour durchlaufen. Daten unter TRAINSET [TRAINSET.id] abgespeichert. Drücken Sie 'X' um das TRAINSET als fehlerhaft zu markieren. Drücken Sie 'Leertaste' um das Programm zu beenden."
+    - Taste "X" schreibt die zeitliche Differenz zwischen TRAINSET.created und dem Zeitpunkt des Tastendrucks in TRAINSET.status.faulty
+- drückt man die Taste "X", so stoppt die Aufnahme und die Meldung
+"Parkour abgebrochen. Daten unter TRAINSET [TRAINSET.id] abgespeichert und als fehlerhaft (TRAINSET.status.faulty) markiert. Drücken Sie 'Leertaste' um das Programm zu beenden."
 
-- Console:
--- help zeigt was man damit machen kann und was man eingeben muss
--- Bei jeder Exercise steht EXERCISE.name (X/Y)
+### _OPTIONAL-3:
+- startet man das Programm ohne die Angabe von Argumenten oder werden die Argumente nicht
+korrekt angegeben, so gibt das Programm die Aufforderung "Bitte geben Sie: EXPERIMENT.id (neu), OBSERVER.id (neu), SUBJECT.id (neu), PARKOUR.id (vorhanden) als Argumente '--e, --o, --s, --p' an."

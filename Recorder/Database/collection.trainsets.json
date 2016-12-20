@@ -1,49 +1,55 @@
 {
-  "uuid": {
+  "MongoDB:uuid": {
     "created": {
       "date":"10.12.2016",
-      "time":"16:35"
+      "time":"16:35:00"
+    },
+    "status": {
+      "faulty": "01:13" //<-- Zeitraum
     },
     "experiment": {
-      "id": "uuid"
+      "id": "alphanumericKey" //<-- durch Nutzer via Console erstellt
     },
     "parkour": {
-      "id": "uuid",
+      "id": "PARKOUR.id/collection.parkours.json",
       "observer": {
-        "id":"uuid"
+        "id":"alphanumericKey" //<-- durch Nutzer via Console erstellt
       },
       "subject": {
-        "id":"uuid"
+        "id":"alphanumericKey" //<-- durch Nutzer via Console erstellt
       },
     },
     "collection": [
       {
         "collector": {
-          "id":"uuid"
+          "id":"mac-adress" //<-- durch Programm erstellt (MAC-Adresse des Bluetooth-Moduls)
         },
         "exercise": {
-          "id":"uuid"
+          "id":"PARKOUR.exercises.id/collection.parkours.json"
         },
-        "data": { //<-- wie wichtig sind hier Einheiten?
+        "data": {
           "timestamp": {
             "unixtime": "1481890593" //<-- welchen Zeitstempel braucht die TU und welcher ist leicht zu programmieren?
           },
-          "rfid":"RFIDUUID",
-          "pressure": 89, //<-- ist EMG oder ein anderer Sensor
+          "rfid":"alphanumericKey", //RFID-Sensor
+          "muscle": 89, //<-- EMG-Sensor oder ein anderer Sensor - TBD
           "acceleration": {
-            "x":10,
-            "y":1,
-            "z":56
+            "x":10, //=ax
+            "y":1, //=ay
+            "z":56 //=az
           },
           "rotation": {
-            "a": 10,
-            "b": 12,
-            "y": 100
+            "x": 10, //=ex
+            "y": 12, //=ey
+            "z": 100 //=ez
           },
-          "interface": {
+          "interface": { //am Handschuh angebrachte Eingabeinstrumente
             "userInputButton":true,
             "handIsInGlove":true,
             "additionalSwitch":true
+          },
+          "calculated": { //<-- auf dem Mikrocontroller oder durch das Programm gefolgerte Werte
+            "isSameRFIDTag":true
           }
         }
       }

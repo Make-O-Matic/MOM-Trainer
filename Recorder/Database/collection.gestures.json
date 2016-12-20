@@ -1,6 +1,8 @@
 {
-  "uuid": {
+  "MongoDB:uuid": {
+    "id":"heben-1",
     "name": "heben",
-    "isGesture": true
+    "isNesture": true, //<-- GESTURE oder NESTURE
+    "isAtomic": true //<-- durch Admin erstellt
   }
 }

@@ -1,29 +1,32 @@
 {
-  "uuid": {
+  "MongoDB:uuid": {
+    "id":"alphanumericKey (z.B.: superParkour-1)", //<-- durch Admin erstellt
     "name":"SuperParkur",
-    "exercises": [ //<-- auch NESTURES müssen in einem Parkour definiert werden
+    "exercises": [ //<-- Info: auch NESTURES müssen in einem Parkour definiert werden
         {
-          "id": "uuid",
+          "id": "alphanumericKey", //<-- durch Admin erstellt
           "step":0,
           "instruction": {
             "signal": {
               "text": "Frei stehen und Arme ausstrecken!",
-              "beep": true, //<-- brauchen wir das?
+              /* betrifft _OPTIONAL-2
+              "beep": true,
               "vibra": false,
               "random": true,
               "ignoreIsNone": true
+              */
             },
             "host": {
-              "id": "uuid",
+              "id": "alphanumericKey", //<-- durch Admin erstellt
               "spot": {
-                "id": "uuid"
+                "id": "alphanumericKey" //<-- durch Admin erstellt
               }
             },
             "gesture": {
-              "id":"uuid"
+              "id":"GESTURE.id/collection.gestures.json"
             },
             "mutation": {
-              "id":"uuid"
+              "id":"alphanumericKey" //<-- durch Admin erstellt
             }
           }
         }

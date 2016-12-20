@@ -20,10 +20,10 @@
               }
             },
             "gesture": {
-              "id":"uuid"
-            },
-            "mutation": {
-              "id":"uuid"
+              "id":"uuid",
+              "mutation": {
+                "id":"uuid"
+              }
             }
           }
         }

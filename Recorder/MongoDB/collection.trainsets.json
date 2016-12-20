@@ -1,0 +1,52 @@
+{
+  "uuid": {
+    "created": {
+      "date":"10.12.2016",
+      "time":"16:35"
+    },
+    "experiment": {
+      "id": "uuid"
+    },
+    "parkour": {
+      "id": "uuid",
+      "observer": {
+        "id":"uuid"
+      },
+      "subject": {
+        "id":"uuid"
+      },
+    },
+    "collection": [
+      {
+        "collector": {
+          "id":"uuid"
+        },
+        "exercise": {
+          "id":"uuid"
+        },
+        "data": { //<-- wie wichtig sind hier Einheiten?
+          "timestamp": {
+            "unixtime": "1481890593" //<-- welchen Zeitstempel braucht die TU und welcher ist leicht zu programmieren?
+          },
+          "rfid":"RFIDUUID",
+          "muscle": 89, //<-- ist EMG oder ein anderer Sensor
+          "acceleration": {
+            "x":10,
+            "y":1,
+            "z":56
+          },
+          "rotation": {
+            "a": 10,
+            "b": 12,
+            "y": 100
+          },
+          "interface": {
+            "userInputButton":true,
+            "handIsInGlove":true,
+            "additionalSwitch":true
+          }
+        }
+      }
+    ]
+  }
+}

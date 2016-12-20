@@ -25,6 +25,15 @@ Programmablauf:
   - jedes Item der Liste wird als [name = EXERCISE.instruction.signal.text + "-" + EXERCISE.step + "/" + PARKOUR.exercises.all()] angezeigt.
   - Außerdem wird die Aufforderung "Zum Starten 'Leertaste' drücken..." angezeigt
 - drückt der Nutzer nun die Leertaste so werden DATA der beiden COLLECTORen (Glove-links und Glove-rechts) (abwechselnd) in die Datenbank geschrieben
+  - das TRAINSET wird (abwechselnd) mit DATA aus einem der beiden COLLECTORen erweitert.
+    - DATA stammt von je einem Channel vom Bluetooth-Modul des benutzen Computers
+    - DATA wird (aktuell) mit 50Hz vom Bluetooth-Modul eines COLLECTORs gesendet
+    - DATA der beiden Handschuhe liegen auf eigenständigen Zeitachsen
+      - CH1: |--x--x--x--x--x--> (Zeitachse-1 mit Raster)
+      - CH2: |--x--x--x--x--x--> (Zeitachse-2 mit Raster)
+    - pro Zeitachse, soll jede DATA (=x) zu einem virtuellen Raster nur +/-10[ms] abweichen
+    - die Zeitachsen müssen, mindestens über den START-Zeitpunkt (=|), synchronisierbar sein
+    - DATA der überlagerten Zeitachsen sollen zueinander nur +/-?ms abweichen
   - diese DATA werden mit der zugehörigen EXERCISE.id und des zugehörigen COLLECTOR.id versehen.
     - die COLLECTOR.id entspricht der MAC-Adresse des Bluetooth-Moduls des jeweiligen Handschuhs
   - am Bildschirm erscheint nur noch der [name] der aktuellen EXERCISE.

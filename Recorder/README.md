@@ -3,11 +3,14 @@
 Dieses Tool nimmt Daten von #MOM/Glove über Blueooth (USB-Modul) entgegen und schreibt diese in eine Datenbank.
 
 ## Spezifikationen
+[Vokabeln](https://workflowy.com/s/qrLIZmQBRp) in Workflowy (read-only)
+
+Programmablauf:
 - starten des Programs über die Konsole
-  - _OPTIONAL-0:
+  - **_OPTIONAL-0:**
     - startet man das Programm ohne die Angabe von Argumenten oder werden die Argumente nicht
     korrekt angegeben, so gibt das Programm die Aufforderung "Bitte geben Sie: EXPERIMENT.id (neu), OBSERVER.id (neu), SUBJECT.id (neu), PARKOUR.id (vorhanden) als Argumente '--e, --o, --s, --p' an."
-  - _OPTIONAL-1:
+  - **_OPTIONAL-1:**
     - das Programm sendet ein Signal (Vibra = Char: '0'-'9', Beep = Char: '*''), um via
     Vibration bzw. aktustischem Signal die "(Bluetooth-)Verbindung" zwischen Handschuh und
     Computer/Programm zu bestätigen.
@@ -27,7 +30,7 @@ Dieses Tool nimmt Daten von #MOM/Glove über Blueooth (USB-Modul) entgegen und s
   - am Bildschirm erscheint nur noch der [name] der aktuellen EXERCISE.
     - OPTIONAL-1: Die eintreffenden DATA je COLLECTOR werden in je einer Zeile "stehend" angezeigt (siehe ser2file.py). Beispiel:
       - COLLECTOR.id + ": " + DATA.collection.data.rfid + " | " + DATA.collection.data.muscle + ...
-  - _OPTIONAL-2:
+  - **_OPTIONAL-2**:
     - Das Programm sendet einen Befehl an den Handschuh, der vor Beginn jeder Aufnahme ein Signal ausgibt (Vibra oder Summer). Dieses Signal kann auch (zufällig) zeitversetzt erfolgen, damit es nicht zu einer Standardisierung im Bewegungsablauf kommt. <-- siehe EXERCISE.instruction.signal
 - drückt man die erneut Leertaste, so werden alle neuen eintreffenden DATA mit der nächsten EXERCISE.id versehen und wieder [name] der aktuellen EXERCISE am Bildschirm angezeigt.
   - ist der Nutzer am Ende der EXERCISE Liste angekommen, so stoppt die Aufnahme und die Meldung

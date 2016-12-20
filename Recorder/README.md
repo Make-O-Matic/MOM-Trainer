@@ -25,7 +25,7 @@ Programmablauf:
   - jedes Item der Liste wird als [name = EXERCISE.instruction.signal.text + "-" + EXERCISE.step + "/" + PARKOUR.exercises.all()] angezeigt.
   - Außerdem wird die Aufforderung "Zum Starten 'Leertaste' drücken..." angezeigt
 - drückt der Nutzer nun die Leertaste so werden DATA der beiden COLLECTORen (Glove-links und Glove-rechts) (abwechselnd) in die Datenbank geschrieben
-  - das TRAINSET wird (abwechselnd) mit DATA aus einem der beiden COLLECTORen erweitert.
+  - das TRAINSET wird (abwechselnd) mit DATA aus je einem der beiden COLLECTORen erweitert.
     - **Synchronisation:**
       - DATA stammt von je einem Channel vom Bluetooth-Modul des benutzen Computers
       - DATA wird (aktuell) mit 50Hz vom Bluetooth-Modul eines COLLECTORs gesendet. Dieser Wert ist abhängig von der Firmaware des COLLECTORs und kann auf bis zu 100Hz erhöht werden.

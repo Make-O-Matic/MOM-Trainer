@@ -31,25 +31,25 @@
           "timestamp": {
             "unixtime": "1481890593" //<-- welchen Zeitstempel braucht die TU und welcher ist leicht zu programmieren?
           },
-          "rfid":"alphanumericKey", //RFID-Sensor
-          "muscle": 89, //<-- EMG-Sensor oder ein anderer Sensor - TBD
+          "rfid":"alphanumericKey", //=rfid (siehe 'ser2file.py')
+          "muscle": 89, //=myo (siehe 'ser2file.py')
           "acceleration": {
-            "x":10, //=ax
-            "y":1, //=ay
-            "z":56 //=az
+            "x":10, //=ax (siehe 'ser2file.py')
+            "y":1, //=ay (siehe 'ser2file.py')
+            "z":56 //=az (siehe 'ser2file.py')
           },
           "rotation": {
-            "x": 10, //=ex
-            "y": 12, //=ey
-            "z": 100 //=ez
+            "x": 10, //=ex (siehe 'ser2file.py')
+            "y": 12, //=ey (siehe 'ser2file.py')
+            "z": 100 //=ez (siehe 'ser2file.py')
           },
           "interface": { //am Handschuh angebrachte Eingabeinstrumente
-            "userInputButton":true,
-            "handIsInGlove":true,
-            "additionalSwitch":true
+            "userInputButton":true, //='key' (siehe 'ser2file.py')
+            "handIsInGlove":true, //='capsens' (siehe 'ser2file.py')
+            "additionalSwitch":true //='sw' (siehe 'ser2file.py')
           },
           "calculated": { //<-- auf dem Mikrocontroller oder durch das Programm gefolgerte Werte
-            "isSameRFIDTag":true
+            "isSameRFIDTag":true //='lastnr' (siehe 'ser2file.py')
           }
         }
       }

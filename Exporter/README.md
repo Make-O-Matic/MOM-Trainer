@@ -1,20 +1,14 @@
-TODO:
-- was ist das beste Datenformat um es der TU Wien zu übergeben?
-  - Ordnung nach trainset, gesture, collector?
-
-
 # MOM-Trainer/Exporter (Python)
 
-Lädt, von MOM-Recorder erstellte Daten aus der Datenbank und wandelt diese in ein .CSV-File um.
+Lädt, von MOM-Recorder erstellte Daten aus der Datenbank und wandelt diese in ein beliebiges Ausgabeformat, abhängig vom MAPPING um.
 
 ## Spezifikationen
 [Vokabeln](https://workflowy.com/s/qrLIZmQBRp) in Workflowy (read-only)
 
 Programmablauf:
 - Nutzer startet das Programm über die Konsole mit diesen Argumenten:
-  - TRAINSET.uuid
-  - MAPPING.id <-- gibt an in welchem Format die vorhandenen Daten ausgegeben werden sollen. Gibt es da schon Libraries?
-- ist ein entsprechendes TRAINSET vorhanden, so wird eine .CSV Datei im vorgegebenen Format erstellt
-  - Format der .CSV Datei
-- ist kein passendes TRAINSET vorhanden, so wird eine Fehlermeldung ausgegeben
-- **_OPTIONAL-x:** - .json Datei wird ausgegeben
+  - TRAINSET.uuid [MongoDB:uuid]
+  - MAPPING.id: [alphanumericKey | "trainset.tmpl.csv"]
+- ist ein entsprechendes TRAINSET in der Datenbank vorhanden, so wird eine Datei im vorgegebenen Format [.csv] erstellt und der Dateiname der Datei ausgegeben. Das Programm wird mit STRG+C oder durch schließen der Konsole beendet
+- ist kein entsprechendes TRAINSET vorhanden, so wird eine Fehlermeldung ausgegeben und
+der Benutzer wird solange aufgefordert erneut eine TRAINSET.uuid einzugeben bis ein entsprechendes TRAINSET vorhanden ist

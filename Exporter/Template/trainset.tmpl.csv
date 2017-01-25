@@ -1,15 +1,17 @@
-PRÄAMBEL:
+##Präambel:
 - TRAINSET = collection.trainset.json{MongoDB:uuid}
 - PARKOUR = collection.parkour.json{MongoDB:uuid}
 - GESTURES = collection.gestures.json{MongoDB:uuid}
 - DATA = TRAINSET.collection[i]
+
+##Dateistruktur
 
 FILENAME: %TRAINSET.uuid%
 --------------------------
 METADATA: (how to add metadata to a .csv file - https://www.w3.org/TR/tabular-data-model/#embedded-metadata)
 # creator: Make-O-Matic
 # created: %TRAINSET.created.date%, %A{MongoDB:uuid}.created.time%
-# faulty: %TRAINSET.status.faulty% <-- da muss ich schauen ob das Sinn macht
+# faulty: %TRAINSET.status.faulty%
 # experiment: %TRAINSET.experiment.id%
 # parkour: %TRAINSET.parkour.id%
 # observer: %TRAINSET.parkour.observer.id%
@@ -18,8 +20,8 @@ METADATA: (how to add metadata to a .csv file - https://www.w3.org/TR/tabular-da
 
 COLUMNS
 
-- "Created" > %TRAINSET.created.date%, %A{MongoDB:uuid}.created.time%
-- "Faulty" > %TRAINSET.status.faulty% <-- da muss ich schauen ob das Sinn macht
+- "created" > %TRAINSET.created.date%, %A{MongoDB:uuid}.created.time%
+- "faulty" > %TRAINSET.status.faulty% <-- da muss ich schauen ob das Sinn macht
 - "Experiment-ID" > %TRAINSET.experiment.id%
 - "Parkour-ID" > %TRAINSET.parkour.id%
 - "Observer-ID" > %TRAINSET.parkour.observer.id%
@@ -32,7 +34,7 @@ COLUMNS
 - "isNesture" > %DATA.exercise.gesture.isNesture%
 - "Mutation-ID" > %DATA.exercise.mutation.id%
 
-- "Stamp" > %DATA.data.timestamp.unixtime%
+- "STAMP" > %DATA.data.timestamp.unixtime%
 - "Collector-ID" > %DATA.collector.id%
 - "RFID-ID" > %DATA.rfid%
 - "SAMERFID" > %DATA.calculated.isSameRFIDTag%

@@ -1,5 +1,5 @@
 {
-  "MongoDB:uuid": {
+  "MongoDB:uuid": { //=uuid
     "created": {
       "date":"10.12.2016",
       "time":"16:35:00"

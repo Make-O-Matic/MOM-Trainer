@@ -1,32 +1,29 @@
 {
   "MongoDB:uuid": {
     "id":"alphanumericKey (z.B.: superParkour-1)", //<-- durch Admin erstellt
-    "name":"SuperParkur",
+    "name":"String[>=5]>'SuperParkur'",
     "exercises": [ //<-- Info: auch NESTURES müssen in einem Parkour definiert werden
         {
-          "id": "alphanumericKey", //<-- durch Admin erstellt
-          "step":0,
+          "id": "String[>=4]>'0001'", //<-- durch Admin erstellt
+          "step":"Integer[>=0]>'0'",
           "instruction": {
             "signal": {
-              "text": "Frei stehen und Arme ausstrecken!",
+              "text": "String[>5]>'Frei stehen und Arme ausstrecken!'",
               /* betrifft _OPTIONAL-1 und _OPTIONAL-2
-              "beep": true,
-              "vibra": false,
-              "random": true,
-              "ignoreIsNone": true
+              "beep": true, //<-- lässt das Handschuh-Paar piepsen
+              "vibra": false, //<-- lässt das Handschuh-Paar vibrieren
+              "random": true, //<-- verschiebt den Startzeitpunkt von beep oder vibra um einen beliebigen Wert
+              "ignoreIsNone": true //<-- ignoriert Nestures
               */
             },
             "host": {
-              "id": "alphanumericKey", //<-- durch Admin erstellt
-              "spot": {
-                "id": "alphanumericKey" //<-- durch Admin erstellt
-              }
+              "id": "String[>=4]>'0001'", //<-- durch Admin erstellt
             },
             "gesture": {
-              "id":"GESTURE.id/collection.gestures.json"
+              "id":"GESTURE.id/collection.gestures.json" //<-- durch Admin erstellt
             },
             "mutation": {
-              "id":"alphanumericKey" //<-- durch Admin erstellt
+              "id":"String[>=4]>'0001'" //<-- durch Admin erstellt
             }
           }
         }

@@ -1,55 +1,57 @@
 {
   "MongoDB:uuid": { //=uuid
     "created": {
-      "date":"10.12.2016",
-      "time":"16:35:00"
+      "date":"String[dd.mm.yyyy]>'10.12.2016'",
+      "time":"String[hh:mm:ss]>'16:35:00'"
     },
     "status": {
-      "faulty": "01:13" //<-- Zeitraum
+      "faulty": "String[mm:ss]>'01:13'" //<-- Zeitraum bis zu dem die gesammelten Daten valide sind
     },
     "experiment": {
-      "id": "alphanumericKey" //<-- durch Nutzer via Console erstellt
+      "id": "String[>=4]>'0001'" //<-- durch Nutzer via Console erstellt
     },
     "parkour": {
       "id": "PARKOUR.id/collection.parkours.json",
       "observer": {
-        "id":"alphanumericKey" //<-- durch Nutzer via Console erstellt
+        "id":"String[>=4]>'0001'" //<-- durch Nutzer via Console erstellt
       },
       "subject": {
-        "id":"alphanumericKey" //<-- durch Nutzer via Console erstellt
+        "id":"String[>=4]>'0001'" //<-- durch Nutzer via Console erstellt
       },
     },
     "collection": [
       {
         "collector": {
-          "id":"mac-adress" //<-- durch Programm erstellt (MAC-Adresse des Bluetooth-Moduls)
+          "id":"String[8-4-4-4-12]>'a62d4a74-e2ed-11e6-bf01-fe55135034f3'", //<-- durch Programm erstellt
+          "mac-adress":"String[2:2:2:2:2:2]>'00:06:66:4F:B5:96'" //<-- durch Programm erstellt (MAC-Adresse des Bluetooth-Moduls)
         },
         "exercise": {
           "id":"PARKOUR.exercises.id/collection.parkours.json"
         },
         "data": {
-          "timestamp": {
-            "unixtime": "1481890593" //<-- welchen Zeitstempel braucht die TU und welcher ist leicht zu programmieren?
+          "stamping": {
+            "arrivalId": "Integer[>0]" //<-- das wird eine sehr Hohe Zahl! Übertragungsrate 50Hz, 10Min lang = 50*60*10 = 30k
+            "unixtime": "String[10]>'1481890593'" //<-- welchen Zeitstempel braucht die TU und welcher ist leicht zu programmieren?
           },
-          "rfid":"alphanumericKey", //=rfid (siehe 'ser2file.py')
-          "muscle": 89, //=myo (siehe 'ser2file.py')
-          "acceleration": {
-            "x":10, //=ax (siehe 'ser2file.py')
-            "y":1, //=ay (siehe 'ser2file.py')
-            "z":56 //=az (siehe 'ser2file.py')
+          "rfid":"String[000000000000|xxxxxxxxxxxx]", //=rfid (siehe 'ser2file.py')
+          "muscle": "Integer[0,254]", //=myo (siehe 'ser2file.py')
+          "acceleration": { //Beschleunigung im Raum
+            "x":"Float[a,b]", //=ax (siehe 'ser2file.py')
+            "y":"Float[a,b]", //=ay (siehe 'ser2file.py')
+            "z":"Float[a,b]" //=az (siehe 'ser2file.py')
           },
-          "rotation": {
-            "x": 10, //=ex (siehe 'ser2file.py')
-            "y": 12, //=ey (siehe 'ser2file.py')
-            "z": 100 //=ez (siehe 'ser2file.py')
+          "rotation": { //Lage im Raum
+            "y": "Float[a,b]", //=ey (siehe 'ser2file.py')
+            "x": "Float[a,b]", //=ex (siehe 'ser2file.py')
+            "z": "Float[a,b]" //=ez (siehe 'ser2file.py')
           },
           "interface": { //am Handschuh angebrachte Eingabeinstrumente
-            "userInputButton":true, //='key' (siehe 'ser2file.py')
-            "handIsInGlove":true, //='capsens' (siehe 'ser2file.py')
-            "additionalSwitch":true //='sw' (siehe 'ser2file.py')
+            "userInputButton":"Boolean[true|false]", //='key' (siehe 'ser2file.py')
+            "handIsInGlove":"Boolean[true|false]", //='capsens' (siehe 'ser2file.py')
+            "additionalSwitch":"Boolean[true|false]" //='sw' (siehe 'ser2file.py')
           },
-          "calculated": { //<-- auf dem Mikrocontroller oder durch das Programm gefolgerte Werte
-            "isSameRFIDTag":true //='lastnr' (siehe 'ser2file.py')
+          "calculated": { //auf dem Mikrocontroller oder durch das Programm gefolgerte Werte
+            "isSameRFIDTag":"Boolean[true|false]" //='lastnr' (siehe 'ser2file.py')
           }
         }
       }

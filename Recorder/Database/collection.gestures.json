@@ -1,9 +1,10 @@
 {
   "MongoDB:uuid": {
     "id":"String[>5]>'heben-1'", //<-- durch Admin erstellt
-    "name": "String[>=5]>'heben mit einer Hand'", //<-- durch Admin erstellt
+    "name": "String[>=5]>'Single Rotation klein rechtsrum'", //<-- durch Admin erstellt
+    "slug": "String[>=0]>'rssr'", //<-- durch Admin erstellt
     "isNesture": "Boolean[true|false]", //gibt an ob es GESTURE oder NESTURE ist //<-- durch Admin erstellt
     "isGarbageData": "Boolean[true|false]", //gibt an ob es sich hierbei nur eine 'Hilfsgeste' handelt, die nur Datenmüll sammelt
-    "isAtomic": "Boolean[true|false]" //gibt an ob diese Geste aus GESTUREs aufgebaut ist //<-- durch Admin erstellt
+    "isAtomic": "Boolean[true|false]" //gibt an ob diese Geste aus GESTUREs aufgebaut ist bzw. werden soll //<-- durch Admin erstellt
   }
 }

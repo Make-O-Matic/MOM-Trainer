@@ -1,32 +1,21 @@
 {
   "MongoDB:uuid": {
-    "id":"alphanumericKey (z.B.: superParkour-1)", //<-- durch Admin erstellt
-    "name":"String[>=5]>'SuperParkur'",
+    "id":"String[>=5]'superParkour-1'", //<-- durch Admin erstellt
+    "comment":"String[0|>=0]'ein schwieriger Parkour'", //<-- durch Admin erstellt
+    "pose": {
+      "start":"String[>=5]'Ausgangslage: Person mittig vor Host,..'"
+    },
     "exercises": [ //<-- Info: auch NESTURES müssen in einem Parkour definiert werden
         {
-          "id": "String[>=4]>'0001'", //<-- durch Admin erstellt
-          "step":"Integer[>=0]>'0'",
-          "instruction": {
-            "signal": {
-              "text": "String[>5]>'Frei stehen und Arme ausstrecken!'",
-              /* betrifft _OPTIONAL-1 und _OPTIONAL-2
-              "beep": true, //<-- lässt das Handschuh-Paar piepsen
-              "vibra": false, //<-- lässt das Handschuh-Paar vibrieren
-              "random": true, //<-- verschiebt den Startzeitpunkt von beep oder vibra um einen beliebigen Wert
-              "ignoreIsNone": true //<-- ignoriert Nestures
-              */
-            },
-            "host": {
-              "id": "String[>=4]>'0001'", //<-- durch Admin erstellt
-            },
-            "gesture": {
-              "id":"GESTURE.id/collection.gestures.json" //<-- durch Admin erstellt
-            },
-            "mutation": {
-              "id":"String[>=4]>'0001'" //<-- durch Admin erstellt
-            }
+          "mutation": {
+            "uuid":"MUTATION.uuid/collection.mutations.json" //<-- durch Admin erstellt
+          },
+          "signal": { //<-- betrifft _OPTIONAL-1 und _OPTIONAL-2
+            "beep": true, //<-- lässt das Handschuh-Paar (die aktive Hand) piepsen
+            "ignoreNestures": true //<-- setzt das Signal für NESTURES aus
           }
         }
-    ]
+      ]
+    }
   }
 }

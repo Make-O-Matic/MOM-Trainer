@@ -1,18 +1,19 @@
 {
   "MongoDB:uuid": {
-    "id":"String[>=5]'superParkour-1'", //<-- durch Admin erstellt
-    "comment":"String[0|>=0]'ein schwieriger Parkour'", //<-- durch Admin erstellt
+    //wie kommt die Verbindung zu Podio zu stande
+    "id":"String[>=5]'P001'", //<-- durch Admin erstellt
+    "comment":"String[0|>=0]'ein schwieriger Parkour nur für den Schraubenzieher'", //<-- durch Admin erstellt
     "pose": {
-      "start":"String[>=5]'Ausgangslage: Person mittig vor Host,..'"
+      "start":"String[>=5]'Ausgangslage: Person mittig vor Host,..'" //<-- ACHTUNG! Dreizeilig!
     },
     "exercises": [ //<-- Info: auch NESTURES müssen in einem Parkour definiert werden
         {
+          "id":"", //<-- als Ref zu Podio (optional)
           "mutation": {
-            "uuid":"MUTATION.uuid/collection.mutations.json" //<-- durch Admin erstellt
+            "id":"MUTATION.id/collection.mutations.json" //<-- durch Admin erstellt
           },
           "signal": { //<-- betrifft _OPTIONAL-1 und _OPTIONAL-2
             "beep": true, //<-- lässt das Handschuh-Paar (die aktive Hand) piepsen
-            "ignoreNestures": true //<-- setzt das Signal für NESTURES aus
           }
         }
       ]

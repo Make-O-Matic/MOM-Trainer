@@ -1,51 +1,36 @@
+MUTATIONS
 {
   "MongoDB:uuid": {
     "id":"M101",
-    "name":"Single Rotation klein rechtsrum",
-    "slug":"a	a	a	a	a	a	a	b	a	a	a	b	a", //optional
-      "hands": {
-
-        "gesture": {
-          "id":"GESTURE.id/collection.gestures.json"
-        },
-        "host": {
-          "id":"H001",
-          "spot":{
-            "id":"A",
-            "name":"" //optional!
-          } <-- pro Hand eine Geste / eine Mutation
-
-        "left": {
-          "instruction":"Hand zu Objekt führen",
-          "isActive":true,
-          "variants": [
-            {"slug": "M0", "label":"Drehrichtung", "value":"links"},
-            {"slug": "M1", "label":"Orientierung Spot", "value":"Griffachse X"},
-            {"slug": "M2", "label":"ausführende Hand", "value":"Rechte"},
-            {"slug": "M3", "label":"Handhaltung", "value":"Faust"},
-            {"slug": "M4", "label":"Widerstand", "value":"keiner"},
-            {"slug": "M5", "label":"Drehweise", "value":"ganze Hand mitbewegen, ganze Hand umgreifen"},
-            {"slug": "M6", "label":"Drehwinkel", "value":"90°"},
-            {"slug": "M7", "label":"Drehrichtung", "value":"rechtsrum (schließen)"},
-            {"slug": "M8", "label":"Bewegungsablauf", "value":"einzeln"},
-            {"slug": "M9", "label":"2. Hand", "value":"ruht woanders"},
-          ]
-        },
+    "slug":"H070G05aaaaaaabaaaba", //optional
+    "instruction":"Allgemeine Info steht hier",
+    "hands": {
         "right": {
-          "instruction":"Hand feilt etwas",
-          "isActive":true,
-          "variants": [
-            {"slug": "M0", "label":"Drehrichtung", "value":"links"},
-            {"slug": "M1", "label":"Orientierung Spot", "value":"Griffachse X"},
-            {"slug": "M2", "label":"ausführende Hand", "value":"Rechte"},
-            {"slug": "M3", "label":"Handhaltung", "value":"Faust"},
-            {"slug": "M4", "label":"Widerstand", "value":"keiner"},
-            {"slug": "M5", "label":"Drehweise", "value":"ganze Hand mitbewegen, ganze Hand umgreifen"},
-            {"slug": "M6", "label":"Drehwinkel", "value":"90°"},
-            {"slug": "M7", "label":"Drehrichtung", "value":"rechtsrum (schließen)"},
-            {"slug": "M8", "label":"Bewegungsablauf", "value":"einzeln"},
-            {"slug": "M9", "label":"2. Hand", "value":"ruht woanders"},
-          ]
+            "instruction":"Hand zu Objekt führen",
+            "gesture": {
+                "id":"GESTURE.id/collection.gestures.json"
+            },
+            //NESTURES <-- z.B.: "in der Luft"
+            "host": {
+              "id":"H001",
+              "spot":{
+                  "id":"A",
+                  "name":"Drehgriff" //optional!
+              } <-- pro Hand eine Geste / eine Mutation
+            },
+            //bis hierher gilt die Angabe von NESTURES auf jeden Fall
+            "params": [ //<-- .CSV zu .JSON Converter um GoogleSpreadsheet Datei da rein zu bekommen
+              {"slug": "M0", "label":"Drehrichtung", "value":"links"},
+              {"slug": "M1", "label":"Orientierung Spot", "value":"Griffachse X"},
+              {"slug": "M2", "label":"ausführende Hand", "value":"Rechte"},
+              {"slug": "M3", "label":"Handhaltung", "value":"Faust"},
+              {"slug": "M4", "label":"Widerstand", "value":"keiner"},
+              {"slug": "M5", "label":"Drehweise", "value":"ganze Hand mitbewegen, ganze Hand umgreifen"},
+              {"slug": "M6", "label":"Drehwinkel", "value":"90°"},
+              {"slug": "M7", "label":"Drehrichtung", "value":"rechtsrum (schließen)"},
+              {"slug": "M8", "label":"Bewegungsablauf", "value":"einzeln"},
+              {"slug": "M9", "label":"2. Hand", "value":"ruht woanders"},
+            ]
         }
       }
     }

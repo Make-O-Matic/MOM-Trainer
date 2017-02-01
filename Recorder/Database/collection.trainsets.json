@@ -21,12 +21,12 @@
           "left": {
             "uuid":"String[8-4-4-4-12]>'a62d4a74-e2ed-11e6-bf01-fe55135034f3'", //<-- durch Programm erstellt
             "id":"String[>=3]'001'", //<-- durch Nutzer via Console erstellt
-            "mac-adress":"String[2:2:2:2:2:2]>'00:06:66:4F:B5:96'", //<-- durch Nutzer via Console erstellt
+            "macAdress":"String[2:2:2:2:2:2]>'00:06:66:4F:B5:96'", //<-- durch Nutzer via Console erstellt
           },
           "right": {
             "uuid":"String[8-4-4-4-12]>'a62d4a74-e2ed-11e6-bf01-fe55135034f3'", //<-- durch Programm erstellt
             "id":"String[>=3]'001'", //<-- durch Nutzer via Console erstellt
-            "mac-adress":"String[2:2:2:2:2:2]>'00:06:66:4F:B5:96'", //<-- durch Nutzer via Console erstellt
+            "macAdress":"String[2:2:2:2:2:2]>'00:06:66:4F:B5:96'", //<-- durch Nutzer via Console erstellt
           }
         }
       }
@@ -36,7 +36,8 @@
         "collector": {
           "uuid":"TRAINSET.subject.hands.left|right.uuid/collection.trainsets.json" //<-- durch Programm, anhand von Eingaben durch den Nutzer, erstellt
         },
-        "mutation": {
+        "step":1,
+        "mutation": { //<-- otpional!!
           "uuid":"MUTATION.uuid/collection.parkours.json"
         },
         "data": {

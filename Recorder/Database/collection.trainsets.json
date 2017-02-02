@@ -1,8 +1,9 @@
+TRAINSETs
 {
   "MongoDB:uuid": { //=uuid
     "created": {
-      "date":"String[dd.mm.yyyy]>'10.12.2016'",
-      "time":"String[hh:mm:ss]>'16:35:00'"
+      "date":"String[dd.mm.yyyy]>'10.12.2016'", //<-- durch Programm erstellt
+      "time":"String[hh:mm:ss]>'16:35:00'" //<-- durch Programm erstellt
     },
     "status": {
       "faulty": "String[mm:ss]>'01:13'" //<-- Zeitraum bis zu dem die gesammelten Daten valide sind
@@ -11,7 +12,7 @@
       "id": "String[>=4]>'0001'" //<-- durch Nutzer via Console erstellt
     },
     "parkour": {
-      "id": "PARKOUR.id/collection.parkours.json",
+      "id": "PARKOUR.id/collection.parkours.json", //<-- durch Nutzer via Console erstellt
       "observer": {
         "id":"String[>=4]>'0001'" //<-- durch Nutzer via Console erstellt
       },
@@ -36,9 +37,9 @@
         "collector": {
           "uuid":"TRAINSET.subject.hands.left|right.uuid/collection.trainsets.json" //<-- durch Programm, anhand von Eingaben durch den Nutzer, erstellt
         },
-        "step":1,
-        "mutation": { //<-- otpional!!
-          "uuid":"MUTATION.uuid/collection.parkours.json"
+        "step":1, //<-- durch Programm erstellt
+        "mutation": {
+          "uuid":"MUTATION.uuid/collection.parkours.json" //<-- durch Programm erstellt
         },
         "data": {
           "stamp": {

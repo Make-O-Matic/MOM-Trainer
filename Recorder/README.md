@@ -53,12 +53,12 @@ Programmablauf:
           - TRAINSET.parkour.subject.hands.right.id = COLLECTOR-RIGHT.id
           - TRAINSET.parkour.subject.hands.right.macAdress = COLLECTOR-RIGHT.macAdress
           - TRAINSET.parkour.subject.hands.right.uuid = uuid()
-        - die zur PARKOUR.id gehörenden EXERCISEs werden geladen und eine sortierte Liste angezeigt.
+        - **[die zur PARKOUR.id gehörenden EXERCISEs werden geladen und eine sortierte Liste angezeigt]>**
           <-- (Sortierung anhand von Reihenfolge in PARKOUR.exercises[])
-          - jedes Item der Liste wird als %name% angezeigt.
+          - jedes Item der Liste wird angezeigt:
             + MUTATION = MUTATION[EXERCISE.mutation.id]
             + index = %posInArray(PARKOUR.exercises[])%/%all(PARKOUR.exercises)%
-            + name = %index%: %MUTATION.id%
+          - Meldung("%index%: %MUTATION.id% - %IF(MUTATION.hasAttribute("slug")){"%MUTATION.slug%"}ELSE{""}%")
           - **[Am Ende der Liste]>**
             - Meldung("----------------------")
             - Meldung("%PARKOUR.comment%")
@@ -66,10 +66,14 @@ Programmablauf:
             - Meldung("----------------------")
             - Meldung("Zum Starten des PARKOURs 'Leertaste' drücken...")
       - **(JUMP002)[Nutzer drückt Leertaste]>**
-        - Meldung("Jetzt EXERCISE-%index% ausführen")
-        - **[IF(MUTATION.hasAttribute("instruction")]>** Meldung("%MUTATION.instruction%")
-        - **[IF(MUTATION.hasAttribute("hands.left.instruction")]>** Meldung("%MUTATION.hands.left.instruction%")
-        - **[IF(MUTATION.hasAttribute("hands.right.instruction")]>** Meldung("%MUTATION.hands.right.instruction%")
+        - Meldung("Jetzt EXERCISE-%index% (%MUTATION.id%) ausführen")
+        - **[IF(MUTATION.hasAttribute("instruction"))]>** Meldung(INSTRUCTION: '"%MUTATION.instruction%"')
+        - (JUMP003)**[IF(MUTATION.hasAttribute("hands.right"))]>**
+          - **[IF(MUTATION.hasAttribute("hands.right.host"))]>** text1 = "HOST: '%MUTATION.hands.right.host.id%'>'%MUTATION.hands.right.host.spotid%'"
+          - **[IF(MUTATION.hasAttribute("hands.right.gesture"))]>** text2 = "GESTURE: '%GESTURE[MUTATION.hands.right.gesture.id].name%'"
+          - Meldung(right: "%text1% %text2%")
+          - **[IF(MUTATION.hasAttribute("hands.right.instruction"))]>** Meldung("INSTRUCTION.right: %MUTATION.hands.right.instruction%")
+        - Logik von (JUMP003) für linke Hand wiederholen!
         - Meldung("-------------------------------")
         - **[IF(EXERCISE.signal.beep == true)]>** (BEEP) wird an "aktiven Handschuh" gesendet. Handschuh piept kurz
           + aktiver Handschuh = IF(MUTATION[EXERCISE.mutation.id].hands.hasAttribute("left")) UND/ODER IF(MUTATION[EXERCISE.mutation.id].hands.hasAttribute("right"))

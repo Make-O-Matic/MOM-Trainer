@@ -1,3 +1,4 @@
+PARKOURs
 {
   "MongoDB:uuid": {
     //wie kommt die Verbindung zu Podio zu stande
@@ -12,8 +13,8 @@
           "mutation": {
             "id":"MUTATION.id/collection.mutations.json" //<-- durch Admin erstellt
           },
-          "signal": { //<-- betrifft _OPTIONAL-1 und _OPTIONAL-2
-            "beep": true, //<-- lässt das Handschuh-Paar (die aktive Hand) piepsen
+          "signal": { //<-- lässt das Handschuh-Paar (die aktive Hand) ein Signal ausgeben
+            "beep": true, //<-- von Admin eingegeben
           }
         }
       ]

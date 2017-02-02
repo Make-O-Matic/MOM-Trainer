@@ -1,25 +1,26 @@
-MUTATIONS
+MUTATIONs
 {
   "MongoDB:uuid": {
-    "id":"M101",
-    "slug":"H070G05aaaaaaabaaaba", //optional
-    "instruction":"Allgemeine Info steht hier",
+    "id":"M101", //<-- von Admin eingegeben
+    "slug":"H070G05aaaaaaabaaaba", //optional //<-- von Admin eingegeben
+    "instruction":"Allgemeine Info steht hier", //<-- von Admin eingegeben
     "hands": {
         "right": {
-            "instruction":"Hand zu Objekt führen",
+            "instruction":"Hand zu Objekt führen", //<-- von Admin eingegeben
             "gesture": {
-                "id":"GESTURE.id/collection.gestures.json"
+                "id":"GESTURE.id/collection.gestures.json" //<-- von Admin eingegeben
             },
             //NESTURES <-- z.B.: "in der Luft"
             "host": {
-              "id":"H001",
+              "id":"H001", //<-- von Admin eingegebe
+              "name":"Schraubenzieher", //<-- von Admin eingegeben
               "spot":{
-                  "id":"A",
-                  "name":"Drehgriff" //optional!
+                  "id":"A", //<-- von Admin eingegebe
+                  "name":"Drehgriff" //optional! //<-- von Admin eingegeben
               } <-- pro Hand eine Geste / eine Mutation
             },
             //bis hierher gilt die Angabe von NESTURES auf jeden Fall
-            "params": [ //<-- .CSV zu .JSON Converter um GoogleSpreadsheet Datei da rein zu bekommen
+            "params": [ //<-- von Admin eingegebe
               {"slug": "M0", "label":"Drehrichtung", "value":"links"},
               {"slug": "M1", "label":"Orientierung Spot", "value":"Griffachse X"},
               {"slug": "M2", "label":"ausführende Hand", "value":"Rechte"},
@@ -30,7 +31,7 @@ MUTATIONS
               {"slug": "M7", "label":"Drehrichtung", "value":"rechtsrum (schließen)"},
               {"slug": "M8", "label":"Bewegungsablauf", "value":"einzeln"},
               {"slug": "M9", "label":"2. Hand", "value":"ruht woanders"},
-            ]
+            ] TODO: .CSV zu .JSON Converter um GoogleSpreadsheet Datei umzuwandeln
         }
       }
     }

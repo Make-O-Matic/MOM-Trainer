@@ -5,6 +5,9 @@ import argparse
 from pymongo import MongoClient
 from guh import guh
 from guh import devices
+from guh import parameters
+from guh import actions
+from guh import selector
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='recorder.')
@@ -18,13 +21,59 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     db_client = MongoClient()
-    db = db_client.mom
+    db = db_client.makeomatic
     parkours = db.parkour
-    parkour = parkours.find_one({"id": args.parkour})
-
+    parkour = parkours.find_one({"_id": args.parkour})
+    print parkour
     if not guh.init_connection(args.host, args.port):
         exit()
 
-    devices.add_configured_device("330e3a6f-a6e0-408d-acb0-26329ea7f5e6")
+    deviceClassId = '{330e3a6f-a6e0-408d-acb0-26329ea7f5e6}'
+    deviceClass = devices.get_deviceClass(deviceClassId)
+    params = {}
+    params['deviceClassId'] = deviceClassId
+    params['name'] = 'glove'
+    deviceParams = parameters.read_params(deviceClass['paramTypes'])
+    if deviceParams:
+        params['deviceParams'] = deviceParams
+    response = guh.send_command("Devices.AddConfiguredDevice", params)
+    guh.print_device_error_code(response['params']['deviceError'])
+    deviceId = response['params']['deviceId']
 
-    #actions
+    actionCmdParams = {}
+    actionCmdParams['deviceId'] = deviceId
+    stateCmdParams = {};
+    stateCmdParams['deviceId'] = deviceId
+    stateCmdParams['stateTypeId'] = deviceClass['stateTypes'][2]['id']
+    recordingActionTypeId = '65daba61-29bb-498a-b699-737873fdff28';
+    mutationActionTypeId = '3b2ca689-c3d2-48c0-95a4-e415804b7c38';
+    recordingActionType = actions.get_actionType(recordingActionTypeId)
+    mutationActionType = actions.get_actionType(mutationActionTypeId)
+
+    for mutation in ['mut1','mut2','mut3']:
+        if not selector.getYesNoSelection("Continue?"):
+            break
+
+        actionParams = parameters.read_params(recordingActionType['paramTypes'])
+        actionCmdParams['actionTypeId'] = recordingActionTypeId
+        actionCmdParams['params'] = actionParams
+        response = guh.send_command("Actions.ExecuteAction", actionCmdParams)
+        if response:
+            guh.print_device_error_code(response['params']['deviceError'])
+
+        param = {}
+        param['paramTypeId'] = mutationActionType['paramTypes'][0]['id']
+        param['value'] = mutation
+        actionCmdParams['actionTypeId'] = mutationActionTypeId
+        actionCmdParams['params'] = [ param ]
+        response = guh.send_command("Actions.ExecuteAction", actionCmdParams)
+        if response:
+            guh.print_device_error_code(response['params']['deviceError'])
+
+        response = guh.send_command("Devices.GetStateValue", stateCmdParams)
+        print "%35s: %s" % (deviceClass['stateTypes'][2]['name'], mutation)
+        raw_input("\nPress \"enter\" to return to the menu...\n")
+#response['params']['value']
+
+
+

@@ -5,6 +5,10 @@ Dieses Tool nimmt Daten von #MOM/Glove über Blueooth (USB-Modul) entgegen und s
 ## Spezifikationen
 [Vokabeln](https://workflowy.com/s/qrLIZmQBRp) in Workflowy (read-only)
 
+TODO:
+- #D_GlovePair spielt in eine neue DB und nicht nur in eine neue Collection
+- MongoDB uuid = "id_": MongoObject("") - umbauen
+
 Programmablauf:
 - **[Nutzer öffnet Console]>**
   - **[Nutzer startet Programm]>**

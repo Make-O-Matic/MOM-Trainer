@@ -43,12 +43,13 @@ TRAINSETs
         },
         "data": {
           "stamp": {
-            "id": "Integer[>0]" //<-- das wird eine sehr Hohe Zahl! Übertragungsrate 50Hz, 10Min lang = 50*60*10 = 30k
             "unixtime": "String[10]>'1481890593'" //<-- welchen Zeitstempel braucht die TU und welcher ist leicht zu programmieren?
           },
           "rfid":"String[000000000000|xxxxxxxxxxxx]", //=rfid (siehe 'ser2file.py')
           "grasp": {
-             "sensor-1":"Integer[0,1023]", //=myo (siehe 'ser2file.py')
+             "sensorA":"Integer[0,1023]",
+             "sensorB":"Integer[0,1023]",
+             "sensorC":"Integer[0,1023]",
           },
           "acceleration": { //Beschleunigung im Raum
             "x":"Float[a,b]", //=ax (siehe 'ser2file.py')
@@ -63,7 +64,6 @@ TRAINSETs
           "interface": { //am Handschuh angebrachte Eingabeinstrumente
             "userInputButton":"Boolean[true|false]", //='key' (siehe 'ser2file.py')
             "handIsInGlove":"Boolean[true|false]", //='capsens' (siehe 'ser2file.py')
-            "additionalSwitch":"Boolean[true|false]" //='sw' (siehe 'ser2file.py')
           },
           "calculated": { //auf dem Mikrocontroller oder durch das Programm gefolgerte Werte
             "isSameRFIDTag":"Boolean[true|false]" //='lastnr' (siehe 'ser2file.py')

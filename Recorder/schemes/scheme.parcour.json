@@ -1,0 +1,10 @@
+{
+  "id":"Pxxx",
+  "comment":"",
+  "pose": {
+    "start":""
+  },
+  "exercises": [
+      <scheme.exercise.json>
+  ]
+}

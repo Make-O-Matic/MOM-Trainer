@@ -1,10 +1,18 @@
 {
   "id":"Pxxx",
-  "comment":"",
+  "comment":"COMMENT",
   "pose": {
-    "start":""
+    "start":"POSE"
   },
   "exercises": [
-      <scheme.exercise.json>
+    {
+      "mutation": {
+        "id":"Mxxx"
+      },
+      "signal": {
+        "beep": true,
+      }
+    },
+    <scheme.exercise.json>
   ]
 }

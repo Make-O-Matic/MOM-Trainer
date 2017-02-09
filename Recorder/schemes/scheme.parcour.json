@@ -10,9 +10,10 @@
         "id":"Mxxx"
       },
       "signal": {
-        "beep": true,
+        "beep": true
       }
-    },
-    <scheme.exercise.json>
+    }, {
+      <scheme.exercise.json>
+    }
   ]
 }

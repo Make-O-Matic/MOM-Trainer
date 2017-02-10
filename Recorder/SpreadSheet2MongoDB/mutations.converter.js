@@ -8,7 +8,7 @@ $( document ).ready(function() {
     $("#jsonOutputArea").text(JSON.stringify(mutations, null, 2));
     //create easy to use list
     $.each(mutations, function( i, __mutation ) {
-      $("#itemList").append("<li>"+JSON.stringify(__mutation, null, 2)+"</li>");
+      $("#itemList").append("<li>"+i+": <textarea>"+JSON.stringify(__mutation, null, 2)+"</textarea></li>");
     });
 });
 
@@ -42,10 +42,12 @@ function structurize(_entrys) {
 
   $.each(_entrys, function( i,  _entry) {
     //- id rausnehmen
+    //TODO: die Synatax muss noch auf "Mxxx" geändert werden
     if(_entry["attrName"] == "id") {
       mutation["id"] = _entry["attrValue"];
     };
     //- slug zusammenfügen aus s[i]
+    //TODO: die Syntax muss noch auf "[Hxxx][Gxx][aaaaaaabaaaba]" abgändert werden!
     if(_entry["attrName"] == "slug") {
       if(mutation.hasOwnProperty("slug")) {
         mutation.slug = mutation.slug + _entry["attrValue"];
@@ -74,6 +76,7 @@ function structurize(_entrys) {
       if(!mutation.hands[activeHand].hasOwnProperty("gesture")) {
         mutation.hands[activeHand]["gesture"] = {};
       };
+      //TODO: die Syntax muss noch auf "Gxx" oder "Gxxx" geändert werden
       if(_entry["attrName"] == "hands[active].gesture.id") {
         mutation.hands[activeHand].gesture["id"] = _entry["attrValue"];
       };
@@ -86,6 +89,7 @@ function structurize(_entrys) {
         mutation.hands[activeHand]["host"] = {};
       };
       //add id
+      //TODO: die Syntax muss noch auf "Hxxx" geändert werden
       if(_entry["attrName"] == "hands[active].host.id") {
         mutation.hands[activeHand].host["id"] = _entry["attrValue"];
       };

@@ -1,0 +1,34 @@
+{
+    "created": {
+      "date":"TODAY",
+      "time":"NOW"
+    },
+    "status": {
+      "faulty": "NOTYET:)"
+    },
+    "experiment": {
+      "id": "EXPERIMENTid"
+    },
+    "parkour": {
+      "id": "PARKOURid",
+      "observer": {
+        "id":"OBESERVERid"
+      },
+      "subject": {
+        "id":"SUBJECTid",
+        "hands": {
+          "left": {
+            "uuid":"UUID",
+            "id":"COLLECTORid",
+            "macAdress":"00:06:66:4F:B5:96"
+          },
+          "right": {
+            "uuid":"UUID",
+            "id":"COLLECTORid",
+            "macAdress":"00:06:66:4F:B5:96"
+          }
+        }
+      }
+  },
+  "collection": []
+}

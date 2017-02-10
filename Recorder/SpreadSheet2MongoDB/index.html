@@ -7,7 +7,21 @@
   </head>
   <body>
     <h1>JSON Mutations Converter</h1>
-    <textarea id="jsonOutputArea"></textarea>
+    <p>put your JSON Data here:</p>
+      <textarea id="jsonInputArea"></textarea>
+    <br/>
+    <br/>
+    <label>choose <b>Input Data Format</b>:
+      <select id="dataInputSelector">
+        <option>MUTATIONs (SpreadSheet>JSON)</option>
+        <option>GESTUREs (SpreadSheet>JSON)</option>
+      </select>
+    </label>
+    <br/>
+    <p>grab your MongoDB Entrys (JSON) here:</p>
+      <textarea id="jsonOutputArea"></textarea>
+    <br/>
+    <p>or get a list of Items here:</p>
     <ul id="itemList"></ul>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">

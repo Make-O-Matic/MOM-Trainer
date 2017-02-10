@@ -1,21 +1,25 @@
 $( document ).ready(function() {
     console.log("ready!");
     //console.log(data);
-
-    var mutations = convertData(data);
-
-    //output all at once
-    $("#jsonOutputArea").text(JSON.stringify(mutations, null, 2));
-    //create easy to use list
-    $.each(mutations, function( i, __mutation ) {
-      $("#itemList").append("<li>"+i+": <textarea>"+JSON.stringify(__mutation, null, 2)+"</textarea></li>");
-    });
+    var output = convertGestures(Window.gestures["all"]);
+    showItems(output);
 });
 
-function convertData(_data) {
+function showItems(allItems) {
+  console.log(allItems);
+  console.log(allItems.length);
+  //output all at once
+  $("#jsonOutputArea").text(JSON.stringify(allItems, null, 2));
+  //create easy to use list
+  $.each(allItems, function( i, __items ) {
+    $("#itemList").append("<li>"+i+": <textarea>"+JSON.stringify(__items, null, 2)+"</textarea></li>");
+  });
+};
+
+function convertGestures(_data) {
   //get the header and delete it from the array
   var header = _data.shift();
-  var mutations = {};
+  var gestures = [];
 
   //convert
   $.each(_data, function( i, line ) {
@@ -24,15 +28,95 @@ function convertData(_data) {
     $.each(line, function( attributeSlug,  attributeValue) {
       lineEntrys.push({"attrSlug":attributeSlug, "attrName":header[attributeSlug], "attrValue":attributeValue});
     });
-    var mutation = structurize(lineEntrys);
-    mutations["M"+mutation.id] = mutation;
+    var gesture = structurizeGestures(lineEntrys);
+    gestures.push(gesture);
     //return false; //<-- Abbruch bei Zeile 1
   });
+  return gestures;
+}
 
+function structurizeGestures(_entrys) {
+  //define Scheme for conversion
+  var gesture = {};
+
+  $.each(_entrys, function( i,  _entry) {
+      if(_entry["attrName"] == "id") {
+        gesture["id"] = convertToID("G",_entry["attrValue"],2);
+      };
+      //- slug raussuchen
+      if(_entry["attrName"] == "slug") {
+        gesture["slug"] = _entry["attrValue"];
+      };
+      //- name raussuchen
+      if(_entry["attrName"] == "name") {
+        gesture["name"] = _entry["attrValue"];
+      };
+      //- name raussuchen
+      if(_entry["attrName"] == "isNesture") {
+        if(_entry["attrValue"] == "N") {
+          gesture["isNesture"] = true;
+        }
+      };
+      //- name raussuchen
+      if(_entry["attrName"] == "isGarbage") {
+        if(_entry["attrValue"] == "Yes") {
+          gesture["isGarbage"] = true;
+        }
+      };
+  });
+
+  return gesture;
+};
+
+function convertAllMutation() {
+  var allMutations = [];
+  var data = Window.mutations;
+  console.log(data);
+  //Alle Mutations umwandeln
+
+  $.each(data, function( hostId, __mutationExportData) {
+    console.log(hostId);
+    var output = convertData(__mutationExportData);
+    console.log(output);
+    allMutations = allMutations.concat(output);
+  });
+  return allMutations;
+};
+
+function convertData(_data) {
+  //get the header and delete it from the array
+  var header = _data.shift();
+  var mutations = [];
+
+  //convert
+  $.each(_data, function( i, line ) {
+    //get each line
+    var lineEntrys = [];
+    $.each(line, function( attributeSlug,  attributeValue) {
+      lineEntrys.push({"attrSlug":attributeSlug, "attrName":header[attributeSlug], "attrValue":attributeValue});
+    });
+    var mutation = structurizeMutations(lineEntrys);
+    mutations.push(mutation);
+    //return false; //<-- Abbruch bei Zeile 1
+  });
   return mutations;
 };
 
-function structurize(_entrys) {
+function convertToID(prefix, number, length) {
+  number = pad(number, length);
+  if(prefix != null && prefix != "") {
+    number = prefix + number;
+  };
+  return number;
+};
+
+function pad (str, max) {
+  str = str.toString();
+  return str.length < max ? pad("0" + str, max) : str;
+}
+
+function structurizeMutations(_entrys) {
+  console.log(_entrys);
 
   //define Scheme for conversion
   var mutation = {};
@@ -41,19 +125,11 @@ function structurize(_entrys) {
   var activeHand = false;
 
   $.each(_entrys, function( i,  _entry) {
+    console.log(_entry["attrName"]);
     //- id rausnehmen
     //TODO: die Synatax muss noch auf "Mxxx" geändert werden
     if(_entry["attrName"] == "id") {
-      mutation["id"] = _entry["attrValue"];
-    };
-    //- slug zusammenfügen aus s[i]
-    //TODO: die Syntax muss noch auf "[Hxxx][Gxx][aaaaaaabaaaba]" abgändert werden!
-    if(_entry["attrName"] == "slug") {
-      if(mutation.hasOwnProperty("slug")) {
-        mutation.slug = mutation.slug + _entry["attrValue"];
-      } else {
-        mutation["slug"] = _entry["attrValue"];
-      };
+      mutation["id"] = convertToID("M",_entry["attrValue"],3);
     };
     //- instruction raussuchen
     if(_entry["attrName"] == "instruction") {
@@ -78,7 +154,7 @@ function structurize(_entrys) {
       };
       //TODO: die Syntax muss noch auf "Gxx" oder "Gxxx" geändert werden
       if(_entry["attrName"] == "hands[active].gesture.id") {
-        mutation.hands[activeHand].gesture["id"] = _entry["attrValue"];
+        mutation.hands[activeHand].gesture["id"] = convertToID("G",_entry["attrValue"],2);
       };
       //kann auf "_.gesture.name" erweitert werden
     };
@@ -91,7 +167,7 @@ function structurize(_entrys) {
       //add id
       //TODO: die Syntax muss noch auf "Hxxx" geändert werden
       if(_entry["attrName"] == "hands[active].host.id") {
-        mutation.hands[activeHand].host["id"] = _entry["attrValue"];
+        mutation.hands[activeHand].host["id"] = convertToID("H",_entry["attrValue"],3);
       };
       //add name
       if(_entry["attrName"] == "hands[active].host.name") {
@@ -115,8 +191,19 @@ function structurize(_entrys) {
 
     };
 
+    //- slug zusammenfügen aus s[i]
+    //TODO: die Syntax muss noch auf "[Hxxx][Gxx][aaaaaaabaaaba]" abgändert werden! <-- lasse ich mal als [aaaaaaabaaaba]
+    if(_entry["attrName"] == "slug") {
+      if(mutation.hasOwnProperty("slug")) {
+        mutation.slug = mutation.slug + _entry["attrValue"];
+      } else {
+        mutation["slug"] = _entry["attrValue"];
+      };
+    };
+
     //- Params zuordnen
-    if(_entry["attrSlug"].match(/^[m][a-zA-Z0-9]{1}/)) { //suche nach m[i] Syntax
+    // regex tested with - http://regexr.com/
+    if(_entry["attrSlug"].match(/^[m]{1}[0-9]{1,2}/)) { //suche nach m[i] Syntax
       mutation.params.push(
         {"slug":_entry["attrSlug"], "label":_entry["attrName"], "value": _entry["attrValue"]}
       );

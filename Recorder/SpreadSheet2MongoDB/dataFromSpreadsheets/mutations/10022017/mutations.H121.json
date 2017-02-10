@@ -1,4 +1,5 @@
-[
+//importiert [mom-trainer_cloud][mutations-import] am 10.02.2017
+Window.mutations["H121"] = [
     {
         "mutationid": "id",
         "s0": "slug",

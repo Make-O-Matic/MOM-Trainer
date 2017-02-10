@@ -1,0 +1,136 @@
+//importiert [mom-trainer_cloud][gestures-import] am 10.02.2017
+Window.gestures["all"] = [
+    {
+        "gestureid": "id",
+        "gestureslug": "slug",
+        "gesturename": "name",
+        "gestureornesture": "isNesture",
+        "notimportantnesture": "isGarbage"
+    },
+    {
+        "gestureid": 1,
+        "gestureslug": "rssr",
+        "gesturename": "Single Rotation klein rechtsrum",
+        "gestureornesture": "G",
+        "notimportantnesture": "No"
+    },
+    {
+        "gestureid": 2,
+        "gestureslug": "rssl",
+        "gesturename": "Single Rotation klein linksrum",
+        "gestureornesture": "G",
+        "notimportantnesture": "No"
+    },
+    {
+        "gestureid": 3,
+        "gestureslug": "rosr",
+        "gesturename": "Oszillierende Rotation klein rechtsrum",
+        "gestureornesture": "G",
+        "notimportantnesture": "No"
+    },
+    {
+        "gestureid": 4,
+        "gestureslug": "rosl",
+        "gesturename": "Oszillierende Rotation klein linksrum",
+        "gestureornesture": "G",
+        "notimportantnesture": "No"
+    },
+    {
+        "gestureid": 5,
+        "gestureslug": "rsbr",
+        "gesturename": "Single Rotation groß rechtsrum",
+        "gestureornesture": "G",
+        "notimportantnesture": "No"
+    },
+    {
+        "gestureid": 6,
+        "gestureslug": "rsbl",
+        "gesturename": "Single Rotation groß linksrum",
+        "gestureornesture": "G",
+        "notimportantnesture": "No"
+    },
+    {
+        "gestureid": 7,
+        "gestureslug": "robr",
+        "gesturename": "Oszillierende Rotation groß rechtsrum",
+        "gestureornesture": "G",
+        "notimportantnesture": "No"
+    },
+    {
+        "gestureid": 8,
+        "gestureslug": "robl",
+        "gesturename": "Oszillierende Rotation groß linksrum",
+        "gestureornesture": "G",
+        "notimportantnesture": "No"
+    },
+    {
+        "gestureid": 9,
+        "gestureslug": "rcbr",
+        "gesturename": "Kontinuierliche Rotation groß rechtsrum",
+        "gestureornesture": "G",
+        "notimportantnesture": "No"
+    },
+    {
+        "gestureid": 10,
+        "gestureslug": "rcbl",
+        "gesturename": "Kontinuierliche Rotation groß linksrum",
+        "gestureornesture": "G",
+        "notimportantnesture": "No"
+    },
+    {
+        "gestureid": 11,
+        "gestureslug": "lms",
+        "gesturename": "LinearMovement Single",
+        "gestureornesture": "G",
+        "notimportantnesture": "No"
+    },
+    {
+        "gestureid": 12,
+        "gestureslug": "lmo",
+        "gesturename": "LinearMovement Oszillierend",
+        "gestureornesture": "G",
+        "notimportantnesture": "No"
+    },
+    {
+        "gestureid": 13,
+        "gestureslug": "pb",
+        "gesturename": "Drücken",
+        "gestureornesture": "G",
+        "notimportantnesture": "No"
+    },
+    {
+        "gestureid": 14,
+        "gestureslug": "rest",
+        "gesturename": "Rest",
+        "gestureornesture": "N",
+        "notimportantnesture": "Yes"
+    },
+    {
+        "gestureid": 15,
+        "gestureslug": "grasp",
+        "gesturename": "Greifen",
+        "gestureornesture": "N",
+        "notimportantnesture": "No"
+    },
+    {
+        "gestureid": 16,
+        "gestureslug": "pos",
+        "gesturename": "Positionieren",
+        "gestureornesture": "N",
+        "notimportantnesture": "No"
+    },
+    {
+        "gestureid": 17,
+        "gestureslug": "regr",
+        "gesturename": "Umgreifen",
+        "gestureornesture": "N",
+        "notimportantnesture": "No"
+    },
+    {
+        "gestureid": 18,
+        "gestureslug": "release",
+        "gesturename": "Ablegen",
+        "gestureornesture": "N",
+        "notimportantnesture": "No"
+    }
+]

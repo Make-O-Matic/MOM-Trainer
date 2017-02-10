@@ -20,7 +20,7 @@ MUTATIONs
               } <-- pro Hand eine Geste / eine Mutation
             },
             //bis hierher gilt die Angabe von NESTURES auf jeden Fall
-            "params": [ //<-- von Admin eingegebe
+            "params": [ //<-- von Admin eingegeben
               {"slug": "M0", "label":"Drehrichtung", "value":"links"},
               {"slug": "M1", "label":"Orientierung Spot", "value":"Griffachse X"},
               {"slug": "M2", "label":"ausführende Hand", "value":"Rechte"},
@@ -31,7 +31,7 @@ MUTATIONs
               {"slug": "M7", "label":"Drehrichtung", "value":"rechtsrum (schließen)"},
               {"slug": "M8", "label":"Bewegungsablauf", "value":"einzeln"},
               {"slug": "M9", "label":"2. Hand", "value":"ruht woanders"},
-            ] TODO: .CSV zu .JSON Converter um GoogleSpreadsheet Datei umzuwandeln
+            ]
         }
       }
     }

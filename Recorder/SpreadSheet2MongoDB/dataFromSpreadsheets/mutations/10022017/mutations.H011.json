@@ -1,4 +1,5 @@
-[
+//importiert [mom-trainer_cloud][mutations-import] am 10.02.2017
+Window.mutations["H011"] = [
     {
         "mutationid": "id",
         "s0": "slug",
@@ -30,6 +31,7 @@
         "m6": "Widerstand",
         "m7": "Bewegungsrichtung",
         "m8": "Bewegungslänge",
+        "m10": "Bewegungsablauf",
         "m11": "2. Hand",
         "m12": "Schnittphase"
     },

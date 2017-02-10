@@ -1,0 +1,6 @@
+//Daten müssen noch aus SpreadSheet (https://docs.google.com/spreadsheets/d/1UHzHHf3idBJjXvMRhIZxLoAfuo0Yw8YQ4pVRxy9l_aw/edit#gid=2039298817) exportiert werden
+//Daten beschreiben eine zweihändige MUTATION
+
+Window.mutations["H001"] = [
+
+];

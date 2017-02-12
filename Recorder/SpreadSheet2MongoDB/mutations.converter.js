@@ -1,73 +1,3 @@
-$( document ).ready(function() {
-    console.log("ready!");
-    //console.log(data);
-    var output = convertGestures(Window.gestures["all"]);
-    showItems(output);
-});
-
-function showItems(allItems) {
-  console.log(allItems);
-  console.log(allItems.length);
-  //output all at once
-  $("#jsonOutputArea").text(JSON.stringify(allItems, null, 2));
-  //create easy to use list
-  $.each(allItems, function( i, __items ) {
-    $("#itemList").append("<li>"+i+": <textarea>"+JSON.stringify(__items, null, 2)+"</textarea></li>");
-  });
-};
-
-function convertGestures(_data) {
-  //get the header and delete it from the array
-  var header = _data.shift();
-  var gestures = [];
-
-  //convert
-  $.each(_data, function( i, line ) {
-    //get each line
-    var lineEntrys = [];
-    $.each(line, function( attributeSlug,  attributeValue) {
-      lineEntrys.push({"attrSlug":attributeSlug, "attrName":header[attributeSlug], "attrValue":attributeValue});
-    });
-    var gesture = structurizeGestures(lineEntrys);
-    gestures.push(gesture);
-    //return false; //<-- Abbruch bei Zeile 1
-  });
-  return gestures;
-}
-
-function structurizeGestures(_entrys) {
-  //define Scheme for conversion
-  var gesture = {};
-
-  $.each(_entrys, function( i,  _entry) {
-      if(_entry["attrName"] == "id") {
-        gesture["id"] = convertToID("G",_entry["attrValue"],2);
-      };
-      //- slug raussuchen
-      if(_entry["attrName"] == "slug") {
-        gesture["slug"] = _entry["attrValue"];
-      };
-      //- name raussuchen
-      if(_entry["attrName"] == "name") {
-        gesture["name"] = _entry["attrValue"];
-      };
-      //- name raussuchen
-      if(_entry["attrName"] == "isNesture") {
-        if(_entry["attrValue"] == "N") {
-          gesture["isNesture"] = true;
-        }
-      };
-      //- name raussuchen
-      if(_entry["attrName"] == "isGarbage") {
-        if(_entry["attrValue"] == "Yes") {
-          gesture["isGarbage"] = true;
-        }
-      };
-  });
-
-  return gesture;
-};
-
 function convertAllMutation() {
   var allMutations = [];
   var data = Window.mutations;
@@ -76,14 +6,14 @@ function convertAllMutation() {
 
   $.each(data, function( hostId, __mutationExportData) {
     console.log(hostId);
-    var output = convertData(__mutationExportData);
+    var output = convertMutations(__mutationExportData);
     console.log(output);
     allMutations = allMutations.concat(output);
   });
   return allMutations;
 };
 
-function convertData(_data) {
+function convertMutations(_data) {
   //get the header and delete it from the array
   var header = _data.shift();
   var mutations = [];
@@ -101,19 +31,6 @@ function convertData(_data) {
   });
   return mutations;
 };
-
-function convertToID(prefix, number, length) {
-  number = pad(number, length);
-  if(prefix != null && prefix != "") {
-    number = prefix + number;
-  };
-  return number;
-};
-
-function pad (str, max) {
-  str = str.toString();
-  return str.length < max ? pad("0" + str, max) : str;
-}
 
 function structurizeMutations(_entrys) {
   console.log(_entrys);

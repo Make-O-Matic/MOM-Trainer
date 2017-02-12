@@ -1,0 +1,8589 @@
+[{
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Drehgriff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Griffachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "keiner"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand mitbewegen, ganze Hand umgreifen"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum (schließen)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M101",
+	"slug": "aaaaaaabaaaba",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H008",
+				"name": "Schraubzwinge klein",
+				"spot": {
+					"id": "A",
+					"name": "Drehgriff"
+				}
+			},
+			"gesture": {
+				"id": "G01"
+			},
+			"instruction": "Zwinge X locker rechtsdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Drehgriff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Griffachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "keiner"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand mitbewegen, ganze Hand umgreifen"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum (öffnen)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M102",
+	"slug": "aaaaaaabababa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H008",
+				"name": "Schraubzwinge klein",
+				"spot": {
+					"id": "A",
+					"name": "Drehgriff"
+				}
+			},
+			"gesture": {
+				"id": "G02"
+			},
+			"instruction": "Zwinge X locker linksdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Drehgriff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Griffachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Anziehphase"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand mitbewegen, ganze Hand umgreifen"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum (schließen)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M103",
+	"slug": "aaaaaabbaaaba",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H008",
+				"name": "Schraubzwinge klein",
+				"spot": {
+					"id": "A",
+					"name": "Drehgriff"
+				}
+			},
+			"gesture": {
+				"id": "G01"
+			},
+			"instruction": "Zwinge X fest rechtsdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Drehgriff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Griffachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Anziehphase"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand mitbewegen, ganze Hand umgreifen"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum (öffnen)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M104",
+	"slug": "aaaaaabbababa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H008",
+				"name": "Schraubzwinge klein",
+				"spot": {
+					"id": "A",
+					"name": "Drehgriff"
+				}
+			},
+			"gesture": {
+				"id": "G02"
+			},
+			"instruction": "Zwinge X fest linksdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Drehgriff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Griffachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "keiner bis \"Anziehphase\""
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand mitbewegen, ganze Hand umgreifen"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum (schließen)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M105",
+	"slug": "aaaaaacbaabba",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H008",
+				"name": "Schraubzwinge klein",
+				"spot": {
+					"id": "A",
+					"name": "Drehgriff"
+				}
+			},
+			"gesture": {
+				"id": "G03"
+			},
+			"instruction": "Zwinge X rechtsdrehen oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Drehgriff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Griffachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Anziehphase bis keiner"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand mitbewegen, ganze Hand umgreifen"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum (öffnen)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M106",
+	"slug": "aaaaaadbabbba",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H008",
+				"name": "Schraubzwinge klein",
+				"spot": {
+					"id": "A",
+					"name": "Drehgriff"
+				}
+			},
+			"gesture": {
+				"id": "G04"
+			},
+			"instruction": "Zwinge X linksdrehen oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Drehgriff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Griffachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "keiner"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand mitbewegen, ganze Hand umgreifen"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum (schließen)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M107",
+	"slug": "aaabaaabaaaba",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H008",
+				"name": "Schraubzwinge klein",
+				"spot": {
+					"id": "A",
+					"name": "Drehgriff"
+				}
+			},
+			"gesture": {
+				"id": "G01"
+			},
+			"instruction": "Zwinge Y locker rechtsdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Drehgriff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Griffachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "keiner"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand mitbewegen, ganze Hand umgreifen"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum (öffnen)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M108",
+	"slug": "aaabaaabababa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H008",
+				"name": "Schraubzwinge klein",
+				"spot": {
+					"id": "A",
+					"name": "Drehgriff"
+				}
+			},
+			"gesture": {
+				"id": "G02"
+			},
+			"instruction": "Zwinge Y locker linksdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Drehgriff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Griffachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Anziehphase"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand mitbewegen, ganze Hand umgreifen"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum (schließen)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M109",
+	"slug": "aaabaabbaaaba",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H008",
+				"name": "Schraubzwinge klein",
+				"spot": {
+					"id": "A",
+					"name": "Drehgriff"
+				}
+			},
+			"gesture": {
+				"id": "G01"
+			},
+			"instruction": "Zwinge Y fest rechtsdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Drehgriff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Griffachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Anziehphase"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand mitbewegen, ganze Hand umgreifen"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum (öffnen)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M110",
+	"slug": "aaabaabbababa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H008",
+				"name": "Schraubzwinge klein",
+				"spot": {
+					"id": "A",
+					"name": "Drehgriff"
+				}
+			},
+			"gesture": {
+				"id": "G02"
+			},
+			"instruction": "Zwinge Y fest linksdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Drehgriff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Griffachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "keiner bis \"Anziehphase\""
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand mitbewegen, ganze Hand umgreifen"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum (schließen)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M111",
+	"slug": "aaabaacbaabba",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H008",
+				"name": "Schraubzwinge klein",
+				"spot": {
+					"id": "A",
+					"name": "Drehgriff"
+				}
+			},
+			"gesture": {
+				"id": "G03"
+			},
+			"instruction": "Zwinge Y rechtsdrehen oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Drehgriff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Griffachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Anziehphase bis keiner"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand mitbewegen, ganze Hand umgreifen"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum (öffnen)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M112",
+	"slug": "aaabaadbabbba",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H008",
+				"name": "Schraubzwinge klein",
+				"spot": {
+					"id": "A",
+					"name": "Drehgriff"
+				}
+			},
+			"gesture": {
+				"id": "G04"
+			},
+			"instruction": "Zwinge Y linksdrehen oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Drehgriff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Griffachse Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "keiner"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand mitbewegen, ganze Hand umgreifen"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum (schließen)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M113",
+	"slug": "aaacaaabaaaba",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H008",
+				"name": "Schraubzwinge klein",
+				"spot": {
+					"id": "A",
+					"name": "Drehgriff"
+				}
+			},
+			"gesture": {
+				"id": "G01"
+			},
+			"instruction": "Zwinge Z locker rechtsdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Drehgriff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Griffachse Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "keiner"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand mitbewegen, ganze Hand umgreifen"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum (öffnen)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M114",
+	"slug": "aaacaaabababa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H008",
+				"name": "Schraubzwinge klein",
+				"spot": {
+					"id": "A",
+					"name": "Drehgriff"
+				}
+			},
+			"gesture": {
+				"id": "G02"
+			},
+			"instruction": "Zwinge Z locker linksdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Drehgriff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Griffachse Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Anziehphase"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand mitbewegen, ganze Hand umgreifen"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum (schließen)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M115",
+	"slug": "aaacaabbaaaba",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H008",
+				"name": "Schraubzwinge klein",
+				"spot": {
+					"id": "A",
+					"name": "Drehgriff"
+				}
+			},
+			"gesture": {
+				"id": "G01"
+			},
+			"instruction": "Zwinge Z fest rechtsdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Drehgriff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Griffachse Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Anziehphase"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand mitbewegen, ganze Hand umgreifen"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum (öffnen)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M116",
+	"slug": "aaacaabbababa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H008",
+				"name": "Schraubzwinge klein",
+				"spot": {
+					"id": "A",
+					"name": "Drehgriff"
+				}
+			},
+			"gesture": {
+				"id": "G02"
+			},
+			"instruction": "Zwinge Z fest linksdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Drehgriff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Griffachse Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "keiner bis \"Anziehphase\""
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand mitbewegen, ganze Hand umgreifen"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum (schließen)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M117",
+	"slug": "aaacaacbaabba",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H008",
+				"name": "Schraubzwinge klein",
+				"spot": {
+					"id": "A",
+					"name": "Drehgriff"
+				}
+			},
+			"gesture": {
+				"id": "G03"
+			},
+			"instruction": "Zwinge Z rechtsdrehen oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Drehgriff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Griffachse Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Anziehphase bis keiner"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand mitbewegen, ganze Hand umgreifen"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum (öffnen)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M118",
+	"slug": "aaacaadbabbba",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H008",
+				"name": "Schraubzwinge klein",
+				"spot": {
+					"id": "A",
+					"name": "Drehgriff"
+				}
+			},
+			"gesture": {
+				"id": "G04"
+			},
+			"instruction": "Zwinge Z linksdrehen oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Holz"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "weg von Körper (Zähne greifen)"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "kurz (halbes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M701",
+	"slug": "aaaaaaaaaaaab",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Säge weg einhändig einzel kurz normal"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Holz"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "ziehen zu Körper (Zähne rattern zurück)"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "kurz (halbes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M702",
+	"slug": "aaaaaaabaaaab",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Säge zug einhändig einzel kurz normal"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Holz"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "weg von Körper (Zähne greifen)"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "lang (ganzes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M703",
+	"slug": "aaaaaaaabaaab",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Säge weg einhändig einzel lang normal"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Holz"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "ziehen zu Körper (Zähne rattern zurück)"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "lang (ganzes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M704",
+	"slug": "aaaaaaabbaaab",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Säge zug einhändig einzel lang normal"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Holz"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "weg von Körper (Zähne greifen)"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "kurz (halbes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "führt Bügel vorne"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M705",
+	"slug": "aaaaaaaaaaabb",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Säge weg beidhändig einzel kurz normal"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Holz"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "ziehen zu Körper (Zähne rattern zurück)"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "kurz (halbes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "führt Bügel vorne"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M706",
+	"slug": "aaaaaaabaaabb",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Säge zug beidhändig einzel kurz normal"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Holz"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "weg von Körper (Zähne greifen)"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "lang (ganzes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "führt Bügel vorne"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M707",
+	"slug": "aaaaaaaabaabb",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Säge weg beidhändig einzel lang normal"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Holz"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "ziehen zu Körper (Zähne rattern zurück)"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "lang (ganzes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "führt Bügel vorne"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M708",
+	"slug": "aaaaaaabbaabb",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Säge zug beidhändig einzel lang normal"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "umgekehrtes Sägeblatt"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "weg von Körper (Zähne greifen)"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "kurz (halbes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M709",
+	"slug": "aaaaaabaaaaab",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Säge weg einhändig einzel kurz verkehrt"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "umgekehrtes Sägeblatt"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "ziehen zu Körper (Zähne rattern zurück)"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "kurz (halbes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M710",
+	"slug": "aaaaaabbaaaab",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Säge zug einhändig einzel kurz verkehrt"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "umgekehrtes Sägeblatt"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "weg von Körper (Zähne greifen)"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "lang (ganzes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M711",
+	"slug": "aaaaaababaaab",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Säge weg einhändig einzel lang verkehrt"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "umgekehrtes Sägeblatt"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "ziehen zu Körper (Zähne rattern zurück)"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "lang (ganzes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M712",
+	"slug": "aaaaaabbbaaab",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Säge zug einhändig einzel lang verkehrt"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "umgekehrtes Sägeblatt"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "weg von Körper (Zähne greifen)"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "kurz (halbes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "führt Bügel vorne"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M713",
+	"slug": "aaaaaabaaaabb",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Säge weg beidhändig einzel kurz verkehrt"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "umgekehrtes Sägeblatt"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "ziehen zu Körper (Zähne rattern zurück)"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "kurz (halbes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "führt Bügel vorne"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M714",
+	"slug": "aaaaaabbaaabb",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Säge zug beidhändig einzel kurz verkehrt"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "umgekehrtes Sägeblatt"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "weg von Körper (Zähne greifen)"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "lang (ganzes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "führt Bügel vorne"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M715",
+	"slug": "aaaaaababaabb",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Säge weg beidhändig einzel lang verkehrt"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "umgekehrtes Sägeblatt"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "ziehen zu Körper (Zähne rattern zurück)"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "lang (ganzes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "führt Bügel vorne"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M716",
+	"slug": "aaaaaabbbaabb",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Säge zug beidhändig einzel lang verkehrt"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Holz"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "hin und her"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "kurz (halbes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M717",
+	"slug": "aaaaaaacaabab",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G12"
+			},
+			"instruction": "Säge einhändig oszillierend kurz normal"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Holz"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "hin und her"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "lang (ganzes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M718",
+	"slug": "aaaaaaacbabab",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G12"
+			},
+			"instruction": "Säge einhändig oszillierend lang normal"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Holz"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "hin und her"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "kurz (halbes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "führt Bügel vorne"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M719",
+	"slug": "aaaaaaacaabbb",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G12"
+			},
+			"instruction": "Säge beidhändig oszillierend kurz normal"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Holz"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "hin und her"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "lang (ganzes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "führt Bügel vorne"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M720",
+	"slug": "aaaaaaacbabbb",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G12"
+			},
+			"instruction": "Säge beidhändig oszillierend lang normal"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "umgekehrtes Sägeblatt"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "hin und her"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "kurz (halbes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M721",
+	"slug": "aaaaaabcaabab",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G12"
+			},
+			"instruction": "Säge einhändig oszillierend kurz verkehrt"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "umgekehrtes Sägeblatt"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "hin und her"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "lang (ganzes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M722",
+	"slug": "aaaaaabcbabab",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G12"
+			},
+			"instruction": "Säge einhändig oszillierend lang verkehrt"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "umgekehrtes Sägeblatt"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "hin und her"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "kurz (halbes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "führt Bügel vorne"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M723",
+	"slug": "aaaaaabcaabbb",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G12"
+			},
+			"instruction": "Säge beidhändig oszillierend kurz verkehrt"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Sägeachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, von oben"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "umgekehrtes Sägeblatt"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "hin und her"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "lang (ganzes Sägeblatt)"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "führt Bügel vorne"
+	}, {
+		"slug": "m12",
+		"label": "Schnittphase",
+		"value": "in Schnittkerbe"
+	}],
+	"id": "M724",
+	"slug": "aaaaaabcbabbb",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H011",
+				"name": "Eisensäge",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G12"
+			},
+			"instruction": "Säge beidhändig oszillierend lang verkehrt"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff 1 (hinten Mitte)"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust (dreht bei Absenken ggf. um Griffachse nach)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kein Wkzg. im Eingriff)"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "120°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}, {
+		"slug": "m12",
+		"label": "Tag / Griffform",
+		"value": "Tag als \"Ohrwaschel\""
+	}],
+	"id": "M401",
+	"slug": "aaaaaaaaaaaab",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H036",
+				"name": "Säulenbohrmaschine / Standbohrmaschine",
+				"spot": {
+					"id": "A",
+					"name": "Griff 1 (hinten Mitte)"
+				}
+			},
+			"gesture": {
+				"id": "G05"
+			},
+			"instruction": "Bohrm hinten hochdrehen 120°"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff 1 (hinten Mitte)"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust (dreht bei Absenken ggf. um Griffachse nach)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kein Wkzg. im Eingriff)"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "120°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}, {
+		"slug": "m12",
+		"label": "Tag / Griffform",
+		"value": "Tag als \"Ohrwaschel\""
+	}],
+	"id": "M402",
+	"slug": "aaaaaaaaabaab",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H036",
+				"name": "Säulenbohrmaschine / Standbohrmaschine",
+				"spot": {
+					"id": "A",
+					"name": "Griff 1 (hinten Mitte)"
+				}
+			},
+			"gesture": {
+				"id": "G06"
+			},
+			"instruction": "Bohrm hinten runterdrehen 120°"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff 1 (hinten Mitte)"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust (dreht bei Absenken ggf. um Griffachse nach)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kein Wkzg. im Eingriff)"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "240°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}, {
+		"slug": "m12",
+		"label": "Tag / Griffform",
+		"value": "Tag als \"Ohrwaschel\""
+	}],
+	"id": "M403",
+	"slug": "aaaaaaaabaaab",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H036",
+				"name": "Säulenbohrmaschine / Standbohrmaschine",
+				"spot": {
+					"id": "A",
+					"name": "Griff 1 (hinten Mitte)"
+				}
+			},
+			"gesture": {
+				"id": "G05"
+			},
+			"instruction": "Bohrm hinten hochdrehen 240°"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff 1 (hinten Mitte)"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust (dreht bei Absenken ggf. um Griffachse nach)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kein Wkzg. im Eingriff)"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "240°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}, {
+		"slug": "m12",
+		"label": "Tag / Griffform",
+		"value": "Tag als \"Ohrwaschel\""
+	}],
+	"id": "M404",
+	"slug": "aaaaaaaabbaab",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H036",
+				"name": "Säulenbohrmaschine / Standbohrmaschine",
+				"spot": {
+					"id": "A",
+					"name": "Griff 1 (hinten Mitte)"
+				}
+			},
+			"gesture": {
+				"id": "G06"
+			},
+			"instruction": "Bohrm hinten runterdrehen 240°"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff 2 (vorne oben)"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust (dreht bei Absenken ggf. um Griffachse nach)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kein Wkzg. im Eingriff)"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "120°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}, {
+		"slug": "m12",
+		"label": "Tag / Griffform",
+		"value": "Tag als \"Ohrwaschel\""
+	}],
+	"id": "M405",
+	"slug": "abaaaaaaaaaab",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H036",
+				"name": "Säulenbohrmaschine / Standbohrmaschine",
+				"spot": {
+					"id": "B",
+					"name": "Griff 2 (vorne oben)"
+				}
+			},
+			"gesture": {
+				"id": "G05"
+			},
+			"instruction": "Bohrm vorne hochdrehen 120°"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff 2 (vorne oben)"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust (dreht bei Absenken ggf. um Griffachse nach)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kein Wkzg. im Eingriff)"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "120°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}, {
+		"slug": "m12",
+		"label": "Tag / Griffform",
+		"value": "Tag als \"Ohrwaschel\""
+	}],
+	"id": "M406",
+	"slug": "abaaaaaaabaab",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H036",
+				"name": "Säulenbohrmaschine / Standbohrmaschine",
+				"spot": {
+					"id": "B",
+					"name": "Griff 2 (vorne oben)"
+				}
+			},
+			"gesture": {
+				"id": "G06"
+			},
+			"instruction": "Bohrm vorne runterdrehen 120°"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subjekt"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Material auf waagrechter Fläche"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, leicht schräg von hinten, Zeigefinger oben vorne auf Griff"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Papier (etwas stärker)"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "-Y =0°"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "20cm"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "hält Material"
+	}, {
+		"slug": "m12",
+		"label": "Hilfsmittel",
+		"value": "Freihand-Schnitt"
+	}],
+	"id": "M801",
+	"slug": "aaaaaaaaaaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H038",
+				"name": "Stanleymesser mittel (18mm-Klingen)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Messer Schnitt klein 0°"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subjekt"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Material auf waagrechter Fläche"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, leicht schräg von hinten, Zeigefinger oben vorne auf Griff"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Papier (etwas stärker)"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "30°"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "20cm"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "hält Material"
+	}, {
+		"slug": "m12",
+		"label": "Hilfsmittel",
+		"value": "Freihand-Schnitt"
+	}],
+	"id": "M802",
+	"slug": "aaaaaaabaaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H038",
+				"name": "Stanleymesser mittel (18mm-Klingen)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Messer Schnitt klein 30°"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subjekt"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Material auf waagrechter Fläche"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, leicht schräg von hinten, Zeigefinger oben vorne auf Griff"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Papier (etwas stärker)"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "60°"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "20cm"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "hält Material"
+	}, {
+		"slug": "m12",
+		"label": "Hilfsmittel",
+		"value": "Freihand-Schnitt"
+	}],
+	"id": "M803",
+	"slug": "aaaaaaacaaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H038",
+				"name": "Stanleymesser mittel (18mm-Klingen)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Messer Schnitt klein 60°"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subjekt"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Material auf waagrechter Fläche"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, leicht schräg von hinten, Zeigefinger oben vorne auf Griff"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Papier (etwas stärker)"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "-X =90°"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "20cm"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "hält Material"
+	}, {
+		"slug": "m12",
+		"label": "Hilfsmittel",
+		"value": "Freihand-Schnitt"
+	}],
+	"id": "M804",
+	"slug": "aaaaaaadaaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H038",
+				"name": "Stanleymesser mittel (18mm-Klingen)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Messer Schnitt klein 90°"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subjekt"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Material auf waagrechter Fläche"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust, leicht schräg von hinten, Zeigefinger oben vorne auf Griff"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "Papier (etwas stärker)"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "-Y =0°"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "50cm"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "hält Material"
+	}, {
+		"slug": "m12",
+		"label": "Hilfsmittel",
+		"value": "Freihand-Schnitt"
+	}],
+	"id": "M805",
+	"slug": "aaaaaaaabaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H038",
+				"name": "Stanleymesser mittel (18mm-Klingen)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Messer Schnitt groß 0°"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Ende bei 12er-Schlüssel"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Ringachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faustgriff, Daumen oben auf Schlüssel, Handgelenk etwa in Schraubenachse nach oben, schräg nach außen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Ausgangswinkel (0°=12Uhr)",
+		"value": "90°"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "60°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M601",
+	"slug": "aaaaaacaaaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H070",
+				"name": "Ringschlüssel gekröpft (12,13)",
+				"spot": {
+					"id": "A",
+					"name": "Ende bei 12er-Schlüssel"
+				}
+			},
+			"gesture": {
+				"id": "G05"
+			},
+			"instruction": "Ringschl X Faustdreh 60° rechts einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Ende bei 12er-Schlüssel"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Ringachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faustgriff, Daumen oben auf Schlüssel, Handgelenk etwa in Schraubenachse nach oben, schräg nach außen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Ausgangswinkel (0°=12Uhr)",
+		"value": "150°"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "60°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M602",
+	"slug": "aaaaaaccabaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H070",
+				"name": "Ringschlüssel gekröpft (12,13)",
+				"spot": {
+					"id": "A",
+					"name": "Ende bei 12er-Schlüssel"
+				}
+			},
+			"gesture": {
+				"id": "G06"
+			},
+			"instruction": "Ringschl X Faustdreh 60° links einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Ende bei 12er-Schlüssel"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Ringachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faustgriff, Daumen oben auf Schlüssel, Handgelenk etwa in Schraubenachse nach oben, schräg nach außen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Ausgangswinkel (0°=12Uhr)",
+		"value": "60°"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "120°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M603",
+	"slug": "aaaaaacbbaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H070",
+				"name": "Ringschlüssel gekröpft (12,13)",
+				"spot": {
+					"id": "A",
+					"name": "Ende bei 12er-Schlüssel"
+				}
+			},
+			"gesture": {
+				"id": "G05"
+			},
+			"instruction": "Ringschl X Faustdreh 120° rechts einzel"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Ende bei 12er-Schlüssel"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Ringachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faustgriff, Daumen oben auf Schlüssel, Handgelenk etwa in Schraubenachse nach oben, schräg nach außen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Ausgangswinkel (0°=12Uhr)",
+		"value": "180°"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "120°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M604",
+	"slug": "aaaaaacdbbaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H070",
+				"name": "Ringschlüssel gekröpft (12,13)",
+				"spot": {
+					"id": "A",
+					"name": "Ende bei 12er-Schlüssel"
+				}
+			},
+			"gesture": {
+				"id": "G06"
+			},
+			"instruction": "Ringschl X Faustdreh 120° links einzel"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Ende bei 12er-Schlüssel"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Ringachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faustgriff, Daumen oben auf Schlüssel, Handgelenk etwa in Schraubenachse nach oben, schräg nach außen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Ausgangswinkel (0°=12Uhr)",
+		"value": "90°"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "60°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M607",
+	"slug": "aaaaaacaaabaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H070",
+				"name": "Ringschlüssel gekröpft (12,13)",
+				"spot": {
+					"id": "A",
+					"name": "Ende bei 12er-Schlüssel"
+				}
+			},
+			"gesture": {
+				"id": "G07"
+			},
+			"instruction": "Ringschl X Faustdreh 60° rechts oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Ende bei 12er-Schlüssel"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Ringachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faustgriff, Daumen oben auf Schlüssel, Handgelenk etwa in Schraubenachse nach oben, schräg nach außen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Ausgangswinkel (0°=12Uhr)",
+		"value": "150°"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "60°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M608",
+	"slug": "aaaaaaccabbaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H070",
+				"name": "Ringschlüssel gekröpft (12,13)",
+				"spot": {
+					"id": "A",
+					"name": "Ende bei 12er-Schlüssel"
+				}
+			},
+			"gesture": {
+				"id": "G08"
+			},
+			"instruction": "Ringschl X Faustdreh 60° links oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Ende bei 12er-Schlüssel"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Ringachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faustgriff, Daumen oben auf Schlüssel, Handgelenk etwa in Schraubenachse nach oben, schräg nach außen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Ausgangswinkel (0°=12Uhr)",
+		"value": "60°"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "120°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M609",
+	"slug": "aaaaaacbbabaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H070",
+				"name": "Ringschlüssel gekröpft (12,13)",
+				"spot": {
+					"id": "A",
+					"name": "Ende bei 12er-Schlüssel"
+				}
+			},
+			"gesture": {
+				"id": "G07"
+			},
+			"instruction": "Ringschl X Faustdreh 120° rechts oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Ende bei 12er-Schlüssel"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Ringachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faustgriff, Daumen oben auf Schlüssel, Handgelenk etwa in Schraubenachse nach oben, schräg nach außen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Ausgangswinkel (0°=12Uhr)",
+		"value": "180°"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "120°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M610",
+	"slug": "aaaaaacdbbbaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H070",
+				"name": "Ringschlüssel gekröpft (12,13)",
+				"spot": {
+					"id": "A",
+					"name": "Ende bei 12er-Schlüssel"
+				}
+			},
+			"gesture": {
+				"id": "G08"
+			},
+			"instruction": "Ringschl X Faustdreh 120° links oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Ende bei 12er-Schlüssel"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Ringachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faustgriff, Daumen oben auf Schlüssel, Handgelenk etwa in Schraubenachse nach oben, schräg nach außen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Ausgangswinkel (0°=12Uhr)",
+		"value": "90°"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "60°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M613",
+	"slug": "aaabaacaaaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H070",
+				"name": "Ringschlüssel gekröpft (12,13)",
+				"spot": {
+					"id": "A",
+					"name": "Ende bei 12er-Schlüssel"
+				}
+			},
+			"gesture": {
+				"id": "G05"
+			},
+			"instruction": "Ringschl -Z Faustdreh 60° rechts einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Ende bei 12er-Schlüssel"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Ringachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faustgriff, Daumen oben auf Schlüssel, Handgelenk etwa in Schraubenachse nach oben, schräg nach außen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Ausgangswinkel (0°=12Uhr)",
+		"value": "150°"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "60°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M614",
+	"slug": "aaabaaccabaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H070",
+				"name": "Ringschlüssel gekröpft (12,13)",
+				"spot": {
+					"id": "A",
+					"name": "Ende bei 12er-Schlüssel"
+				}
+			},
+			"gesture": {
+				"id": "G06"
+			},
+			"instruction": "Ringschl -Z Faustdreh 60° links einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Ende bei 12er-Schlüssel"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Ringachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faustgriff, Daumen oben auf Schlüssel, Handgelenk etwa in Schraubenachse nach oben, schräg nach außen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Ausgangswinkel (0°=12Uhr)",
+		"value": "60°"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "120°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M615",
+	"slug": "aaabaacbbaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H070",
+				"name": "Ringschlüssel gekröpft (12,13)",
+				"spot": {
+					"id": "A",
+					"name": "Ende bei 12er-Schlüssel"
+				}
+			},
+			"gesture": {
+				"id": "G05"
+			},
+			"instruction": "Ringschl -Z Faustdreh 120° rechts einzel"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Ende bei 12er-Schlüssel"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Ringachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faustgriff, Daumen oben auf Schlüssel, Handgelenk etwa in Schraubenachse nach oben, schräg nach außen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Ausgangswinkel (0°=12Uhr)",
+		"value": "180°"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "120°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M616",
+	"slug": "aaabaacdbbaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H070",
+				"name": "Ringschlüssel gekröpft (12,13)",
+				"spot": {
+					"id": "A",
+					"name": "Ende bei 12er-Schlüssel"
+				}
+			},
+			"gesture": {
+				"id": "G06"
+			},
+			"instruction": "Ringschl -Z Faustdreh 120° links einzel"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Ende bei 12er-Schlüssel"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Ringachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen schräg von Außen (Zeigefinger oben auf Schlüssel), Handteller liegt am Rand auf"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Ausgangswinkel (0°=12Uhr)",
+		"value": "90°"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "60°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M617",
+	"slug": "aaabaccaaaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H070",
+				"name": "Ringschlüssel gekröpft (12,13)",
+				"spot": {
+					"id": "A",
+					"name": "Ende bei 12er-Schlüssel"
+				}
+			},
+			"gesture": {
+				"id": "G05"
+			},
+			"instruction": "Ringschl -Z Fingerdreh 60° rechts einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Ende bei 12er-Schlüssel"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Ringachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen schräg von Außen (Zeigefinger oben auf Schlüssel), Handteller liegt am Rand auf"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Ausgangswinkel (0°=12Uhr)",
+		"value": "150°"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "60°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M618",
+	"slug": "aaabacccabaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H070",
+				"name": "Ringschlüssel gekröpft (12,13)",
+				"spot": {
+					"id": "A",
+					"name": "Ende bei 12er-Schlüssel"
+				}
+			},
+			"gesture": {
+				"id": "G06"
+			},
+			"instruction": "Ringschl -Z Fingerdreh 60° links einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Ende bei 12er-Schlüssel"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Ringachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faustgriff, Daumen oben auf Schlüssel, Handgelenk etwa in Schraubenachse nach oben, schräg nach außen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Ausgangswinkel (0°=12Uhr)",
+		"value": "90°"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "60°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M619",
+	"slug": "aaabaacaaabaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H070",
+				"name": "Ringschlüssel gekröpft (12,13)",
+				"spot": {
+					"id": "A",
+					"name": "Ende bei 12er-Schlüssel"
+				}
+			},
+			"gesture": {
+				"id": "G07"
+			},
+			"instruction": "Ringschl -Z Faustdreh 60° rechts oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Ende bei 12er-Schlüssel"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Ringachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faustgriff, Daumen oben auf Schlüssel, Handgelenk etwa in Schraubenachse nach oben, schräg nach außen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Ausgangswinkel (0°=12Uhr)",
+		"value": "150°"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "60°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M620",
+	"slug": "aaabaaccabbaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H070",
+				"name": "Ringschlüssel gekröpft (12,13)",
+				"spot": {
+					"id": "A",
+					"name": "Ende bei 12er-Schlüssel"
+				}
+			},
+			"gesture": {
+				"id": "G08"
+			},
+			"instruction": "Ringschl -Z Faustdreh 60° links oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Ende bei 12er-Schlüssel"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Ringachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faustgriff, Daumen oben auf Schlüssel, Handgelenk etwa in Schraubenachse nach oben, schräg nach außen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Ausgangswinkel (0°=12Uhr)",
+		"value": "60°"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "120°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M621",
+	"slug": "aaabaacbbabaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H070",
+				"name": "Ringschlüssel gekröpft (12,13)",
+				"spot": {
+					"id": "A",
+					"name": "Ende bei 12er-Schlüssel"
+				}
+			},
+			"gesture": {
+				"id": "G07"
+			},
+			"instruction": "Ringschl -Z Faustdreh 120° rechts oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Ende bei 12er-Schlüssel"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Ringachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faustgriff, Daumen oben auf Schlüssel, Handgelenk etwa in Schraubenachse nach oben, schräg nach außen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Ausgangswinkel (0°=12Uhr)",
+		"value": "180°"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "120°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M622",
+	"slug": "aaabaacdbbbaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H070",
+				"name": "Ringschlüssel gekröpft (12,13)",
+				"spot": {
+					"id": "A",
+					"name": "Ende bei 12er-Schlüssel"
+				}
+			},
+			"gesture": {
+				"id": "G08"
+			},
+			"instruction": "Ringschl -Z Faustdreh 120° links oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Ende bei 12er-Schlüssel"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Ringachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen schräg von Außen (Zeigefinger oben auf Schlüssel), Handteller liegt am Rand auf"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Ausgangswinkel (0°=12Uhr)",
+		"value": "90°"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "60°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M623",
+	"slug": "aaabaccaaabaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H070",
+				"name": "Ringschlüssel gekröpft (12,13)",
+				"spot": {
+					"id": "A",
+					"name": "Ende bei 12er-Schlüssel"
+				}
+			},
+			"gesture": {
+				"id": "G07"
+			},
+			"instruction": "Ringschl -Z Fingerdreh 60° rechts oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Ende bei 12er-Schlüssel"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Ringachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen schräg von Außen (Zeigefinger oben auf Schlüssel), Handteller liegt am Rand auf"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Ausgangswinkel (0°=12Uhr)",
+		"value": "150°"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "60°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M624",
+	"slug": "aaabacccabbaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H070",
+				"name": "Ringschlüssel gekröpft (12,13)",
+				"spot": {
+					"id": "A",
+					"name": "Ende bei 12er-Schlüssel"
+				}
+			},
+			"gesture": {
+				"id": "G08"
+			},
+			"instruction": "Ringschl -Z Fingerdreh 60° links oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "mit Fingerspitzen (Handteller ruht)"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180° (Fingerspitzen)"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M301",
+	"slug": "aaaaabdabaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G01"
+			},
+			"instruction": "Schraubz X Fingerdreher rechts einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "mit Fingerspitzen (Handteller ruht)"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180° (Fingerspitzen)"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M302",
+	"slug": "aaaaabdabbaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G02"
+			},
+			"instruction": "Schraubz X Fingerdreher links einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "mit Fingerspitzen (Handteller ruht)"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180° (Fingerspitzen)"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M303",
+	"slug": "aaaaabdababaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G03"
+			},
+			"instruction": "Schraubz X Fingerdreher rechts oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "mit Fingerspitzen (Handteller ruht)"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180° (Fingerspitzen)"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M304",
+	"slug": "aaaaabdabbbaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G04"
+			},
+			"instruction": "Schraubz X Fingerdreher links oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M305",
+	"slug": "aaaaabdbaaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G01"
+			},
+			"instruction": "Schraubz X Handdreher rechts einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M306",
+	"slug": "aaaaabdbabaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G02"
+			},
+			"instruction": "Schraubz X Handdreher links einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M307",
+	"slug": "aaaaabdbaabaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G03"
+			},
+			"instruction": "Schraubz X Handdreher rechts oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M308",
+	"slug": "aaaaabdbabbaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G04"
+			},
+			"instruction": "Schraubz X Handdreher links oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "mit Fingerspitzen (Handteller ruht)"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180° (Fingerspitzen)"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M309",
+	"slug": "aaababdabaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G01"
+			},
+			"instruction": "Schraubz Y Fingerdreher rechts einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "mit Fingerspitzen (Handteller ruht)"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180° (Fingerspitzen)"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M310",
+	"slug": "aaababdabbaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G02"
+			},
+			"instruction": "Schraubz Y Fingerdreher links einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "mit Fingerspitzen (Handteller ruht)"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180° (Fingerspitzen)"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M311",
+	"slug": "aaababdababaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G03"
+			},
+			"instruction": "Schraubz Y Fingerdreher rechts oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "mit Fingerspitzen (Handteller ruht)"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180° (Fingerspitzen)"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M312",
+	"slug": "aaababdabbbaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G04"
+			},
+			"instruction": "Schraubz Y Fingerdreher links oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M313",
+	"slug": "aaababdbaaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G01"
+			},
+			"instruction": "Schraubz Y Handdreher rechts einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M314",
+	"slug": "aaababdbabaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G02"
+			},
+			"instruction": "Schraubz Y Handdreher links einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M315",
+	"slug": "aaababdbaabaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G03"
+			},
+			"instruction": "Schraubz Y Handdreher rechts oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M316",
+	"slug": "aaababdbabbaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G04"
+			},
+			"instruction": "Schraubz Y Handdreher links oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "mit Fingerspitzen (Handteller ruht)"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180° (Fingerspitzen)"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M317",
+	"slug": "aaacabdabaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G01"
+			},
+			"instruction": "Schraubz -Z Fingerdreher rechts einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "mit Fingerspitzen (Handteller ruht)"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180° (Fingerspitzen)"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M318",
+	"slug": "aaacabdabbaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G02"
+			},
+			"instruction": "Schraubz -Z Fingerdreher links einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "mit Fingerspitzen (Handteller ruht)"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180° (Fingerspitzen)"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M319",
+	"slug": "aaacabdababaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G03"
+			},
+			"instruction": "Schraubz -Z Fingerdreher rechts oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "mit Fingerspitzen (Handteller ruht)"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180° (Fingerspitzen)"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M320",
+	"slug": "aaacabdabbbaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G04"
+			},
+			"instruction": "Schraubz -Z Fingerdreher links oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M321",
+	"slug": "aaacabdbaaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G01"
+			},
+			"instruction": "Schraubz -Z Handdreher rechts einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M322",
+	"slug": "aaacabdbabaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G02"
+			},
+			"instruction": "Schraubz -Z Handdreher links einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M323",
+	"slug": "aaacabdbaabaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G03"
+			},
+			"instruction": "Schraubz -Z Handdreher rechts oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen (Griffende an Handteller)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "leichtgängig (kegelförmige Vertiefung)"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M324",
+	"slug": "aaacabdbabbaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H121",
+				"name": "Schraubenzieher Kreuz klein (IFIXIT)",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G04"
+			},
+			"instruction": "Schraubz -Z Handdreher links oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust (Schaft zwischen Mittel- und Ringfinger)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M201",
+	"slug": "aaaaaacbaaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G01"
+			},
+			"instruction": "T-Griff X Faust rechtsdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust (Schaft zwischen Mittel- und Ringfinger)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M202",
+	"slug": "aaaaaacbabaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G02"
+			},
+			"instruction": "T-Griff X Faust linksdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M203",
+	"slug": "aaaaabcbaaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G01"
+			},
+			"instruction": "T-Griff X Fingerspitzen rechtsdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M204",
+	"slug": "aaaaabcbabaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G02"
+			},
+			"instruction": "T-Griff X Fingerspitzen linksdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust (Schaft zwischen Mittel- und Ringfinger)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M205",
+	"slug": "aaaaaacbaabaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G03"
+			},
+			"instruction": "T-Griff X Faust rechtsdrehen oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust (Schaft zwischen Mittel- und Ringfinger)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M206",
+	"slug": "aaaaaacbabbaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G04"
+			},
+			"instruction": "T-Griff X Faust linksdrehen oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M207",
+	"slug": "aaaaabcbaabaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G03"
+			},
+			"instruction": "T-Griff X Fingerspitzen rechtsdrehen oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse X"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M208",
+	"slug": "aaaaabcbabbaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G04"
+			},
+			"instruction": "T-Griff X Fingerspitzen linksdrehen oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust (Schaft zwischen Mittel- und Ringfinger)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M209",
+	"slug": "aaabaacbaaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G01"
+			},
+			"instruction": "T-Griff Y Faust rechtsdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust (Schaft zwischen Mittel- und Ringfinger)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M210",
+	"slug": "aaabaacbabaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G02"
+			},
+			"instruction": "T-Griff Y Faust linksdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M211",
+	"slug": "aaababcbaaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G01"
+			},
+			"instruction": "T-Griff Y Fingerspitzen rechtsdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M212",
+	"slug": "aaababcbabaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G02"
+			},
+			"instruction": "T-Griff Y Fingerspitzen linksdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust (Schaft zwischen Mittel- und Ringfinger)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M213",
+	"slug": "aaabaacbaabaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G03"
+			},
+			"instruction": "T-Griff Y Faust rechtsdrehen oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust (Schaft zwischen Mittel- und Ringfinger)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M214",
+	"slug": "aaabaacbabbaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G04"
+			},
+			"instruction": "T-Griff Y Faust linksdrehen oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M215",
+	"slug": "aaababcbaabaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G03"
+			},
+			"instruction": "T-Griff Y Fingerspitzen rechtsdrehen oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse Y"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M216",
+	"slug": "aaababcbabbaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G04"
+			},
+			"instruction": "T-Griff Y Fingerspitzen linksdrehen oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust (Schaft zwischen Mittel- und Ringfinger)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M217",
+	"slug": "aaacaacbaaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G01"
+			},
+			"instruction": "T-Griff -Z Faust rechtsdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust (Schaft zwischen Mittel- und Ringfinger)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M218",
+	"slug": "aaacaacbabaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G02"
+			},
+			"instruction": "T-Griff -Z Faust linksdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M219",
+	"slug": "aaacabcbaaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G01"
+			},
+			"instruction": "T-Griff -Z Fingerspitzen rechtsdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M220",
+	"slug": "aaacabcbabaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G02"
+			},
+			"instruction": "T-Griff -Z Fingerspitzen linksdrehen einzeln"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust (Schaft zwischen Mittel- und Ringfinger)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M221",
+	"slug": "aaacaacbaabaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G03"
+			},
+			"instruction": "T-Griff -Z Faust rechtsdrehen oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faust (Schaft zwischen Mittel- und Ringfinger)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M222",
+	"slug": "aaacaacbabbaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G04"
+			},
+			"instruction": "T-Griff -Z Faust linksdrehen oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M223",
+	"slug": "aaacabcbaabaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G03"
+			},
+			"instruction": "T-Griff -Z Fingerspitzen rechtsdrehen oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Griff"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Schaftachse -Z"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Fingerspitzen"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "selbstsichernde Mutter"
+	}, {
+		"slug": "m7",
+		"label": "Drehweise",
+		"value": "ganze Hand greift um"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "oszillierend"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "Führung an Schaft"
+	}],
+	"id": "M224",
+	"slug": "aaacabcbabbaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H122",
+				"name": "T-Griff-Steckschlüssel",
+				"spot": {
+					"id": "A",
+					"name": "Griff"
+				}
+			},
+			"gesture": {
+				"id": "G04"
+			},
+			"instruction": "T-Griff -Z Fingerspitzen linksdrehen oszillierend"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Kurbelstab außen 1"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Kurbelstab Z oben"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faustgriff (Knubbel kann sich in der Hand drehen)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "keiner"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M501",
+	"slug": "aaaeaaaaaaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H127",
+				"name": "Schraubstock groß",
+				"spot": {
+					"id": "A",
+					"name": "Kurbelstab außen 1"
+				}
+			},
+			"gesture": {
+				"id": "G05"
+			},
+			"instruction": "Schraubstock Rechtsdrehung 90°"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Kurbelstab außen 1"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Kurbelstab Y rechts"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faustgriff (Knubbel kann sich in der Hand drehen)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "keiner"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "90°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M502",
+	"slug": "aaaaaaaaabaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H127",
+				"name": "Schraubstock groß",
+				"spot": {
+					"id": "A",
+					"name": "Kurbelstab außen 1"
+				}
+			},
+			"gesture": {
+				"id": "G06"
+			},
+			"instruction": "Schraubstock Linksdrehung 90°"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Kurbelstab außen 1"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Kurbelstab Z oben"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faustgriff (Knubbel kann sich in der Hand drehen)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "keiner"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M503",
+	"slug": "aaaeaaaabaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H127",
+				"name": "Schraubstock groß",
+				"spot": {
+					"id": "A",
+					"name": "Kurbelstab außen 1"
+				}
+			},
+			"gesture": {
+				"id": "G05"
+			},
+			"instruction": "Schraubstock Rechtsdrehung 180°"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Kurbelstab außen 1"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Kurbelstab Z unten"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Faustgriff (Knubbel kann sich in der Hand drehen)"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "keiner"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "180°"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "einzeln"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M504",
+	"slug": "aaadaaaabbaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H127",
+				"name": "Schraubstock groß",
+				"spot": {
+					"id": "A",
+					"name": "Kurbelstab außen 1"
+				}
+			},
+			"gesture": {
+				"id": "G06"
+			},
+			"instruction": "Schraubstock Linksdrehung 180°"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Kurbelstab außen 1"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Kurbelstab Y rechts"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Zeigefinger"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "keiner"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "kontinuierlich"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "rechtsrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "kontinuierlich"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M505",
+	"slug": "aaaaabaadabaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H127",
+				"name": "Schraubstock groß",
+				"spot": {
+					"id": "A",
+					"name": "Kurbelstab außen 1"
+				}
+			},
+			"gesture": {
+				"id": "G09"
+			},
+			"instruction": "Schraubstock Rechtsdrehung kontinuierlich"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Kurbelstab außen 1"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subject"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Kurbelstab Y rechts"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "Zeigefinger"
+	}, {
+		"slug": "m6",
+		"label": "Widerstand",
+		"value": "keiner"
+	}, {
+		"slug": "m8",
+		"label": "Drehwinkel",
+		"value": "kontinuierlich"
+	}, {
+		"slug": "m9",
+		"label": "Drehrichtung",
+		"value": "linksrum"
+	}, {
+		"slug": "m10",
+		"label": "Bewegungsablauf",
+		"value": "kontinuierlich"
+	}, {
+		"slug": "m11",
+		"label": "2. Hand",
+		"value": "ruht woanders"
+	}],
+	"id": "M506",
+	"slug": "aaaaabaadbbaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H127",
+				"name": "Schraubstock groß",
+				"spot": {
+					"id": "A",
+					"name": "Kurbelstab außen 1"
+				}
+			},
+			"gesture": {
+				"id": "G10"
+			},
+			"instruction": "Schraubstock Linksdrehung kontinuierlich"
+		}
+	}
+}]

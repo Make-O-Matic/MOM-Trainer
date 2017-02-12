@@ -1,0 +1,578 @@
+[{
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Rollenkörper"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subjekt"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Y Ausfahrrichtung"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "von oben umschlossen, Daumen auf Arretierung"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "ruhend"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "0km"
+	}, {
+		"slug": "m9",
+		"label": "HierFehltName",
+		"value": "ruht"
+	}, {
+		"slug": "m11",
+		"label": "HierFehltNameAuch",
+		"value": "siehe 2. Zeile"
+	}, {
+		"slug": "m12",
+		"label": "Zustand Host",
+		"value": "eingefahren"
+	}],
+	"id": "M901",
+	"slug": "aaaaaaaaaaaaa-afffghfggaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H001",
+				"name": "Maßband / Rollmeter",
+				"spot": {
+					"id": "TestId",
+					"name": "TestName"
+				}
+			},
+			"gesture": {
+				"id": "G14"
+			},
+			"instruction": "Massband ausfahren Y links"
+		},
+		"left": {
+			"host": {
+				"id": "H001",
+				"name": "Maßband / Rollmeter",
+				"spot": {
+					"id": "TestId",
+					"name": "TestName"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			}
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Rollenkörper"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subjekt"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "X Ausfahrrichtung"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "von oben umschlossen, Daumen auf Arretierung"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "ruhend"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "0km"
+	}, {
+		"slug": "m9",
+		"label": "HierFehltName",
+		"value": "ruht"
+	}, {
+		"slug": "m11",
+		"label": "HierFehltNameAuch",
+		"value": "siehe 2. Zeile"
+	}, {
+		"slug": "m12",
+		"label": "Zustand Host",
+		"value": "eingefahren"
+	}],
+	"id": "M902",
+	"slug": "aaabaaaaaaaaa-affgghfhhaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H001",
+				"name": "Maßband / Rollmeter",
+				"spot": {
+					"id": "TestId",
+					"name": "TestName"
+				}
+			},
+			"gesture": {
+				"id": "G14"
+			},
+			"instruction": "Massband ausfahren X"
+		},
+		"left": {
+			"host": {
+				"id": "H001",
+				"name": "Maßband / Rollmeter",
+				"spot": {
+					"id": "TestId",
+					"name": "TestName"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			}
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Rollenkörper"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subjekt"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Z Ausfahrrichtung"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "von oben umschlossen, Daumen auf Arretierung"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "ruhend"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "0km"
+	}, {
+		"slug": "m9",
+		"label": "HierFehltName",
+		"value": "ruht"
+	}, {
+		"slug": "m11",
+		"label": "HierFehltNameAuch",
+		"value": "siehe 2. Zeile"
+	}, {
+		"slug": "m12",
+		"label": "Zustand Host",
+		"value": "eingefahren"
+	}],
+	"id": "M903",
+	"slug": "aaacaaaaaaaaa-affhghfigaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H001",
+				"name": "Maßband / Rollmeter",
+				"spot": {
+					"id": "TestId",
+					"name": "TestName"
+				}
+			},
+			"gesture": {
+				"id": "G14"
+			},
+			"instruction": "Massband ausfahren Z"
+		},
+		"left": {
+			"host": {
+				"id": "H001",
+				"name": "Maßband / Rollmeter",
+				"spot": {
+					"id": "TestId",
+					"name": "TestName"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			}
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Rollenkörper"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subjekt"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Y Ausfahrrichtung"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "von oben umschlossen, Daumen auf Arretierung"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "-Y"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "30cm"
+	}, {
+		"slug": "m9",
+		"label": "HierFehltName",
+		"value": "ruht"
+	}, {
+		"slug": "m11",
+		"label": "HierFehltNameAuch",
+		"value": "siehe 2. Zeile"
+	}, {
+		"slug": "m12",
+		"label": "Zustand Host",
+		"value": "eingefahren"
+	}],
+	"id": "M904",
+	"slug": "aaaaaaacbaaaa-afffghfffaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H001",
+				"name": "Maßband / Rollmeter",
+				"spot": {
+					"id": "TestId",
+					"name": "TestName"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Massband ausfahren Y rechts"
+		},
+		"left": {
+			"host": {
+				"id": "H001",
+				"name": "Maßband / Rollmeter",
+				"spot": {
+					"id": "TestId",
+					"name": "TestName"
+				}
+			},
+			"gesture": {
+				"id": "G14"
+			}
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Rollenkörper"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subjekt"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Y Ausfahrrichtung"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "von oben umschlossen, Daumen auf Arretierung"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "-Y"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "30cm"
+	}, {
+		"slug": "m9",
+		"label": "HierFehltName",
+		"value": "ruht"
+	}, {
+		"slug": "m11",
+		"label": "HierFehltNameAuch",
+		"value": "siehe 2. Zeile"
+	}, {
+		"slug": "m12",
+		"label": "Zustand Host",
+		"value": "eingefahren"
+	}],
+	"id": "M905",
+	"slug": "aaaaaaacbaaaa-afffghfggaaaa",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H001",
+				"name": "Maßband / Rollmeter",
+				"spot": {
+					"id": "TestId",
+					"name": "TestName"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			},
+			"instruction": "Massband ausfahren Y beidhändig"
+		},
+		"left": {
+			"host": {
+				"id": "H001",
+				"name": "Maßband / Rollmeter",
+				"spot": {
+					"id": "TestId",
+					"name": "TestName"
+				}
+			},
+			"gesture": {
+				"id": "G11"
+			}
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Rollenkörper"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subjekt"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Y Ausfahrrichtung"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "von oben umschlossen, Daumen auf Arretierung"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "ruhend"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "0km"
+	}, {
+		"slug": "m9",
+		"label": "HierFehltName",
+		"value": "drückt gelben Knopf"
+	}, {
+		"slug": "m11",
+		"label": "HierFehltNameAuch",
+		"value": "woanders ruhend"
+	}, {
+		"slug": "m12",
+		"label": "Zustand Host",
+		"value": "ausgefahren 50cm"
+	}],
+	"id": "M906",
+	"slug": "aaaaaaaaababb",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H001",
+				"name": "Maßband / Rollmeter",
+				"spot": {
+					"id": "TestId",
+					"name": "TestName"
+				}
+			},
+			"gesture": {
+				"id": "G13"
+			},
+			"instruction": "Massband einfahren Y"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Rollenkörper"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subjekt"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "X Ausfahrrichtung"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "von oben umschlossen, Daumen auf Arretierung"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "ruhend"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "0km"
+	}, {
+		"slug": "m9",
+		"label": "HierFehltName",
+		"value": "drückt gelben Knopf"
+	}, {
+		"slug": "m11",
+		"label": "HierFehltNameAuch",
+		"value": "woanders ruhend"
+	}, {
+		"slug": "m12",
+		"label": "Zustand Host",
+		"value": "ausgefahren 50cm"
+	}],
+	"id": "M907",
+	"slug": "aaabaaaaababb",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H001",
+				"name": "Maßband / Rollmeter",
+				"spot": {
+					"id": "TestId",
+					"name": "TestName"
+				}
+			},
+			"gesture": {
+				"id": "G13"
+			},
+			"instruction": "Massband einfahren X"
+		}
+	}
+}, {
+	"params": [{
+		"slug": "m0",
+		"label": "Körperhaltung",
+		"value": "stehend"
+	}, {
+		"slug": "m1",
+		"label": "Spot",
+		"value": "Rollenkörper"
+	}, {
+		"slug": "m2",
+		"label": "Position Spot",
+		"value": "mittig vor Subjekt"
+	}, {
+		"slug": "m3",
+		"label": "Orientierung Spot",
+		"value": "Z Ausfahrrichtung"
+	}, {
+		"slug": "m4",
+		"label": "ausführende Hand",
+		"value": "Rechte"
+	}, {
+		"slug": "m5",
+		"label": "Handhaltung",
+		"value": "von oben umschlossen, Daumen auf Arretierung"
+	}, {
+		"slug": "m7",
+		"label": "Bewegungsrichtung",
+		"value": "ruhend"
+	}, {
+		"slug": "m8",
+		"label": "Bewegungslänge",
+		"value": "0km"
+	}, {
+		"slug": "m9",
+		"label": "HierFehltName",
+		"value": "drückt gelben Knopf"
+	}, {
+		"slug": "m11",
+		"label": "HierFehltNameAuch",
+		"value": "woanders ruhend"
+	}, {
+		"slug": "m12",
+		"label": "Zustand Host",
+		"value": "ausgefahren 50cm"
+	}],
+	"id": "M908",
+	"slug": "aaacaaaaababb",
+	"hands": {
+		"right": {
+			"host": {
+				"id": "H001",
+				"name": "Maßband / Rollmeter",
+				"spot": {
+					"id": "TestId",
+					"name": "TestName"
+				}
+			},
+			"gesture": {
+				"id": "G13"
+			},
+			"instruction": "Massband einfahren Z"
+		}
+	}
+}]

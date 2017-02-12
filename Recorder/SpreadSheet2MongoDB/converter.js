@@ -3,7 +3,8 @@ $( document ).ready(function() {
     //console.log(data);
     //var output = convertGestures(Window.gestures["all"]);
 
-    var output = convertMutations(Window.mutations["H001"]);
+    //var output = convertMutations(Window.mutations["H001"]); //convert multi-handed mutation "H001"
+    var output = convertMutations(Window.mutations["neMutations"], true);
     showItems(output);
 });
 

@@ -32,6 +32,8 @@ Window.mutations["H001"] = [
         "m5": "Handhaltung",
         "m7": "Bewegungsrichtung",
         "m8": "Bewegungslänge",
+        "m9": "HierFehltName",
+        "m11": "HierFehltNameAuch",
         "m12": "Zustand Host"
     },
     {
@@ -69,7 +71,7 @@ Window.mutations["H001"] = [
         "m12": "eingefahren"
     },
     {
-        "mutationid": "_901",
+        "mutationid": "901_",
         "s0": "a",
         "s1": "f",
         "s2": "f",
@@ -133,7 +135,7 @@ Window.mutations["H001"] = [
         "m12": "eingefahren"
     },
     {
-        "mutationid": "_902",
+        "mutationid": "902_",
         "s0": "a",
         "s1": "f",
         "s2": "f",
@@ -197,7 +199,7 @@ Window.mutations["H001"] = [
         "m12": "eingefahren"
     },
     {
-        "mutationid": "_903",
+        "mutationid": "903_",
         "s0": "a",
         "s1": "f",
         "s2": "f",
@@ -261,7 +263,7 @@ Window.mutations["H001"] = [
         "m12": "eingefahren"
     },
     {
-        "mutationid": "_904",
+        "mutationid": "904_",
         "s0": "a",
         "s1": "f",
         "s2": "f",
@@ -325,7 +327,7 @@ Window.mutations["H001"] = [
         "m12": "eingefahren"
     },
     {
-        "mutationid": "_905",
+        "mutationid": "905_",
         "s0": "a",
         "s1": "f",
         "s2": "f",

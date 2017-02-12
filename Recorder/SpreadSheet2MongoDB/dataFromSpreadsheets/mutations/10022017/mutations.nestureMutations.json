@@ -1,20 +1,25 @@
+//Haben eine andere Datenstruktur al H001-H127!!
+
 Window.mutations["neMutations"] = [
     {
-        "mutationid": "mutation.id",
-        "mutationslug": "mutation.slug",
-        "mutationinstruction": "mutation.instruction",
-        "rightinstruction": "mutation.hands.right.instruction",
-        "righthostid": "mutation.hands.right.host.id",
-        "rightgestureid": "mutation.hands.right.gesture.id",
-        "leftinstruction": "mutation.hands.left.instruction",
-        "lefthostid": "mutation.hands.left.host.id",
-        "leftgestureid": "mutation.hands.left.gesture.id"
+        "mutationid": "id",
+        "mutationslug": "slug",
+        "mutationinstruction": "instruction",
+        "rightinstruction": "hands.right.instruction",
+        "righthostid": "hands.right.host.id",
+        "righthostname": "hands.right.host.name",
+        "rightgestureid": "hands.right.gesture.id",
+        "leftinstruction": "hands.left.instruction",
+        "lefthostid": "hands.left.host.id",
+        "lefthostname": "hands.left.host.name",
+        "leftgestureid": "hands.left.gesture.id"
     },
     {
         "mutationid": 151,
         "mutationslug": "Start - Greifen",
         "rightinstruction": "zu Griff führen, greifen mit Faust",
         "righthostid": "H008",
+        "righthostname": "Schraubzwinge klein",
         "rightgestureid": "G15"
     },
     {
@@ -22,6 +27,7 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Umgreifen links",
         "rightinstruction": "Umgreifen (Hand lösen, 90° Linksdrehung, Host mit Faust-Handhaltung erneut greifen)",
         "righthostid": "H008",
+        "righthostname": "Schraubzwinge klein",
         "rightgestureid": "G17"
     },
     {
@@ -29,6 +35,7 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Umgreifen rechts",
         "rightinstruction": "Umgreifen (Hand lösen, 90° Rechtsdrehung, Host mit Faust-Handhaltung erneut greifen)",
         "righthostid": "H008",
+        "righthostname": "Schraubzwinge klein",
         "rightgestureid": "G17"
     },
     {
@@ -36,9 +43,11 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Start - Greifen",
         "rightinstruction": "zu Griff Host führen, mit Faust umschließend greifen, anheben",
         "righthostid": "H122",
+        "righthostname": "T-Griff-Steckschlüssel",
         "rightgestureid": "G15",
         "leftinstruction": "zum Schaft Host führen, locker greifen",
         "lefthostid": "H122",
+        "lefthostname": "T-Griff-Steckschlüssel",
         "leftgestureid": "G15"
     },
     {
@@ -47,6 +56,7 @@ Window.mutations["neMutations"] = [
         "mutationinstruction": "Host beidhändig zu Schraubvorrichtung führen, auf Mutter setzen",
         "rightinstruction": "Handrücken zeigt nach oben",
         "righthostid": "H122",
+        "righthostname": "T-Griff-Steckschlüssel",
         "rightgestureid": "G16"
     },
     {
@@ -54,6 +64,7 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Umgreifen links Faust",
         "rightinstruction": "Umgreifen (Hand lösen, 180° Linksdrehung, Host mit Faust-Handhaltung erneut greifen)",
         "righthostid": "H122",
+        "righthostname": "T-Griff-Steckschlüssel",
         "rightgestureid": "G17"
     },
     {
@@ -61,6 +72,7 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Umgreifen rechts Faust",
         "rightinstruction": "Umgreifen (Hand lösen, 180° Rechtsdrehung, Host mit Faust-Handhaltung erneut greifen)",
         "righthostid": "H122",
+        "righthostname": "T-Griff-Steckschlüssel",
         "rightgestureid": "G17"
     },
     {
@@ -68,6 +80,7 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Umgreifen links Finger",
         "rightinstruction": "Umgreifen (Hand lösen, 180° Linksdrehung, Host mit Fingerspitzen-Handhaltung erneut greifen)",
         "righthostid": "H122",
+        "righthostname": "T-Griff-Steckschlüssel",
         "rightgestureid": "G17"
     },
     {
@@ -75,6 +88,7 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Umgreifen rechts Finger",
         "rightinstruction": "Umgreifen (Hand lösen, 180° Rechtsdrehung, Host mit Fingerspitzen-Handhaltung erneut greifen)",
         "righthostid": "H122",
+        "righthostname": "T-Griff-Steckschlüssel",
         "rightgestureid": "G17"
     },
     {
@@ -82,9 +96,11 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Start - Greifen",
         "rightinstruction": "zu Griff Host führen, mit Fingern greifen, anheben",
         "righthostid": "H121",
+        "righthostname": "Schraubenzieher Kreuz klein (IFIXIT)",
         "rightgestureid": "G15",
         "leftinstruction": "zum Schaft Host führen, locker greifen",
         "lefthostid": "H121",
+        "lefthostname": "Schraubenzieher Kreuz klein (IFIXIT)",
         "leftgestureid": "G15"
     },
     {
@@ -93,6 +109,7 @@ Window.mutations["neMutations"] = [
         "mutationinstruction": "Host beidhändig zu Schraubvorrichtung führen, Spitze ansetzen",
         "rightinstruction": "Handrücken zeigt 45° nach rechts oben/vorne",
         "righthostid": "H121",
+        "righthostname": "Schraubenzieher Kreuz klein (IFIXIT)",
         "rightgestureid": "G16"
     },
     {
@@ -100,6 +117,7 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Umgreifen links Finger",
         "rightinstruction": "Umgreifen (Finger lösen, etwa 180° links \"drehen\", wieder ansetzen)",
         "righthostid": "H121",
+        "righthostname": "Schraubenzieher Kreuz klein (IFIXIT)",
         "rightgestureid": "G17"
     },
     {
@@ -107,6 +125,7 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Umgreifen rechts Finger",
         "rightinstruction": "Umgreifen (Finger lösen, etwa 180° rechts \"drehen\", wieder ansetzen)",
         "righthostid": "H121",
+        "righthostname": "Schraubenzieher Kreuz klein (IFIXIT)",
         "rightgestureid": "G17"
     },
     {
@@ -114,6 +133,7 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Umgreifen links Hand",
         "rightinstruction": "Umgreifen (Finger lösen, etwa 90° links drehen, wieder ansetzen (Handteller bleibt auf Kontakt))",
         "righthostid": "H121",
+        "righthostname": "Schraubenzieher Kreuz klein (IFIXIT)",
         "rightgestureid": "G17"
     },
     {
@@ -121,6 +141,7 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Umgreifen rechts Hand",
         "rightinstruction": "Umgreifen (Finger lösen, etwa 90° rechts drehen, wieder ansetzen (Handteller bleibt auf Kontakt))",
         "righthostid": "H121",
+        "righthostname": "Schraubenzieher Kreuz klein (IFIXIT)",
         "rightgestureid": "G17"
     },
     {
@@ -128,9 +149,11 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Start - Greifen 1",
         "rightinstruction": "zu Griff 1 führen, greifen mit Handhaltung \"Faust\"",
         "righthostid": "H036",
+        "righthostname": "Säulenbohrmaschine / Standbohrmaschine",
         "rightgestureid": "G15",
         "leftinstruction": "zu Bohrtisch führen, greifen",
         "lefthostid": "H036",
+        "lefthostname": "Säulenbohrmaschine / Standbohrmaschine",
         "leftgestureid": "G15"
     },
     {
@@ -138,9 +161,11 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Start - Greifen 2",
         "rightinstruction": "zu Griff 2 führen, greifen mit Handhaltung \"Faust\"",
         "righthostid": "H036",
+        "righthostname": "Säulenbohrmaschine / Standbohrmaschine",
         "rightgestureid": "G15",
         "leftinstruction": "zu Bohrtisch führen, greifen",
         "lefthostid": "H036",
+        "lefthostname": "Säulenbohrmaschine / Standbohrmaschine",
         "leftgestureid": "G15"
     },
     {
@@ -148,6 +173,7 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Start - Greifen Faust",
         "rightinstruction": "zu Kurbelstab Knubbel führen, greifen mit Faust, Handrücken fast waagrecht nach links (bisserl nach oben)",
         "righthostid": "H127",
+        "righthostname": "Schraubstock groß",
         "rightgestureid": "G15"
     },
     {
@@ -155,6 +181,7 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Start - Positionieren Finger oben",
         "rightinstruction": "Heben, Zeigefinger ausstrecken, an Kurbelstab Oberseite bei Knubbel legen",
         "righthostid": "H127",
+        "righthostname": "Schraubstock groß",
         "rightgestureid": "G16"
     },
     {
@@ -162,6 +189,7 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Start - Positionieren Finger unten",
         "rightinstruction": "Heben, Zeigefinger ausstrecken, an Kurbelstab Unterseite bei Knubbel legen",
         "righthostid": "H127",
+        "righthostname": "Schraubstock groß",
         "rightgestureid": "G16"
     },
     {
@@ -169,6 +197,7 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Start - Greifen Faust",
         "rightinstruction": "zu Spot a führen, mit Faustgriff-Handhaltung greifen, leicht anheben",
         "righthostid": "H070",
+        "righthostname": "Ringschlüssel gekröpft (12,13)",
         "rightgestureid": "G15"
     },
     {
@@ -176,42 +205,51 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Start - Positionieren 90°",
         "rightinstruction": "Host zu Schraubvorrichtung führen, auf Mutter ansetzen (Ausgangswinkel 90°)",
         "righthostid": "H070",
+        "righthostname": "Ringschlüssel gekröpft (12,13)",
         "rightgestureid": "G16",
         "leftinstruction": "auf Schraubvorrichtung ablegen",
-        "lefthostid": "H070"
+        "lefthostid": "H070",
+        "lefthostname": "Ringschlüssel gekröpft (12,13)"
     },
     {
         "mutationid": 653,
         "mutationslug": "Start - Positionieren 150°",
         "rightinstruction": "Host zu Schraubvorrichtung führen, auf Mutter ansetzen (Ausgangswinkel 150°)",
         "righthostid": "H070",
+        "righthostname": "Ringschlüssel gekröpft (12,13)",
         "rightgestureid": "G16",
         "leftinstruction": "auf Schraubvorrichtung ablegen",
-        "lefthostid": "H070"
+        "lefthostid": "H070",
+        "lefthostname": "Ringschlüssel gekröpft (12,13)"
     },
     {
         "mutationid": 654,
         "mutationslug": "Start - Positionieren 60°",
         "rightinstruction": "Host zu Schraubvorrichtung führen, auf Mutter ansetzen (Ausgangswinkel 60°)",
         "righthostid": "H070",
+        "righthostname": "Ringschlüssel gekröpft (12,13)",
         "rightgestureid": "G16",
         "leftinstruction": "auf Schraubvorrichtung ablegen",
-        "lefthostid": "H070"
+        "lefthostid": "H070",
+        "lefthostname": "Ringschlüssel gekröpft (12,13)"
     },
     {
         "mutationid": 655,
         "mutationslug": "Start - Positionieren 180°",
         "rightinstruction": "Host zu Schraubvorrichtung führen, auf Mutter ansetzen (Ausgangswinkel 180°)",
         "righthostid": "H070",
+        "righthostname": "Ringschlüssel gekröpft (12,13)",
         "rightgestureid": "G16",
         "leftinstruction": "auf Schraubvorrichtung ablegen",
-        "lefthostid": "H070"
+        "lefthostid": "H070",
+        "lefthostname": "Ringschlüssel gekröpft (12,13)"
     },
     {
         "mutationid": 656,
         "mutationslug": "Start - Greifen Finger",
         "rightinstruction": "zu Spot a führen, mit Fingerspitzen-Handhaltung greifen",
         "righthostid": "H070",
+        "righthostname": "Ringschlüssel gekröpft (12,13)",
         "rightgestureid": "G15"
     },
     {
@@ -219,6 +257,7 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Umgreifen links 60°",
         "rightinstruction": "Umgreifen (Schraubenschlüssel von Mutter heben, 60° Linksdrehung, wieder aufsetzen)",
         "righthostid": "H070",
+        "righthostname": "Ringschlüssel gekröpft (12,13)",
         "rightgestureid": "G17"
     },
     {
@@ -226,6 +265,7 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Umgreifen rechts 60°",
         "rightinstruction": "Umgreifen (Schraubenschlüssel von Mutter heben, 60° Rechtsdrehung, wieder aufsetzen)",
         "righthostid": "H070",
+        "righthostname": "Ringschlüssel gekröpft (12,13)",
         "rightgestureid": "G17"
     },
     {
@@ -233,6 +273,7 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Umgreifen links 120°",
         "rightinstruction": "Umgreifen (Schraubenschlüssel von Mutter heben, 120° Linksdrehung, wieder aufsetzen)",
         "righthostid": "H070",
+        "righthostname": "Ringschlüssel gekröpft (12,13)",
         "rightgestureid": "G17"
     },
     {
@@ -240,6 +281,7 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Umgreifen rechts 120°",
         "rightinstruction": "Umgreifen (Schraubenschlüssel von Mutter heben, 120° Rechtsdrehung, wieder aufsetzen)",
         "righthostid": "H070",
+        "righthostname": "Ringschlüssel gekröpft (12,13)",
         "rightgestureid": "G17"
     },
     {
@@ -247,9 +289,11 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Start - Greifen einhändig",
         "rightinstruction": "zu Griff Host führen, mit Faust greifen, Säge leicht anheben und dabei 90° nach rechts drehen über Sägeachse (Arbeitsorientierung, bleibt über Ablageort)",
         "righthostid": "H011",
+        "righthostname": "Eisensäge",
         "rightgestureid": "G15",
         "leftinstruction": "zu Schraubstock führen, von oben auf eingespanntes Material ablegen",
         "lefthostid": "H011",
+        "lefthostname": "Eisensäge",
         "leftgestureid": "G15"
     },
     {
@@ -257,9 +301,11 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Start - Greifen beidhändig",
         "rightinstruction": "zu Griff Host führen, mit Faust greifen, Säge leicht anheben und dabei 90° nach rechts drehen über Sägeachse (Arbeitsorientierung, bleibt über Ablageort)",
         "righthostid": "H011",
+        "righthostname": "Eisensäge",
         "rightgestureid": "G15",
         "leftinstruction": "vorne zu Bügel führen, locker greifen",
         "lefthostid": "H011",
+        "lefthostname": "Eisensäge",
         "leftgestureid": "G15"
     },
     {
@@ -267,28 +313,33 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Start - Positionieren",
         "rightinstruction": "Host zu Schnittkerbe führen, ansetzen an körpernahem Sägeblattende",
         "righthostid": "H011",
+        "righthostname": "Eisensäge",
         "rightgestureid": "G16"
     },
     {
         "mutationid": 851,
         "mutationslug": "Start - Greifen",
         "rightinstruction": "zu Host führen, mit Fingern greifen und in Faust-Zeigefinger-Handhaltung drehen",
-        "righthostid": "H038"
+        "righthostid": "H038",
+        "righthostname": "Stanleymesser mittel (18mm-Klingen)"
     },
     {
         "mutationid": 852,
         "mutationslug": "Start - Positionieren",
         "rightinstruction": "Host zu bedrucktem Papier führen, an erster Linie Messerspitze locker aufsetzen",
-        "righthostid": "H038"
+        "righthostid": "H038",
+        "righthostname": "Stanleymesser mittel (18mm-Klingen)"
     },
     {
         "mutationid": 951,
         "mutationslug": "Start - Greifen",
         "rightinstruction": "zu Host führen, mit Fingern greifen, etwa vor Bauchnabel heben und dabei in in umschlossene Handhaltung nachgreifen, Daumen auf Arretierung",
         "righthostid": "H001",
+        "righthostname": "Maßband / Rollmeter",
         "rightgestureid": "G15",
         "leftinstruction": "zu Spot f führen, mit Hakengriff greifen",
         "lefthostid": "H001",
+        "lefthostname": "Maßband / Rollmeter",
         "leftgestureid": "G15"
     },
     {
@@ -296,6 +347,7 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Loslassen links",
         "leftinstruction": "loslassen, zu Körper führen, runterhängen lassen",
         "lefthostid": "H001",
+        "lefthostname": "Maßband / Rollmeter",
         "leftgestureid": "G18"
     },
     {
@@ -303,6 +355,7 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Einfahren rechts",
         "rightinstruction": "einfahren Y",
         "righthostid": "H001",
+        "righthostname": "Maßband / Rollmeter",
         "rightgestureid": "G11"
     },
     {
@@ -310,9 +363,11 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Einfahren beidhändig",
         "rightinstruction": "einfahren Y",
         "righthostid": "H001",
+        "righthostname": "Maßband / Rollmeter",
         "rightgestureid": "G11",
         "leftinstruction": "einfahren Y",
         "lefthostid": "H001",
+        "lefthostname": "Maßband / Rollmeter",
         "leftgestureid": "G11"
     }
-]
+];

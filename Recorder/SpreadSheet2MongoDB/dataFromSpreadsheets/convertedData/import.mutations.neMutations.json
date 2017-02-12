@@ -1,0 +1,728 @@
+[
+  {
+    "id": "M151",
+    "slug": "Start - Greifen",
+    "hands": {
+      "right": {
+        "instruction": "zu Griff führen, greifen mit Faust",
+        "host": {
+          "id": "H008",
+          "name": "Schraubzwinge klein"
+        },
+        "gesture": {
+          "id": "G15"
+        }
+      }
+    }
+  },
+  {
+    "id": "M152",
+    "slug": "Umgreifen links",
+    "hands": {
+      "right": {
+        "instruction": "Umgreifen (Hand lösen, 90° Linksdrehung, Host mit Faust-Handhaltung erneut greifen)",
+        "host": {
+          "id": "H008",
+          "name": "Schraubzwinge klein"
+        },
+        "gesture": {
+          "id": "G17"
+        }
+      }
+    }
+  },
+  {
+    "id": "M153",
+    "slug": "Umgreifen rechts",
+    "hands": {
+      "right": {
+        "instruction": "Umgreifen (Hand lösen, 90° Rechtsdrehung, Host mit Faust-Handhaltung erneut greifen)",
+        "host": {
+          "id": "H008",
+          "name": "Schraubzwinge klein"
+        },
+        "gesture": {
+          "id": "G17"
+        }
+      }
+    }
+  },
+  {
+    "id": "M251",
+    "slug": "Start - Greifen",
+    "hands": {
+      "right": {
+        "instruction": "zu Griff Host führen, mit Faust umschließend greifen, anheben",
+        "host": {
+          "id": "H122",
+          "name": "T-Griff-Steckschlüssel"
+        },
+        "gesture": {
+          "id": "G15"
+        }
+      },
+      "left": {
+        "instruction": "zum Schaft Host führen, locker greifen",
+        "host": {
+          "id": "H122",
+          "name": "T-Griff-Steckschlüssel"
+        },
+        "gesture": {
+          "id": "G15"
+        }
+      }
+    }
+  },
+  {
+    "id": "M252",
+    "slug": "Host beidhändig zu Schraubvorrichtung führen, auf Mutter setzen",
+    "hands": {
+      "right": {
+        "instruction": "Handrücken zeigt nach oben",
+        "host": {
+          "id": "H122",
+          "name": "T-Griff-Steckschlüssel"
+        },
+        "gesture": {
+          "id": "G16"
+        }
+      }
+    }
+  },
+  {
+    "id": "M153",
+    "slug": "Umgreifen links Faust",
+    "hands": {
+      "right": {
+        "instruction": "Umgreifen (Hand lösen, 180° Linksdrehung, Host mit Faust-Handhaltung erneut greifen)",
+        "host": {
+          "id": "H122",
+          "name": "T-Griff-Steckschlüssel"
+        },
+        "gesture": {
+          "id": "G17"
+        }
+      }
+    }
+  },
+  {
+    "id": "M154",
+    "slug": "Umgreifen rechts Faust",
+    "hands": {
+      "right": {
+        "instruction": "Umgreifen (Hand lösen, 180° Rechtsdrehung, Host mit Faust-Handhaltung erneut greifen)",
+        "host": {
+          "id": "H122",
+          "name": "T-Griff-Steckschlüssel"
+        },
+        "gesture": {
+          "id": "G17"
+        }
+      }
+    }
+  },
+  {
+    "id": "M155",
+    "slug": "Umgreifen links Finger",
+    "hands": {
+      "right": {
+        "instruction": "Umgreifen (Hand lösen, 180° Linksdrehung, Host mit Fingerspitzen-Handhaltung erneut greifen)",
+        "host": {
+          "id": "H122",
+          "name": "T-Griff-Steckschlüssel"
+        },
+        "gesture": {
+          "id": "G17"
+        }
+      }
+    }
+  },
+  {
+    "id": "M156",
+    "slug": "Umgreifen rechts Finger",
+    "hands": {
+      "right": {
+        "instruction": "Umgreifen (Hand lösen, 180° Rechtsdrehung, Host mit Fingerspitzen-Handhaltung erneut greifen)",
+        "host": {
+          "id": "H122",
+          "name": "T-Griff-Steckschlüssel"
+        },
+        "gesture": {
+          "id": "G17"
+        }
+      }
+    }
+  },
+  {
+    "id": "M351",
+    "slug": "Start - Greifen",
+    "hands": {
+      "right": {
+        "instruction": "zu Griff Host führen, mit Fingern greifen, anheben",
+        "host": {
+          "id": "H121",
+          "name": "Schraubenzieher Kreuz klein (IFIXIT)"
+        },
+        "gesture": {
+          "id": "G15"
+        }
+      },
+      "left": {
+        "instruction": "zum Schaft Host führen, locker greifen",
+        "host": {
+          "id": "H121",
+          "name": "Schraubenzieher Kreuz klein (IFIXIT)"
+        },
+        "gesture": {
+          "id": "G15"
+        }
+      }
+    }
+  },
+  {
+    "id": "M352",
+    "slug": "Host beidhändig zu Schraubvorrichtung führen, Spitze ansetzen",
+    "hands": {
+      "right": {
+        "instruction": "Handrücken zeigt 45° nach rechts oben/vorne",
+        "host": {
+          "id": "H121",
+          "name": "Schraubenzieher Kreuz klein (IFIXIT)"
+        },
+        "gesture": {
+          "id": "G16"
+        }
+      }
+    }
+  },
+  {
+    "id": "M353",
+    "slug": "Umgreifen links Finger",
+    "hands": {
+      "right": {
+        "instruction": "Umgreifen (Finger lösen, etwa 180° links \"drehen\", wieder ansetzen)",
+        "host": {
+          "id": "H121",
+          "name": "Schraubenzieher Kreuz klein (IFIXIT)"
+        },
+        "gesture": {
+          "id": "G17"
+        }
+      }
+    }
+  },
+  {
+    "id": "M354",
+    "slug": "Umgreifen rechts Finger",
+    "hands": {
+      "right": {
+        "instruction": "Umgreifen (Finger lösen, etwa 180° rechts \"drehen\", wieder ansetzen)",
+        "host": {
+          "id": "H121",
+          "name": "Schraubenzieher Kreuz klein (IFIXIT)"
+        },
+        "gesture": {
+          "id": "G17"
+        }
+      }
+    }
+  },
+  {
+    "id": "M355",
+    "slug": "Umgreifen links Hand",
+    "hands": {
+      "right": {
+        "instruction": "Umgreifen (Finger lösen, etwa 90° links drehen, wieder ansetzen (Handteller bleibt auf Kontakt))",
+        "host": {
+          "id": "H121",
+          "name": "Schraubenzieher Kreuz klein (IFIXIT)"
+        },
+        "gesture": {
+          "id": "G17"
+        }
+      }
+    }
+  },
+  {
+    "id": "M356",
+    "slug": "Umgreifen rechts Hand",
+    "hands": {
+      "right": {
+        "instruction": "Umgreifen (Finger lösen, etwa 90° rechts drehen, wieder ansetzen (Handteller bleibt auf Kontakt))",
+        "host": {
+          "id": "H121",
+          "name": "Schraubenzieher Kreuz klein (IFIXIT)"
+        },
+        "gesture": {
+          "id": "G17"
+        }
+      }
+    }
+  },
+  {
+    "id": "M451",
+    "slug": "Start - Greifen 1",
+    "hands": {
+      "right": {
+        "instruction": "zu Griff 1 führen, greifen mit Handhaltung \"Faust\"",
+        "host": {
+          "id": "H036",
+          "name": "Säulenbohrmaschine / Standbohrmaschine"
+        },
+        "gesture": {
+          "id": "G15"
+        }
+      },
+      "left": {
+        "instruction": "zu Bohrtisch führen, greifen",
+        "host": {
+          "id": "H036",
+          "name": "Säulenbohrmaschine / Standbohrmaschine"
+        },
+        "gesture": {
+          "id": "G15"
+        }
+      }
+    }
+  },
+  {
+    "id": "M452",
+    "slug": "Start - Greifen 2",
+    "hands": {
+      "right": {
+        "instruction": "zu Griff 2 führen, greifen mit Handhaltung \"Faust\"",
+        "host": {
+          "id": "H036",
+          "name": "Säulenbohrmaschine / Standbohrmaschine"
+        },
+        "gesture": {
+          "id": "G15"
+        }
+      },
+      "left": {
+        "instruction": "zu Bohrtisch führen, greifen",
+        "host": {
+          "id": "H036",
+          "name": "Säulenbohrmaschine / Standbohrmaschine"
+        },
+        "gesture": {
+          "id": "G15"
+        }
+      }
+    }
+  },
+  {
+    "id": "M551",
+    "slug": "Start - Greifen Faust",
+    "hands": {
+      "right": {
+        "instruction": "zu Kurbelstab Knubbel führen, greifen mit Faust, Handrücken fast waagrecht nach links (bisserl nach oben)",
+        "host": {
+          "id": "H127",
+          "name": "Schraubstock groß"
+        },
+        "gesture": {
+          "id": "G15"
+        }
+      }
+    }
+  },
+  {
+    "id": "M552",
+    "slug": "Start - Positionieren Finger oben",
+    "hands": {
+      "right": {
+        "instruction": "Heben, Zeigefinger ausstrecken, an Kurbelstab Oberseite bei Knubbel legen",
+        "host": {
+          "id": "H127",
+          "name": "Schraubstock groß"
+        },
+        "gesture": {
+          "id": "G16"
+        }
+      }
+    }
+  },
+  {
+    "id": "M553",
+    "slug": "Start - Positionieren Finger unten",
+    "hands": {
+      "right": {
+        "instruction": "Heben, Zeigefinger ausstrecken, an Kurbelstab Unterseite bei Knubbel legen",
+        "host": {
+          "id": "H127",
+          "name": "Schraubstock groß"
+        },
+        "gesture": {
+          "id": "G16"
+        }
+      }
+    }
+  },
+  {
+    "id": "M651",
+    "slug": "Start - Greifen Faust",
+    "hands": {
+      "right": {
+        "instruction": "zu Spot a führen, mit Faustgriff-Handhaltung greifen, leicht anheben",
+        "host": {
+          "id": "H070",
+          "name": "Ringschlüssel gekröpft (12,13)"
+        },
+        "gesture": {
+          "id": "G15"
+        }
+      }
+    }
+  },
+  {
+    "id": "M652",
+    "slug": "Start - Positionieren 90°",
+    "hands": {
+      "right": {
+        "instruction": "Host zu Schraubvorrichtung führen, auf Mutter ansetzen (Ausgangswinkel 90°)",
+        "host": {
+          "id": "H070",
+          "name": "Ringschlüssel gekröpft (12,13)"
+        },
+        "gesture": {
+          "id": "G16"
+        }
+      },
+      "left": {
+        "instruction": "auf Schraubvorrichtung ablegen",
+        "host": {
+          "id": "H070",
+          "name": "Ringschlüssel gekröpft (12,13)"
+        }
+      }
+    }
+  },
+  {
+    "id": "M653",
+    "slug": "Start - Positionieren 150°",
+    "hands": {
+      "right": {
+        "instruction": "Host zu Schraubvorrichtung führen, auf Mutter ansetzen (Ausgangswinkel 150°)",
+        "host": {
+          "id": "H070",
+          "name": "Ringschlüssel gekröpft (12,13)"
+        },
+        "gesture": {
+          "id": "G16"
+        }
+      },
+      "left": {
+        "instruction": "auf Schraubvorrichtung ablegen",
+        "host": {
+          "id": "H070",
+          "name": "Ringschlüssel gekröpft (12,13)"
+        }
+      }
+    }
+  },
+  {
+    "id": "M654",
+    "slug": "Start - Positionieren 60°",
+    "hands": {
+      "right": {
+        "instruction": "Host zu Schraubvorrichtung führen, auf Mutter ansetzen (Ausgangswinkel 60°)",
+        "host": {
+          "id": "H070",
+          "name": "Ringschlüssel gekröpft (12,13)"
+        },
+        "gesture": {
+          "id": "G16"
+        }
+      },
+      "left": {
+        "instruction": "auf Schraubvorrichtung ablegen",
+        "host": {
+          "id": "H070",
+          "name": "Ringschlüssel gekröpft (12,13)"
+        }
+      }
+    }
+  },
+  {
+    "id": "M655",
+    "slug": "Start - Positionieren 180°",
+    "hands": {
+      "right": {
+        "instruction": "Host zu Schraubvorrichtung führen, auf Mutter ansetzen (Ausgangswinkel 180°)",
+        "host": {
+          "id": "H070",
+          "name": "Ringschlüssel gekröpft (12,13)"
+        },
+        "gesture": {
+          "id": "G16"
+        }
+      },
+      "left": {
+        "instruction": "auf Schraubvorrichtung ablegen",
+        "host": {
+          "id": "H070",
+          "name": "Ringschlüssel gekröpft (12,13)"
+        }
+      }
+    }
+  },
+  {
+    "id": "M656",
+    "slug": "Start - Greifen Finger",
+    "hands": {
+      "right": {
+        "instruction": "zu Spot a führen, mit Fingerspitzen-Handhaltung greifen",
+        "host": {
+          "id": "H070",
+          "name": "Ringschlüssel gekröpft (12,13)"
+        },
+        "gesture": {
+          "id": "G15"
+        }
+      }
+    }
+  },
+  {
+    "id": "M657",
+    "slug": "Umgreifen links 60°",
+    "hands": {
+      "right": {
+        "instruction": "Umgreifen (Schraubenschlüssel von Mutter heben, 60° Linksdrehung, wieder aufsetzen)",
+        "host": {
+          "id": "H070",
+          "name": "Ringschlüssel gekröpft (12,13)"
+        },
+        "gesture": {
+          "id": "G17"
+        }
+      }
+    }
+  },
+  {
+    "id": "M658",
+    "slug": "Umgreifen rechts 60°",
+    "hands": {
+      "right": {
+        "instruction": "Umgreifen (Schraubenschlüssel von Mutter heben, 60° Rechtsdrehung, wieder aufsetzen)",
+        "host": {
+          "id": "H070",
+          "name": "Ringschlüssel gekröpft (12,13)"
+        },
+        "gesture": {
+          "id": "G17"
+        }
+      }
+    }
+  },
+  {
+    "id": "M659",
+    "slug": "Umgreifen links 120°",
+    "hands": {
+      "right": {
+        "instruction": "Umgreifen (Schraubenschlüssel von Mutter heben, 120° Linksdrehung, wieder aufsetzen)",
+        "host": {
+          "id": "H070",
+          "name": "Ringschlüssel gekröpft (12,13)"
+        },
+        "gesture": {
+          "id": "G17"
+        }
+      }
+    }
+  },
+  {
+    "id": "M660",
+    "slug": "Umgreifen rechts 120°",
+    "hands": {
+      "right": {
+        "instruction": "Umgreifen (Schraubenschlüssel von Mutter heben, 120° Rechtsdrehung, wieder aufsetzen)",
+        "host": {
+          "id": "H070",
+          "name": "Ringschlüssel gekröpft (12,13)"
+        },
+        "gesture": {
+          "id": "G17"
+        }
+      }
+    }
+  },
+  {
+    "id": "M751",
+    "slug": "Start - Greifen einhändig",
+    "hands": {
+      "right": {
+        "instruction": "zu Griff Host führen, mit Faust greifen, Säge leicht anheben und dabei 90° nach rechts drehen über Sägeachse (Arbeitsorientierung, bleibt über Ablageort)",
+        "host": {
+          "id": "H011",
+          "name": "Eisensäge"
+        },
+        "gesture": {
+          "id": "G15"
+        }
+      },
+      "left": {
+        "instruction": "zu Schraubstock führen, von oben auf eingespanntes Material ablegen",
+        "host": {
+          "id": "H011",
+          "name": "Eisensäge"
+        },
+        "gesture": {
+          "id": "G15"
+        }
+      }
+    }
+  },
+  {
+    "id": "M752",
+    "slug": "Start - Greifen beidhändig",
+    "hands": {
+      "right": {
+        "instruction": "zu Griff Host führen, mit Faust greifen, Säge leicht anheben und dabei 90° nach rechts drehen über Sägeachse (Arbeitsorientierung, bleibt über Ablageort)",
+        "host": {
+          "id": "H011",
+          "name": "Eisensäge"
+        },
+        "gesture": {
+          "id": "G15"
+        }
+      },
+      "left": {
+        "instruction": "vorne zu Bügel führen, locker greifen",
+        "host": {
+          "id": "H011",
+          "name": "Eisensäge"
+        },
+        "gesture": {
+          "id": "G15"
+        }
+      }
+    }
+  },
+  {
+    "id": "M753",
+    "slug": "Start - Positionieren",
+    "hands": {
+      "right": {
+        "instruction": "Host zu Schnittkerbe führen, ansetzen an körpernahem Sägeblattende",
+        "host": {
+          "id": "H011",
+          "name": "Eisensäge"
+        },
+        "gesture": {
+          "id": "G16"
+        }
+      }
+    }
+  },
+  {
+    "id": "M851",
+    "slug": "Start - Greifen",
+    "hands": {
+      "right": {
+        "instruction": "zu Host führen, mit Fingern greifen und in Faust-Zeigefinger-Handhaltung drehen",
+        "host": {
+          "id": "H038",
+          "name": "Stanleymesser mittel (18mm-Klingen)"
+        }
+      }
+    }
+  },
+  {
+    "id": "M852",
+    "slug": "Start - Positionieren",
+    "hands": {
+      "right": {
+        "instruction": "Host zu bedrucktem Papier führen, an erster Linie Messerspitze locker aufsetzen",
+        "host": {
+          "id": "H038",
+          "name": "Stanleymesser mittel (18mm-Klingen)"
+        }
+      }
+    }
+  },
+  {
+    "id": "M951",
+    "slug": "Start - Greifen",
+    "hands": {
+      "right": {
+        "instruction": "zu Host führen, mit Fingern greifen, etwa vor Bauchnabel heben und dabei in in umschlossene Handhaltung nachgreifen, Daumen auf Arretierung",
+        "host": {
+          "id": "H001",
+          "name": "Maßband / Rollmeter"
+        },
+        "gesture": {
+          "id": "G15"
+        }
+      },
+      "left": {
+        "instruction": "zu Spot f führen, mit Hakengriff greifen",
+        "host": {
+          "id": "H001",
+          "name": "Maßband / Rollmeter"
+        },
+        "gesture": {
+          "id": "G15"
+        }
+      }
+    }
+  },
+  {
+    "id": "M952",
+    "slug": "Loslassen links",
+    "hands": {
+      "left": {
+        "instruction": "loslassen, zu Körper führen, runterhängen lassen",
+        "host": {
+          "id": "H001",
+          "name": "Maßband / Rollmeter"
+        },
+        "gesture": {
+          "id": "G18"
+        }
+      }
+    }
+  },
+  {
+    "id": "M953",
+    "slug": "Einfahren rechts",
+    "hands": {
+      "right": {
+        "instruction": "einfahren Y",
+        "host": {
+          "id": "H001",
+          "name": "Maßband / Rollmeter"
+        },
+        "gesture": {
+          "id": "G11"
+        }
+      }
+    }
+  },
+  {
+    "id": "M954",
+    "slug": "Einfahren beidhändig",
+    "hands": {
+      "right": {
+        "instruction": "einfahren Y",
+        "host": {
+          "id": "H001",
+          "name": "Maßband / Rollmeter"
+        },
+        "gesture": {
+          "id": "G11"
+        }
+      },
+      "left": {
+        "instruction": "einfahren Y",
+        "host": {
+          "id": "H001",
+          "name": "Maßband / Rollmeter"
+        },
+        "gesture": {
+          "id": "G11"
+        }
+      }
+    }
+  }
+]

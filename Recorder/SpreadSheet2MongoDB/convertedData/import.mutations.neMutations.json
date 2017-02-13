@@ -49,7 +49,7 @@
   },
   {
     "id": "M251",
-    "slug": "Start - Greifen",
+    "slug": "Start - Greifen Faust",
     "hands": {
       "right": {
         "instruction": "zu Griff Host führen, mit Faust umschließend greifen, anheben",
@@ -90,7 +90,7 @@
     }
   },
   {
-    "id": "M153",
+    "id": "M253",
     "slug": "Umgreifen links Faust",
     "hands": {
       "right": {
@@ -106,7 +106,7 @@
     }
   },
   {
-    "id": "M154",
+    "id": "M254",
     "slug": "Umgreifen rechts Faust",
     "hands": {
       "right": {
@@ -122,7 +122,7 @@
     }
   },
   {
-    "id": "M155",
+    "id": "M255",
     "slug": "Umgreifen links Finger",
     "hands": {
       "right": {
@@ -138,7 +138,7 @@
     }
   },
   {
-    "id": "M156",
+    "id": "M256",
     "slug": "Umgreifen rechts Finger",
     "hands": {
       "right": {
@@ -149,6 +149,32 @@
         },
         "gesture": {
           "id": "G17"
+        }
+      }
+    }
+  },
+  {
+    "id": "M257",
+    "slug": "Start - Greifen Fingerspitzen",
+    "hands": {
+      "right": {
+        "instruction": "zu Griff Host führen, mit Fingerspitzen greifen, anheben",
+        "host": {
+          "id": "H122",
+          "name": "T-Griff-Steckschlüssel"
+        },
+        "gesture": {
+          "id": "G15"
+        }
+      },
+      "left": {
+        "instruction": "zum Schaft Host führen, locker greifen",
+        "host": {
+          "id": "H122",
+          "name": "T-Griff-Steckschlüssel"
+        },
+        "gesture": {
+          "id": "G15"
         }
       }
     }

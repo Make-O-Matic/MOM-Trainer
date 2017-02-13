@@ -4,7 +4,7 @@ $( document ).ready(function() {
     //var output = convertGestures(Window.gestures["all"]);
 
     //var output = convertMutations(Window.mutations["H001"]); //convert multi-handed mutation "H001"
-    var output = convertMutations(Window.mutations["neMutations"], true);
+    var output = convertMutations(Window.mutations["H001"]);
     showItems(output);
 });
 

@@ -40,7 +40,7 @@ Window.mutations["neMutations"] = [
     },
     {
         "mutationid": 251,
-        "mutationslug": "Start - Greifen",
+        "mutationslug": "Start - Greifen Faust",
         "rightinstruction": "zu Griff Host führen, mit Faust umschließend greifen, anheben",
         "righthostid": "H122",
         "righthostname": "T-Griff-Steckschlüssel",
@@ -60,7 +60,7 @@ Window.mutations["neMutations"] = [
         "rightgestureid": "G16"
     },
     {
-        "mutationid": 153,
+        "mutationid": 253,
         "mutationslug": "Umgreifen links Faust",
         "rightinstruction": "Umgreifen (Hand lösen, 180° Linksdrehung, Host mit Faust-Handhaltung erneut greifen)",
         "righthostid": "H122",
@@ -68,7 +68,7 @@ Window.mutations["neMutations"] = [
         "rightgestureid": "G17"
     },
     {
-        "mutationid": 154,
+        "mutationid": 254,
         "mutationslug": "Umgreifen rechts Faust",
         "rightinstruction": "Umgreifen (Hand lösen, 180° Rechtsdrehung, Host mit Faust-Handhaltung erneut greifen)",
         "righthostid": "H122",
@@ -76,7 +76,7 @@ Window.mutations["neMutations"] = [
         "rightgestureid": "G17"
     },
     {
-        "mutationid": 155,
+        "mutationid": 255,
         "mutationslug": "Umgreifen links Finger",
         "rightinstruction": "Umgreifen (Hand lösen, 180° Linksdrehung, Host mit Fingerspitzen-Handhaltung erneut greifen)",
         "righthostid": "H122",
@@ -84,12 +84,24 @@ Window.mutations["neMutations"] = [
         "rightgestureid": "G17"
     },
     {
-        "mutationid": 156,
+        "mutationid": 256,
         "mutationslug": "Umgreifen rechts Finger",
         "rightinstruction": "Umgreifen (Hand lösen, 180° Rechtsdrehung, Host mit Fingerspitzen-Handhaltung erneut greifen)",
         "righthostid": "H122",
         "righthostname": "T-Griff-Steckschlüssel",
         "rightgestureid": "G17"
+    },
+    {
+        "mutationid": 257,
+        "mutationslug": "Start - Greifen Fingerspitzen",
+        "rightinstruction": "zu Griff Host führen, mit Fingerspitzen greifen, anheben",
+        "righthostid": "H122",
+        "righthostname": "T-Griff-Steckschlüssel",
+        "rightgestureid": "G15",
+        "leftinstruction": "zum Schaft Host führen, locker greifen",
+        "lefthostid": "H122",
+        "lefthostname": "T-Griff-Steckschlüssel",
+        "leftgestureid": "G15"
     },
     {
         "mutationid": 351,

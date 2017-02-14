@@ -650,6 +650,9 @@
         "host": {
           "id": "H038",
           "name": "Stanleymesser mittel (18mm-Klingen)"
+        },
+        "gesture": {
+          "id": "G15"
         }
       }
     }
@@ -663,6 +666,25 @@
         "host": {
           "id": "H038",
           "name": "Stanleymesser mittel (18mm-Klingen)"
+        },
+        "gesture": {
+          "id": "G16"
+        }
+      }
+    }
+  },
+  {
+    "id": "M853",
+    "slug": "Umsetzen",
+    "hands": {
+      "right": {
+        "instruction": "Umsetzen (aus Schnitt heben, Messerspitze zu nächster Linie führen und locker aufsetzen)",
+        "host": {
+          "id": "H038",
+          "name": "Stanleymesser mittel (18mm-Klingen)"
+        },
+        "gesture": {
+          "id": "G16"
         }
       }
     }

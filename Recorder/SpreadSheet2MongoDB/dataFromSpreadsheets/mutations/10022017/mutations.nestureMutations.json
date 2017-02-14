@@ -333,14 +333,24 @@ Window.mutations["neMutations"] = [
         "mutationslug": "Start - Greifen",
         "rightinstruction": "zu Host führen, mit Fingern greifen und in Faust-Zeigefinger-Handhaltung drehen",
         "righthostid": "H038",
-        "righthostname": "Stanleymesser mittel (18mm-Klingen)"
+        "righthostname": "Stanleymesser mittel (18mm-Klingen)",
+        "rightgestureid": "G15"
     },
     {
         "mutationid": 852,
         "mutationslug": "Start - Positionieren",
         "rightinstruction": "Host zu bedrucktem Papier führen, an erster Linie Messerspitze locker aufsetzen",
         "righthostid": "H038",
-        "righthostname": "Stanleymesser mittel (18mm-Klingen)"
+        "righthostname": "Stanleymesser mittel (18mm-Klingen)",
+        "rightgestureid": "G16"
+    },
+    {
+        "mutationid": 853,
+        "mutationslug": "Umsetzen",
+        "rightinstruction": "Umsetzen (aus Schnitt heben, Messerspitze zu nächster Linie führen und locker aufsetzen)",
+        "righthostid": "H038",
+        "righthostname": "Stanleymesser mittel (18mm-Klingen)",
+        "rightgestureid": "G16"
     },
     {
         "mutationid": 951,

@@ -5,6 +5,8 @@ Um die Anwendung und Funktion der Tools zu verstehen, haben wir eine Liste der v
 
 ##Tools
 * [Recorder](https://github.com/Make-O-Matic/MOM-Trainer/tree/master/Recorder)
-(Data-Recorder based on Qt)
+(Data-Recorder based on Python & Qt)
 * [Exporter](https://github.com/Make-O-Matic/MOM-Trainer/tree/master/Exporter)
 (collection of different .CSV-Exporter based on Python)
+* [Slicer](https://github.com/Make-O-Matic/MOM-Trainer/tree/alternative/Marker)
+(Tool to cut recorded Videos in Pieces based on TRAINSET.created/TRAINSET.ended)

@@ -391,5 +391,29 @@ Window.mutations["neMutations"] = [
         "lefthostid": "H001",
         "lefthostname": "Maßband / Rollmeter",
         "leftgestureid": "G11"
+    },
+    {
+        "mutationid": 955,
+        "mutationslug": "Umschwenken Y-X",
+        "rightinstruction": "Ausfahrrichtung Y auf X schwenken",
+        "righthostid": "H001",
+        "righthostname": "Maßband / Rollmeter",
+        "rightgestureid": "G16",
+        "leftinstruction": "zu Spot f führen, mit Hakengriff greifen",
+        "lefthostid": "H001",
+        "lefthostname": "Maßband / Rollmeter",
+        "leftgestureid": "G15"
+    },
+    {
+        "mutationid": 956,
+        "mutationslug": "Umschwenken X-Z",
+        "rightinstruction": "Ausfahrrichtung X auf Z schwenken",
+        "righthostid": "H001",
+        "righthostname": "Maßband / Rollmeter",
+        "rightgestureid": "G16",
+        "leftinstruction": "zu Spot f führen, mit Hakengriff greifen",
+        "lefthostid": "H001",
+        "lefthostname": "Maßband / Rollmeter",
+        "leftgestureid": "G15"
     }
 ];

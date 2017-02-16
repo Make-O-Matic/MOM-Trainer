@@ -1,0 +1,54 @@
+[
+  {
+    "id": "M955",
+    "slug": "Umschwenken Y-X",
+    "hands": {
+      "right": {
+        "instruction": "Ausfahrrichtung Y auf X schwenken",
+        "host": {
+          "id": "H001",
+          "name": "Maßband / Rollmeter"
+        },
+        "gesture": {
+          "id": "G16"
+        }
+      },
+      "left": {
+        "instruction": "zu Spot f führen, mit Hakengriff greifen",
+        "host": {
+          "id": "H001",
+          "name": "Maßband / Rollmeter"
+        },
+        "gesture": {
+          "id": "G15"
+        }
+      }
+    }
+  },
+  {
+    "id": "M956",
+    "slug": "Umschwenken X-Z",
+    "hands": {
+      "right": {
+        "instruction": "Ausfahrrichtung X auf Z schwenken",
+        "host": {
+          "id": "H001",
+          "name": "Maßband / Rollmeter"
+        },
+        "gesture": {
+          "id": "G16"
+        }
+      },
+      "left": {
+        "instruction": "zu Spot f führen, mit Hakengriff greifen",
+        "host": {
+          "id": "H001",
+          "name": "Maßband / Rollmeter"
+        },
+        "gesture": {
+          "id": "G15"
+        }
+      }
+    }
+  }
+]

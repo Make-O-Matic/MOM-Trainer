@@ -2,6 +2,7 @@
 
 import argparse
 import datetime
+import threading
 from time import sleep
 import uuid
 import os, sys, tty, termios
@@ -38,31 +39,46 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     db_client = MongoClient()
-    db = db_client['makeomatic']
+    db = db_client['makeomatic']  
+    
+    gloves = []
+    def setConnected(state):
+		if state > gloves[0].state:
+			beep()
+		gloves[0].state = state	
+		if state == 3:
+			gloves[0].bothConnected.set()		
 
-    recording = [False];
     def isRecording():
-        return recording[0]
+        return gloves[0].recording#[0]
 
     lUUID = str(uuid.uuid4())
     rUUID = str(uuid.uuid4())
-    gloves = Glove(args.lMAC, args.rMAC, isRecording, lUUID, rUUID)
-    gloves.connect()
-    for i in [1, 2]:
-        if not gloves.connected(i):	
+    try:
+        gloves = [Glove(args.lMAC, args.rMAC, setConnected, isRecording, lUUID, rUUID)]
+        gloves[0].state = 0
+        gloves[0].recording = False
+        gloves[0].bothConnected = threading.Event()
+        gloves[0].connect()
+        gloves[0].bothConnected.wait()
+    except RuntimeError:
             print("Verbindung zu (mind.) einem COLLECTOR konnte nicht hergestellt werden.")
             print("Bitte pruefen Sie die Bluetooth-Verbindung und starten Sie das Programm erneut.")
-            print("Programm mit zwei mal 'STRG+C' beenden.")
+            print("Programm mit 'STRG+C' beenden.")
+            gloves[0].disconnect()
             while True:
-                sleep(1);
-        beep()
+                try:
+                    sleep(1)
+                except KeyboardInterrupt:
+					sys.exit()
+
 
 
     while True:
         args.parcours = raw_input("Valide PARCOURS.id angeben um Aufzeichnung zu starten: ")
-        while (True):
+        while True:
             parcours = db.parcours.find_one({"id": args.parcours})
-            if (bool(parcours)):
+            if bool(parcours):
                 break
             args.parcours = raw_input("PARCOURS.id '" + args.parcours + "' existiert nicht. Zum Aufzeichnen bitte valide PARKOUR.id angeben: ")
 
@@ -161,7 +177,7 @@ if __name__ == "__main__":
                     break
                 if cmd == "x":
                     time = gloves.faulty();#args.experiment)
-                    trainset2.update_one({ "experiment" : { "id" : args.experiment } },
+                    trainset.update_one({ "experiment" : { "id" : args.experiment } },
                                         { "$set" : { "status" : { "faulty" : time } } })
                     break
 
@@ -181,7 +197,7 @@ if __name__ == "__main__":
         beep()
         print "aufgenommene DATA wurde unter TRAINSET " + trainsetId + " abgespeichert."
         print "Druecken Sie 'Leertaste' um einen neuen PARCOURS zu laden. Programm-Argumente bleiben erhalten!"
-        print "Druecken Sie zwei mal 'STRG+C' um das Programm zu beenden. Alle Programm-Argumente werden 'vergessen'!\n"            
+        print "Druecken Sie 'STRG+C' um das Programm zu beenden. Alle Programm-Argumente werden 'vergessen'!\n"            
         while True:
             cmd = getch()
             if cmd == " ":
@@ -189,6 +205,7 @@ if __name__ == "__main__":
             if ord(cmd) == 3:
                print "Beende..."
                sys.stdout.flush()
+               gloves.disconnect()
                quit(0)
             sleep(1);
 	

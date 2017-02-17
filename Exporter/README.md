@@ -37,7 +37,7 @@ Programmablauf:
       - Meldung("keine Daten zum Export verfügbar.")
       - (PROGRAMMENDE)
     - **[mind. ein TRAINSET erfüllt die Kriterien]>**
-      - Export aller TRAINSETs aus DATABASE (für Spalten siehe [trainset.tmpl.csv](/Templates/trainset.tmpl.csv))
+      - Export aller TRAINSETs aus DATABASE (für Spalten siehe [trainset.tmpl.csv](/tree/Templates/trainset.tmpl.csv))
         - in chronologischer Reihenfolge: TRAINSET.created
         - Ausschlusskriterium: TRAINSET.hasAttribute("status.faulty")
       - Auswahl wird als .CSV exportiert

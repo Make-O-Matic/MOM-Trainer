@@ -1,52 +1,40 @@
-##Präambel:
-- TRAINSET = collection.trainset.json{MongoDB:uuid}
-- PARKOUR = collection.parkour.json{MongoDB:uuid}
-- GESTURES = collection.gestures.json{MongoDB:uuid}
-- DATA = TRAINSET.collection[i]
-
 ##Filestructure:
 
-FILENAME: %TRAINSET.uuid%
+FILENAME: [Filename]
 --------------------------
 METADATA: (how to add metadata to a .csv file - https://www.w3.org/TR/tabular-data-model/#embedded-metadata)
 # creator: Make-O-Matic
-# created: %TRAINSET.created.date%, %A{MongoDB:uuid}.created.time%
-# faulty: %TRAINSET.status.faulty%
-# experiment: %TRAINSET.experiment.id%
-# parkour: %TRAINSET.parkour.id%
-# observer: %TRAINSET.parkour.observer.id%
-# subject: %TRAINSET.parkour.subject.id%
+//...da kommen vl. noch Parameter hin
 ----------------------------
 
 ##COLUMNS
-- "created" > %TRAINSET.created.date%, %A{MongoDB:uuid}.created.time%
-- "faulty" > %TRAINSET.status.faulty% <-- da muss ich schauen ob das Sinn macht
-- "Experiment-ID" > %TRAINSET.experiment.id%
-- "Parkour-ID" > %TRAINSET.parkour.id%
-- "Observer-ID" > %TRAINSET.parkour.observer.id%
-- "Subject-ID" > %TRAINSET.parkour.subject.id%
 
-- "Exercise-ID" > %DATA.exercise.id%
-- "Host-ID" > %DATA.exercise.host.id%
-- "Spot-ID" > %DATA.exercise.host.spot.id%
-- "Gesture-ID" > %DATA.exercise.gesture.id%
-- "isNesture" > %DATA.exercise.gesture.isNesture%
-- "isAtomic" > %DATA.exercise.gesture.isAtomic%
-- "Mutation-ID" > %DATA.exercise.mutation.id%
-
-- "Stamp-ID" > %DATA.data.stamp.id%
-- "Stamp-Time" > %DATA.data.stamp.unixtime%
-- "Collector-ID" > %DATA.collector.id%
-- "RFID-ID" > %DATA.rfid%
-- "SAMERFID" > %DATA.calculated.isSameRFIDTag%
-- "GRASP-1" > %DATA.grasp.sensor-1%
-- "GRASP-2" > %DATA.grasp.sensor-2%
-- "AX" > %DATA.acceleration.x%
-- "AY" > %DATA.acceleration.y%
-- "AZ" > %DATA.acceleration.z%
-- "EX" > %DATA.rotation.x%
-- "EY" > %DATA.rotation.y%
-- "EZ" > %DATA.rotation.z%
-- "USERINPUT" > %DATA.interface.userInputButton%
-- "HANDINGLOVE" > %DATA.interface.handIsInGlove%
-- "SWITCH" > %DATA.interface.additionalSwitch%
+//Metadata
+- "Trainset-ID" > %TRAINSET.id% ["string"]
+- "Experiment-ID" > %TRAINSET.experiment.id% ["string"]
+- "Subject-ID" > %TRAINSET.parcours.subject.id% ["string"]
+- "Observer-ID" > %TRAINSET.parcours.observer.id% ["string"]
+//DATA
+- "collectedByHand" > %TRAINSET.parcours.subject.hands.find({"uuid":DATA.collector.uuid}).key()% ["string:left,right"]
+- "Collector-ID" > %TRAINSET.parcours.subject.hands.find({"uuid":DATA.collector.uuid})["id"]% ["string"]
+- "TimeStamp" > %DATA[i].stamp.microSeconds - DATA[0].stamp.microSeconds% ["time:microSeconds"]
+- "RFID-ID" > %DATA.rfid% ["string"]
+- "GRASP-A" > %DATA.grasp.sensorA% ["integer:0,1023"]
+- "GRASP-B" > %DATA.grasp.sensorB% ["integer:0,1023"]
+- "GRASP-C" > %DATA.grasp.sensorC% ["integer:0,1023"]
+- "AX" > %DATA.acceleration.x% ["float:-7,+7"]
+- "AY" > %DATA.acceleration.y% ["float:-7,+7"]
+- "AZ" > %DATA.acceleration.z% ["float:-7,+7"]
+- "EX" > %DATA.rotation.x% ["float:-90,+90"]
+- "EY" > %DATA.rotation.y% ["float:-90,+90"]
+- "EZ" > %DATA.rotation.z% ["float:-90,+90"]
+- "USERINPUT" > %DATA.interface.userInputButton% ["booelan:true,false"]
+- "HANDINGLOVE" > %DATA.interface.handIsInGlove% ["booelan:true,false"]
+//Kontext
+- "Parcours" > TRAINSET.parcours.id ["string"]
+- "Parcours/Exercise" > %DATA.step% ["integer"]
+- "Mutation-ID" > DATA.mutation.id ["string"]
+- "Mutation/HandIsActive" > ["boolean":true,false] <-- ist true, wenn die Hand von der die aktuelle DATA erzeugt wurde auch in der dazugehörigen MUTATION.hands vorkommt
+- "Host-ID" > %HOST.id% ["string"] <-- der HOST bei der richtigen Hand in der zugehörigen MUTATION
+- "Host/Spot-ID" > %SPOT.id% ["string"] <-- wenn vorhanden
+- "Gesture-ID" > %GESTURE.id% ["string"] <-- der GESTURE bei der richtigen Hand in der zugehörigen MUTATION

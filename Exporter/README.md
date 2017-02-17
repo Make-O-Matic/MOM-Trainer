@@ -19,15 +19,15 @@ Programmablauf:
           - Meldung("Es konnte keine Verbindung zur Datenbank hergestellt werden.")
       + -hand > left | right | both (= Standard)
     - optionale Argumente (= Kriterien): <-- jedes angegebene Kriterium muss in mind. einem TRAINSET mind. einmal vorkommen
-      + --g > GESTURE.id [, GESTURE.id]
-      + --h > HOST.id [, HOST.id]
-      + --o > OBSERVER.id [, OBSERVER.id]
-      + --e > EXPERIMENT.id [, EXPERIMENT.id]
-      + --s > SUBJECT.id [, SUBJECT.id]
-      + --m > MUTATION.id [, MUTATION.id]
-      + --c > COLLECTOR.id [, COLLECTOR.id]
-      + --p > PARCOURS.id [, PARCOURS.id]
-      + --t > TRAINSET.id [, TRAINSET.id]
+        + --t > TRAINSET.id [, TRAINSET.id]
+        + --e > EXPERIMENT.id [, EXPERIMENT.id]
+        + --s > SUBJECT.id [, SUBJECT.id]
+        + --o > OBSERVER.id [, OBSERVER.id]
+        + --p > PARCOURS.id [, PARCOURS.id]
+        + --c > COLLECTOR.id [, COLLECTOR.id]
+        + --m > MUTATION.id [, MUTATION.id]
+        + --g > GESTURE.id [, GESTURE.id]
+        + --h > HOST.id [, HOST.id]
       - **[keine Argument(e) angegeben]**>
         - goto (JUMP001)
       - **[Argument(e) angegeben]**>
@@ -37,7 +37,7 @@ Programmablauf:
       - Meldung("keine Daten zum Export verfügbar.")
       - (PROGRAMMENDE)
     - **[mind. ein TRAINSET erfüllt die Kriterien]>**
-      - Export aller TRAINSETs aus DATABASE (für Spalten siehe [trainset.tmpl.csv](/tree/Templates/trainset.tmpl.csv))
+      - Export aller TRAINSETs aus DATABASE (für Spalten siehe [/Templates/trainset.tmpl.csv](/Templates/trainset.tmpl.csv))
         - in chronologischer Reihenfolge: TRAINSET.created
         - Ausschlusskriterium: TRAINSET.hasAttribute("status.faulty")
       - Auswahl wird als .CSV exportiert

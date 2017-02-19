@@ -22,8 +22,28 @@ def getch():
         termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
     return ch
 
+
 def beep():
     call(['ogg123', '-q', '/usr/share/sounds/ubuntu/stereo/dialog-information.ogg'])
+    
+    
+def handText(db, hands, side, description):
+    text = ''
+    if side in hands:
+        hand = hands[side]
+        if 'host' in hand:
+            text += '-- HOST: ' + hand['host']['id'] 
+            if 'spot' in hand['host'] and 'id' in hand['host']['spot']:
+                text += ' > ' + hand['host']['spot']['id']
+
+        if 'gesture' in hand:
+            gesture = db.gestures.find_one({'id' : hand['gesture']['id']})
+            text += '\n-- GESTURE: "' + gesture['name'] + '"'
+
+        print '- ' + description + ' Hand\n' + text;
+        if 'instruction' in hand:
+            print '-- INSTRUCTION: "' + hand['instruction'] + '"'
+            
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='recorder.')
@@ -38,10 +58,13 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    db_client = MongoClient()
-    db = db_client['makeomatic']  
+    db_client = MongoClient("mongodb://TestDBAccessForGil:Ikemigoku754@ds145639.mlab.com:45639/mom-trainer_cloud")
+    db_client2 = MongoClient()
+    db2 = db_client2['makeomatic']
+    db = db_client['mom-trainer_cloud']
     
     gloves = []
+    
     def setConnected(state):
 		if state > gloves[0].state:
 			beep()
@@ -50,10 +73,11 @@ if __name__ == "__main__":
 			gloves[0].bothConnected.set()		
 
     def isRecording():
-        return gloves[0].recording#[0]
+        return gloves[0].recording
 
     lUUID = str(uuid.uuid4())
     rUUID = str(uuid.uuid4())
+    
     try:
         gloves = [Glove(args.lMAC, args.rMAC, setConnected, isRecording, lUUID, rUUID)]
         gloves[0].state = 0
@@ -62,10 +86,9 @@ if __name__ == "__main__":
         gloves[0].connect()
         gloves[0].bothConnected.wait()
     except RuntimeError:
-            print("Verbindung zu (mind.) einem COLLECTOR konnte nicht hergestellt werden.")
-            print("Bitte pruefen Sie die Bluetooth-Verbindung und starten Sie das Programm erneut.")
-            print("Programm mit 'STRG+C' beenden.")
-            gloves[0].disconnect()
+            print('Verbindung zu (mind.) einem COLLECTOR konnte nicht hergestellt werden.')
+            print('Bitte pruefen Sie die Bluetooth-Verbindung und starten Sie das Programm erneut.')
+            print('Programm mit \'STRG+C\' beenden.')
             while True:
                 try:
                     sleep(1)
@@ -75,20 +98,21 @@ if __name__ == "__main__":
 
 
     while True:
-        args.parcours = raw_input("Valide PARCOURS.id angeben um Aufzeichnung zu starten: ")
+        args.parcours = raw_input('Valide PARCOURS.id angeben um Aufzeichnung zu starten: ')
+        
         while True:
-            parcours = db.parcours.find_one({"id": args.parcours})
+            parcours = db.parcours.find_one({'id': args.parcours})
             if bool(parcours):
                 break
-            args.parcours = raw_input("PARCOURS.id '" + args.parcours + "' existiert nicht. Zum Aufzeichnen bitte valide PARKOUR.id angeben: ")
+            args.parcours = raw_input('PARCOURS.id "' + args.parcours + '" existiert nicht. Zum Aufzeichnen bitte valide PARKOUR.id angeben: ')
 
         now = datetime.datetime.utcnow()
-        trainsetId = "_TRAINSET" + now.strftime('%d%m%Y%H%M%S')
-        print("PARCOURS gefunden. EXERCISEs werden geladen, " + trainsetId + " wird erstellt...\n")
-        gloves.setTrainset(trainsetId)
-        trainset = db[trainsetId]
-        trainset.insert_one(
-        {   "_id" : trainsetId,
+        trainsetName = '_TRAINSET' + now.strftime('%d%m%Y%H%M%S')
+        print('PARCOURS gefunden. EXERCISEs werden geladen, ' + trainsetName + ' wird erstellt...\n')
+        gloves[0].setTrainsetExercise(trainsetName, 0, '', '')
+        trainset2 = db2[trainsetName]
+        trainset2.insert_one(
+        {   "_id" : trainsetName,
             "created" : now,
             "experiment" : { "id" : args.experiment },
             "parkour" : { "id" : args.parcours,
@@ -101,112 +125,85 @@ if __name__ == "__main__":
                                                                "id" : args.rId,
                                                                 "macAdress" : args.rMAC } } } } });
 
-        i = 1
+        step = 1
+        cmd = ''
         for exercise in parcours["exercises"]:
             mutation = db.mutations.find_one({'id' : exercise['mutation']['id']})
             if (bool(mutation) and 'slug' in mutation):
                 slug = mutation['slug']
-            print(str(i) + "/" + str(len(parcours['exercises'])) + " (" + exercise['mutation']['id'] + ") " + slug)
-            i = i + 1
+            print(str(step) + '/' + str(len(parcours['exercises'])) + ' (' + exercise['mutation']['id'] + ') "' + slug + '"')
+            step += 1
 
         print("----------------------")
         
         if 'comment' in parcours:
-            print "- COMMENT: " + parcours['comment']
-        print "- STARTPOSE: " + parcours['pose']['start']
-        print "----------------------"
-        print "Zum Starten des PARCOURS 'Leertaste' druecken..."
-        getch()
-        print "----------------------"        
+            print '- COMMENT: "' + parcours['comment'] + '"'
+        print '- STARTPOSE: "' + parcours['pose']['start'] + '"'
+        print '----------------------'
+        print 'Zum Starten des PARCOURS \'Leertaste\' druecken...'
+        
+        while True:
+            cmd = getch()
+            if cmd == ' ':
+                break;
+                
+        print '----------------------'        
         
 
 
-        i = 1
+        step = 1
         for exercise in parcours['exercises']:
-            print "Jetzt EXERCISE " + str(i) + "/" + str(len(parcours['exercises'])) + " (" + exercise['mutation']['id'] + ") ausfuehren"
-            mutation = db.mutations.find_one({'id' : exercise['mutation']['id']})
+			mutation = db.mutations.find_one({'id' : exercise['mutation']['id']})
+            gloves[0].setTrainsetExercise('', step, exercise['mutation']['id'], str(mutation['_id']))
+            gloves[0].recording = True
+            print 'Jetzt EXERCISE ' + str(step) + '/' + str(len(parcours['exercises'])) + ' (' + exercise['mutation']['id'] + ') ausfuehren'
             if (bool(mutation) and 'instruction' in mutation):
-                print "- INSTRUCTION: " + mutation['instruction']
+                print '- INSTRUCTION: "' + mutation['instruction'] + '"'
 
 
             if bool(mutation) and 'hands' in mutation:
                 hands = mutation['hands']
-                text = ""
-                if 'left' in hands:
-                    if 'host' in hands['left']:
-                        text += "-- HOST: " + hands['left']['host']['id'] 
-                        if 'spot' in hands['left']['host'] and 'id' in hands['left']['host']['spot']:
-                            text += " > " + hands['left']['host']['spot']['id']
+                handText(db, hands, 'left', 'linke')
+                handText(db, hands, 'right', 'rechte')
 
-                    if 'gesture' in hands['left']:
-                        gesture = db.gestures.find_one({'id' : hands['left']['gesture']['id']})
-                        text += "\n-- GESTURE: " + gesture['name']
-
-                    print "- linke Hand\n" + text;
-                    if 'instruction' in hands['left']:
-                        print "-- INSTRUCTION: " + hands['left']['instruction']
-
-                text = ""
-                if 'right' in hands:
-                    if 'host' in hands['right']:
-                        text += "-- HOST: " + hands['right']['host']['id'] 
-                        if 'spot' in hands['right']['host'] and 'id' in hands['right']['host']['spot']:
-                            text += " > " + hands['right']['host']['spot']['id']
-
-                    if 'gesture' in hands['right']:
-                        gesture = db.gestures.find_one({'id' : hands['right']['gesture']['id']})
-                        text += "\n-- GESTURE: " + gesture['name']
-
-                    print "- rechte Hand\n" + text
-                    if 'instruction' in hands['right']:
-                        print "-- INSTRUCTION: " + hands['right']['instruction']
-
-            print "----------------------"
+            print '----------------------'
             if exercise['signal']['beep']:
                 beep()
-            gloves.m_mutation = exercise['mutation']['id']
-            gloves.m_mutationIndex = str(mutation['_id'])
-            gloves.m_step = i
-            i = i + 1
-            recording[0] = True
 
-            cmd = ""
+            cmd = ''
             while True:
                 cmd = getch()
-                if cmd == " ":
+                if cmd == ' ':
+					step += 1
                     break
-                if cmd == "x":
-                    time = gloves.faulty();#args.experiment)
-                    trainset.update_one({ "experiment" : { "id" : args.experiment } },
-                                        { "$set" : { "status" : { "faulty" : time } } })
+                if cmd == 'x':
+                    time = gloves[0].now();
+                    trainset2.update_one({ 'experiment' : { 'id' : args.experiment } },
+                                        { '$set' : { 'status' : { 'faulty' : time } } })
+                    print 'PARCOURS abgebrochen. Daten unter TRAINSET ' + trainsetName + ' abgespeichert und als fehlerhaft (TRAINSET.status.faulty) markiert.'
                     break
 
-            recording[0] = False
+            gloves[0].recording = False
 
-            if cmd == "x":
-                print "PARCOURS abgebrochen. Daten unter TRAINSET " + trainsetId + " abgespeichert und als fehlerhaft (TRAINSET.status.faulty) markiert."
+            if cmd == 'x':
                 break
 
-        if cmd != "x":
-            print "Aufnahme beendet! PARCOURS " + args.parcours + " erfolgreich durchlaufen."
-
-        trainset.update_one({ "experiment" : { "id" : args.experiment } },
-                             { "$set" : { "ended" : datetime.datetime.utcnow() } })
-
+        trainset2.update_one({ 'experiment' : { 'id' : args.experiment } },
+                             { '$set' : { 'ended' : datetime.datetime.utcnow() } })
+        if cmd != 'x':
+            print 'Aufnahme beendet! PARCOURS ' + args.parcours + ' erfolgreich durchlaufen.'
         beep()
         beep()
-        print "aufgenommene DATA wurde unter TRAINSET " + trainsetId + " abgespeichert."
-        print "Druecken Sie 'Leertaste' um einen neuen PARCOURS zu laden. Programm-Argumente bleiben erhalten!"
-        print "Druecken Sie 'STRG+C' um das Programm zu beenden. Alle Programm-Argumente werden 'vergessen'!\n"            
+        print 'aufgenommene DATA wurde unter TRAINSET ' + trainsetName + ' abgespeichert.'
+        print 'Druecken Sie \'Leertaste\' um einen neuen PARCOURS zu laden. Programm-Argumente bleiben erhalten!'
+        print 'Druecken Sie \'STRG+C\' um das Programm zu beenden. Alle Programm-Argumente werden \'vergessen\'!\n'           
         while True:
             cmd = getch()
-            if cmd == " ":
+            if cmd == ' ':
                 break;
             if ord(cmd) == 3:
-               print "Beende..."
-               sys.stdout.flush()
-               gloves.disconnect()
-               quit(0)
+               print 'Beende...'
+               sys.exit()
             sleep(1);
 	
 

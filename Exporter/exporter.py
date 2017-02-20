@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import sys
 import argparse
 from sets import Set
 from pymongo import MongoClient, errors
@@ -18,9 +19,9 @@ if __name__ == "__main__":
     parser.add_argument('-o', '--observer', nargs='+', help='OBSERVER.id')
     parser.add_argument('-p', '--parcours', nargs='+', help='PARCOURS.id')
     parser.add_argument('-c', '--collector', nargs='+', help='COLLECTOR.id')
-    parser.add_argument('-m', '--mutation', nargs='+', help='MUTATION.id')
-    parser.add_argument('-g', '--gesture', nargs='+', help='GESTURE.id')
-    parser.add_argument('-h', '--host', nargs='+', help='HOST.id')
+    parser.add_argument('-m', '--mutation', nargs='+', default= [], help='MUTATION.id')
+    parser.add_argument('-g', '--gesture', nargs='+', default= [], help='GESTURE.id')
+    parser.add_argument('-h', '--host', nargs='+', default= [], help='HOST.id')
 
     args = parser.parse_args()
     try:
@@ -28,7 +29,7 @@ if __name__ == "__main__":
         db = db_client[args.db]
     except errors.ConnectionFailure:
         print('Es konnte keine Verbindung zur Datenbank hergestellt werden.')
-  
+        sys.exit()
     
     parcours_ids = Set(args.parcours)
     aggregated_parcours = db.parcours.aggregate([
@@ -36,13 +37,12 @@ if __name__ == "__main__":
             '$unwind' : '$exercises'
         },
         {
-            '$lookup' :
-                {
+            '$lookup' : {
                     'from' : 'mutations',
                     'localField' : 'exercises.mutation.id',
                     'foreignField' : 'id',
                     'as' : 'mutation'
-                }
+            }
         },
         {
             '$match' : { '$or' : [
@@ -58,19 +58,56 @@ if __name__ == "__main__":
     for parcours in aggregated_parcours:
         parcours_ids.add(parcours.id)
         
-
+   #print
  
     collections = db.collection_names()
+    trainset_infos = {}
     for collection in collections:
-        collection_info = db[collection].find_one({ '_id' : collection })
-        if (collection_info
-            and ((collection_info._id in args.trainsets)
-                or (collection_info.experiment.id in args.experiments)
-                or (collection_info.parcours.subject.id in args.subject)
-                or (collection_info.parcours.observer.id in args.observer)
-                or (collection_info.parcours.id in parcours_ids)
-                or (collection_info.parcours.subject.hands.left.id in args.collector)
-                or (collection_info.parcours.subject.hands.right.id in args.collector))):
-            if not collection_info.status.faulty:
-                trainsets[collection] = collection_info.created
- 
+        trainset_info = db[collection].find_one({ '_id' : collection })
+        if (trainset_info
+            and ((trainset_info._id in args.trainsets)
+                or (trainset_info.experiment.id in args.experiments)
+                or (trainset_info.parcours.subject.id in args.subject)
+                or (trainset_info.parcours.observer.id in args.observer)
+                or (trainset_info.parcours.id in parcours_ids)
+                or (trainset_info.parcours.subject.hands.left.id in args.collector)
+                or (trainset_info.parcours.subject.hands.right.id in args.collector))):
+            if not trainset_info.status.faulty:
+                trainset_infos[collection] = trainset_info
+    
+    if not trainset_infos:
+        print('keine Daten zum Export verfuegbar.')
+        sys.exit()
+
+    for trainset in sorted(trainsets, key=trainsets.get.created):
+        info = trainset_infos[trainset]   
+        matchHand = {}
+        if args.hand:
+            match = { '$eq' : [ 
+                '$collector.id', 
+                info.parcours.subject.hands[args.hand].uuid
+            ] }
+        db[trainset].aggregate([
+        {
+            '$match' : matchHand
+        },
+        {
+            '$addFields' : {
+                'trainset' : info._id,
+                'experiment' : info.experiment.id,
+                'subject' : info.parcours.subject.id,
+                'object' : info.parcours.observer.id,
+                'collector.info' : {
+                    '$cond' : { 
+                        'if' :  { '$eq' : [ '$collector.id', info.parcours.subject.hands.left.uuid ] }, 
+                        'then' : { 'side' : 'left', 'id' : info.parcours.subject.hands.left.id },
+                        'else' :  { 'side' : 'right', 'id' : info.parcours.subject.hands.right.id }
+                    }
+                },
+                'parcours' : info.parcours.id        
+            }
+        }
+        ])
+    
+
+

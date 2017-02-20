@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import sys
+from subprocess import call
 import argparse
 from sets import Set
 from pymongo import MongoClient, errors
@@ -79,10 +80,39 @@ if __name__ == "__main__":
         print('keine Daten zum Export verfuegbar.')
         sys.exit()
 
+    fields = '''
+trainset
+experiment
+subject
+observer
+info.side
+info.collector
+data.stamp.microSeconds
+data.rfid
+data.grasp.sensorA
+data.grasp.sensorB
+data.grasp.sensorC
+data.acceleration.x
+data.acceleration.y
+data.acceleration.z
+data.rotation.x
+data.rotation.y
+data.rotation.z
+data.interface.userInputButton
+data.interface.handIsInGlove
+parcours
+data.step
+data.mutation.id
+info.active.hand
+info.active.host
+info.active.spot
+info.active.gesture
+'''
+
     for trainset in sorted(trainsets, key=trainsets.get.created):
         info = trainset_infos[trainset]   
         matchHand = {}
-        if args.hand:
+        if args.hand and args.hand != 'both':
             match = { '$eq' : [ 
                 '$collector.id', 
                 info.parcours.subject.hands[args.hand].uuid
@@ -92,22 +122,72 @@ if __name__ == "__main__":
             '$match' : matchHand
         },
         {
+            '$lookup' :
+                {
+                    'from' : 'mutations',
+                    'localField' : 'mutation.id',
+                    'foreignField' : 'id',
+                    'as' : 'mutation_info'
+                }
+        },        
+        {
             '$addFields' : {
                 'trainset' : info._id,
                 'experiment' : info.experiment.id,
                 'subject' : info.parcours.subject.id,
-                'object' : info.parcours.observer.id,
-                'collector.info' : {
+                'observer' : info.parcours.observer.id,
+                'info' : {
                     '$cond' : { 
-                        'if' :  { '$eq' : [ '$collector.id', info.parcours.subject.hands.left.uuid ] }, 
-                        'then' : { 'side' : 'left', 'id' : info.parcours.subject.hands.left.id },
-                        'else' :  { 'side' : 'right', 'id' : info.parcours.subject.hands.right.id }
+                        'if' : { '$eq' : [ '$collector.id', info.parcours.subject.hands.left.uuid ] }, 
+                        'then' : { 
+                            'side' : 'left', 
+                            'collector' : info.parcours.subject.hands.left.id,
+                            'active' : {'$cond' : { 
+                                'if' : { '$gt' : [ 'mutation_info.hands.left', null ] },
+                                'then' : { 
+                                    'hand' : True,
+                                    'host' : 'mutation_info.hands.left.host.id',
+                                    'spot' : 'mutation_info.hands.left.host.spot.id',
+                                    'gesture' : 'mutation_info.hands.left.gesture.id'
+                                },
+                                'else' : {
+                                    'hand' : False,
+                                    'host' : 'mutation_info.hands.right.host.id',
+                                    'spot' : 'mutation_info.hands.right.host.spot.id',
+                                    'gesture' : 'mutation_info.hands.right.gesture.id'
+                                }
+                            }}
+                        },
+                        'else' : { 
+                            'side' : 'right', 
+                            'collector' : info.parcours.subject.hands.right.id,
+                            'active' : {'$cond' : { 
+                                'if' : { '$gt' : [ 'mutation_info.hands.right', null ] },
+                                'then' : { 
+                                    'hand' : True,
+                                    'host' : 'mutation_info.hands.right.host.id',
+                                    'spot' : 'mutation_info.hands.right.host.spot.id',
+                                    'gesture' : 'mutation_info.hands.right.gesture.id'
+                                },
+                                'else' : {
+                                    'hand' : False,
+                                    'host' : 'mutation_info.hands.left.host.id',
+                                    'spot' : 'mutation_info.hands.left.host.spot.id',
+                                    'gesture' : 'mutation_info.hands.left.gesture.id'
+                                }  
+                            }}
+                        }
                     }
                 },
-                'parcours' : info.parcours.id        
+                'parcours' : info.parcours.id
             }
+        },
+        {
+            '$out' : 'exporter'
         }
         ])
+        
+        call(['mongoexport']) 
     
 
 

@@ -31,8 +31,9 @@ if __name__ == "__main__":
     try:
         db_client = MongoClient('mongodb://' + args.username + ':' + args.password + 
                                 '@' + args.hostname + ':' + args.port + '/' + args.db)
+        db_client.admin.command('ismaster')
         db = db_client[args.db]
-    except (errors.ConnectionFailure, errors.InvalidURI):
+    except (errors.ConnectionFailure, errors.InvalidURI, errors.OperationFailure):
         print('Es konnte keine Verbindung zur Datenbank hergestellt werden.')
         sys.exit()
     

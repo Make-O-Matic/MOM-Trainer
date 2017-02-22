@@ -10,50 +10,41 @@ wird eine (neue, sofern noch nicht vorhanden) COLLECTION erstellt
 - löscht man ein Guh/Device (in Guh), so bleiben die verbundenen
 COLLECTIONs erhalten
 
+collectionID-gloveLeft: UUID <-- wird von der Plattform automatisch generiert
+userId: UUID <-- wird beim Erstellen des Device vom User angegeben (NEW: !!!muss zur Laufzeit geändert werden können)
+mac-adress-gloveLeft: MAC-Adresse des Bluetooth-Moduls <-- wird vom User auf der Plattform festgelegt
+mac-adress-gloveRight: MAC-Adresse des Bluetooth-Moduls <-- wird vom User auf der Plattform festgelegt
+
+
+
+
 {
-  "MongoDB:uuid": { //<-- Collection (A) von GloveLeft. Für GloveRight gibt es eine eigene Collection
-    "id":"a62d4a74-e2ed-11e6", //<-- Collection-Id
+  "COL: CollectionId": { //<-- Collection (A) von GloveLeft. Für GloveRight gibt es eine eigene Collection
+    "_id":"Mongo:uuid",
+    "id": "a62d4a74-e2ed-11e6", //<-- Collection-Id
     "collector": {
-      "id":"a62d4a74-e2ed-11e6", //<-- gibt nur den MOM/Collector-Type an. Die Devices haben keine IDs
-      "guh": {
-        "deviceID":"a62d4a74-e2ed-11e6", //<-- Guh-Device von dem die Daten stammen
-        "pluginID":"a62d4a74-e2ed-11e6" //<-- Guh-Plugin von dem die Daten stammen
+      "id": "C001",
+      "type": {
+          "id":"a62d4a74-e2ed-11e6" //<-- gibt nur den MOM/Collector-Type an. Die Devices haben keine IDs
       }
     },
-    "signals": [
-      {
-        "id":"a62d4a74-e2ed-11e6", //<-- kommt von der Plattform, kann man das beim Kompilieren mitgeben?
-        "slug":"rfid", //<-- nur eine Hilfe beim Auslesen
-        "data": [
-          {
-            "value":"000000000000",
-            "user": {
-              "id":"" //<-- nur eine Behelfsmöglichkeit um den User-Kontext anzugeben
-            },
-            "stamp": {
-              "id": "0",
-              "unixtime": "1481890593" //<-- Beide Signals wurden zum selben Zeitpunkt (A) empfangen
-            }
-          }
-        ]
+    "guh": {
+      "deviceID":"a62d4a74-e2ed-11e6", //<-- Guh-Device von dem die Daten stammen
+      "pluginID":"a62d4a74-e2ed-11e6" //<-- Guh-Plugin von dem die Daten stammen
+    },
+    "signal": {
+      "id":"a62d4a74-e2ed-11e6", //<-- kommt von der Plattform, kann man das beim Kompilieren mitgeben?
+      "slug":"rfid", //<-- nur eine Hilfe beim Auslesen
+    },
+    "data": {
+      "value":"000000000000",
+      "user": {
+        "id":"" //<-- nur eine Behelfsmöglichkeit um den User-Kontext anzugeben
       },
-      {
-        "id":"a62d4a74-e2ed-11e6",
-        "slug":"grasp.sensor-1",
-        "data": [
-          {
-            "value":125,
-            "user": {
-              "id":""
-            },
-            "stamp": {
-              "id": "0",
-              "unixtime": "1481890593" //<-- Beide Signals wurden zum selben Zeitpunkt (A) empfangen
-            }
-          }
-        ]
+      "stamp": {
+        "unixtime": "1481890593"
       }
-    ]
+    }
   }
 }
 

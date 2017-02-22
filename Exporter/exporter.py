@@ -36,7 +36,12 @@ if __name__ == "__main__":
     except (errors.ConnectionFailure, errors.InvalidURI, errors.OperationFailure):
         print('Es konnte keine Verbindung zur Datenbank hergestellt werden.')
         sys.exit()
-    
+       
+    filter = True
+    if (not args.trainset and not args.experiment and not args.subject and not args.observer and
+        not args.parcours and not args.collector and not args.mutation and not args.gesture and not args.host):
+        filter = False
+        
     parcours_ids = Set(args.parcours)
     selected_parcours = db.parcours.aggregate([
         {
@@ -76,7 +81,8 @@ if __name__ == "__main__":
         if 'parkour' in trainset_info:
             parcours = 'parkour'
         if (trainset_info
-            and ((trainset_info['_id'] in args.trainset)
+            and (not filter
+                or (trainset_info['_id'] in args.trainset)
                 or (trainset_info['experiment']['id'] in args.experiment)
                 or (trainset_info[parcours]['subject']['id'] in args.subject)
                 or (trainset_info[parcours]['observer']['id'] in args.observer)
@@ -207,9 +213,10 @@ info.active.gesture
         ])
         
         start = db[tmpCollection].find_one({}, sort=[('data.stamp.microSeconds', ASCENDING)])
-        db[tmpCollection].update_many({}, { '$inc' : { 'data.stamp.microSeconds' : -start['data']['stamp']['microSeconds'] } })
+        if start:
+            db[tmpCollection].update_many({}, { '$inc' : { 'data.stamp.microSeconds' : -start['data']['stamp']['microSeconds'] } })
                 
-        call(['mongoexport', '--quiet',
+            call(['mongoexport', '--quiet',
             '--host', args.hostname,
             '--port', args.port,
             '--username', args.username,

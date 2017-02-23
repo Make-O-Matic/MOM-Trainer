@@ -3,11 +3,23 @@
 FILENAME: [Filename]
 --------------------------
 METADATA: (how to add metadata to a .csv file - https://www.w3.org/TR/tabular-data-model/#embedded-metadata)
-# creator: Make-O-Matic
-//...da kommen vl. noch Parameter hin
+#creator: Make-O-Matic
+#Arguments:
+#hostname: "localhost"
+#port: "27017"
+#.... <-- hier stehen dann alle -- Parameter die in der Console mitgegeben wurden
+#Filter:
+#HANDs: left | right | both
+#GESTUREs: G113, G115
+#PARCOURS: P202, P867
+#.... <-- hier stehen dann alle Filter-Parameter die in der Console mitgegeben wurden
+#exported: _TRAINSET14022017123233, _TRAINSET14022017123233 <-- hier sind alle exportieren TRAINSETs aufgelistet
 ----------------------------
 
 ##COLUMNS
+
+Headlines
+#Trainset-ID ["string"], Experiment-ID ["string"], ....
 
 //Metadata
 - "Trainset-ID" > %TRAINSET.id% ["string"]

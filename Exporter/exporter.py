@@ -36,14 +36,10 @@ if __name__ == "__main__":
     except (errors.ConnectionFailure, errors.InvalidURI, errors.OperationFailure):
         print('Es konnte keine Verbindung zur Datenbank hergestellt werden.')
         sys.exit()
-       
-    filter = True
-    if (not args.trainset and not args.experiment and not args.subject and not args.observer and
-        not args.parcours and not args.collector and not args.mutation and not args.gesture and not args.host):
-        filter = False
         
     parcours_ids = Set(args.parcours)
-    selected_parcours = db.parcours.aggregate([
+    if args.mutation or args.gesture or args.host:
+        selected_parcours = db.parcours.aggregate([
         {
             '$unwind' : '$exercises'
         },
@@ -67,9 +63,9 @@ if __name__ == "__main__":
                 { 'mutation.hands.right.host.id' : { '$in' : args.host } }
             ]}
         }
-    ])
-    for parcours in selected_parcours:
-        parcours_ids.add(parcours['id'])
+        ])
+        for parcours in selected_parcours:
+            parcours_ids.add(parcours['id'])
  
     collections = db.collection_names()
     trainset_infos = {}
@@ -80,6 +76,10 @@ if __name__ == "__main__":
         parcours = 'parcours'
         if 'parkour' in trainset_info:
             parcours = 'parkour'
+            filter = True
+            if (not args.trainset and not args.experiment and not args.subject and not args.observer and
+                not args.parcours and not args.collector and not args.mutation and not args.gesture and not args.host):
+                filter = False
         if (trainset_info
             and (not filter
                 or (trainset_info['_id'] in args.trainset)
@@ -136,11 +136,13 @@ info.active.gesture
         outputFile += '_' + filter
     outputFile += '.csv'
     output = open(outputFile, 'a+')
+    output.write('# creator Make-O-Matic\n')
+    output.flush()
 
     for trainset in sorted(trainset_infos, key=lambda trainset: trainset_infos[trainset]['created']):
-        info = trainset_infos[trainset]   
+        info = trainset_infos[trainset]  
         parcours = 'parcours'
-        if 'parkour' in trainset_info:
+        if 'parkour' in info:
             parcours = 'parkour'
         match = { '_id' : { '$ne' : info['_id'] } }
         if args.hand and args.hand != 'both':

@@ -27,7 +27,7 @@ def beep():
     call(['ogg123', '-q', '/usr/share/sounds/ubuntu/stereo/dialog-information.ogg'])
     
     
-def handText(db, hands, side, description):
+def show_info(db, hands, side, description):
     text = ''
     if side in hands:
         hand = hands[side]
@@ -40,51 +40,47 @@ def handText(db, hands, side, description):
             gesture = db.gestures.find_one({'id' : hand['gesture']['id']})
             text += '\n-- GESTURE: "' + gesture['name'] + '"'
 
-        print '- ' + description + ' Hand\n' + text;
+        print('- ' + description + ' Hand\n' + text);
         if 'instruction' in hand:
-            print '-- INSTRUCTION: "' + hand['instruction'] + '"'
+            print('-- INSTRUCTION: "' + hand['instruction'] + '"')
             
 
-if __name__ == "__main__":
+if __name__ == "__main__":   
     parser = argparse.ArgumentParser(description='recorder.')
-    parser.add_argument('-l', '--lId', type=str, required=True, help='COLLECTOR.id fuer den linken Handschuh')
-    parser.add_argument('-L', '--lMAC', type=str, required=True, help='COLLECTOR.macAddress fuer den linken Handschuh')
-    parser.add_argument('-r', '--rId', type=str, required=True, help='COLLECTOR.id fuer den rechten Handschuh')
-    parser.add_argument('-R', '--rMAC', type=str, required=True, help='COLLECTOR.macAddress fuer den rechten Handschuh')
-
-    parser.add_argument('-e', '--experiment', type=str, required=True, help='EXPERIMENT.id (neu)')
-    parser.add_argument('-o', '--observer', type=str, required=True, help='OBSERVER.id (neu)')
-    parser.add_argument('-s', '--subject', type=str, required=True, help='SUBJECT.id (neu)')
+    parser.add_argument('-l', '--lId', required=True, help='COLLECTOR.id fuer den linken Handschuh')
+    parser.add_argument('-L', '--lMAC', required=True, help='COLLECTOR.macAddress fuer den linken Handschuh')
+    parser.add_argument('-r', '--rId', required=True, help='COLLECTOR.id fuer den rechten Handschuh')
+    parser.add_argument('-R', '--rMAC', required=True, help='COLLECTOR.macAddress fuer den rechten Handschuh')
+    parser.add_argument('-e', '--experiment', required=True, help='EXPERIMENT.id (neu)')
+    parser.add_argument('-o', '--observer', required=True, help='OBSERVER.id (neu)')
+    parser.add_argument('-s', '--subject', required=True, help='SUBJECT.id (neu)')
 
     args = parser.parse_args()
 
-    db_client = MongoClient("mongodb://TestDBAccessForGil:Ikemigoku754@ds145639.mlab.com:45639/mom-trainer_cloud")
-    db_client2 = MongoClient()
-    db2 = db_client2['makeomatic']
-    db = db_client['mom-trainer_cloud']
+    db_client = MongoClient()
+    db = db_client['makeomatic']
     
     gloves = []
     
-    def setConnected(state):
-		if state > gloves[0].state:
-			beep()
-		gloves[0].state = state	
-		if state == 3:
-			gloves[0].bothConnected.set()		
+    def set_connected(state):
+        if state > gloves[0].state:
+            beep()
+        gloves[0].state = state	
+        if state == 3:
+            gloves[0].both_connected.set()		
 
-    def isRecording():
+    def is_recording():
         return gloves[0].recording
 
     lUUID = str(uuid.uuid4())
     rUUID = str(uuid.uuid4())
-    
     try:
-        gloves = [Glove(args.lMAC, args.rMAC, setConnected, isRecording, lUUID, rUUID)]
+        gloves = [Glove(args.lMAC, args.rMAC, set_connected, is_recording, lUUID, rUUID)]
         gloves[0].state = 0
         gloves[0].recording = False
-        gloves[0].bothConnected = threading.Event()
+        gloves[0].both_connected = threading.Event()
         gloves[0].connect()
-        gloves[0].bothConnected.wait()
+        gloves[0].both_connected.wait()
     except RuntimeError:
             print('Verbindung zu (mind.) einem COLLECTOR konnte nicht hergestellt werden.')
             print('Bitte pruefen Sie die Bluetooth-Verbindung und starten Sie das Programm erneut.')
@@ -93,37 +89,38 @@ if __name__ == "__main__":
                 try:
                     sleep(1)
                 except KeyboardInterrupt:
-					sys.exit()
+                    gloves[0].disconnect()
+                    sys.exit()
 
 
 
     while True:
-        args.parcours = raw_input('Valide PARCOURS.id angeben um Aufzeichnung zu starten: ')
+        args.parcours = input('Valide PARCOURS.id angeben um Aufzeichnung zu starten: ')
         
         while True:
             parcours = db.parcours.find_one({'id': args.parcours})
             if bool(parcours):
                 break
-            args.parcours = raw_input('PARCOURS.id "' + args.parcours + '" existiert nicht. Zum Aufzeichnen bitte valide PARKOUR.id angeben: ')
+            args.parcours = input('PARCOURS.id "' + args.parcours + '" existiert nicht. Zum Aufzeichnen bitte valide PARKOUR.id angeben: ')
 
         now = datetime.datetime.utcnow()
-        trainsetName = '_TRAINSET' + now.strftime('%d%m%Y%H%M%S')
+        trainsetName = 'TRAINSET' + now.strftime('%d%m%Y%H%M%S')
         print('PARCOURS gefunden. EXERCISEs werden geladen, ' + trainsetName + ' wird erstellt...\n')
         gloves[0].setTrainsetExercise(trainsetName, 0, '', '')
-        trainset2 = db2[trainsetName]
-        trainset2.insert_one(
+        trainset = db[trainsetName]
+        trainset.insert_one(
         {   "_id" : trainsetName,
             "created" : now,
             "experiment" : { "id" : args.experiment },
-            "parkour" : { "id" : args.parcours,
+            "parcours" : { "id" : args.parcours,
                           "observer" : { "id" : args.observer },
                           "subject" : { "id" : args.subject,
                                         "hands" : { "left" : { "uuid" : lUUID,
                                                                "id" : args.lId,
-                                                               "macAdress" : args.lMAC },
+                                                               "macAddress" : args.lMAC },
                                                     "right" : { "uuid" : rUUID,
                                                                "id" : args.rId,
-                                                                "macAdress" : args.rMAC } } } } });
+                                                                "macAddress" : args.rMAC } } } } });
 
         step = 1
         cmd = ''
@@ -137,36 +134,41 @@ if __name__ == "__main__":
         print("----------------------")
         
         if 'comment' in parcours:
-            print '- COMMENT: "' + parcours['comment'] + '"'
-        print '- STARTPOSE: "' + parcours['pose']['start'] + '"'
-        print '----------------------'
-        print 'Zum Starten des PARCOURS \'Leertaste\' druecken...'
+            print('- COMMENT: "' + parcours['comment'] + '"')
+        print('- STARTPOSE: "' + parcours['pose']['start'] + '"')
+        print('----------------------')
+        print('Zum Starten des PARCOURS \'Leertaste\' druecken...')
         
         while True:
             cmd = getch()
             if cmd == ' ':
                 break;
                 
-        print '----------------------'        
+        print('----------------------')
         
-
+        mutationIndex = {}
+        for exercise in parcours['exercises']:
+            mutationIndex[exercise['mutation']['id']] = str(
+                db.mutations.find_one({'id' : exercise['mutation']['id']})['_id'])
 
         step = 1
         for exercise in parcours['exercises']:
-			mutation = db.mutations.find_one({'id' : exercise['mutation']['id']})
-            gloves[0].setTrainsetExercise('', step, exercise['mutation']['id'], str(mutation['_id']))
+			#mutation = db.mutations.find_one({'id' : exercise['mutation']['id']})str(mutation['_id'])
+            gloves[0].setTrainsetExercise('', step, exercise['mutation']['id'], 
+                mutationIndex[exercise['mutation']['id']])
             gloves[0].recording = True
-            print 'Jetzt EXERCISE ' + str(step) + '/' + str(len(parcours['exercises'])) + ' (' + exercise['mutation']['id'] + ') ausfuehren'
+            print('Jetzt EXERCISE ' + str(step) + '/' + str(len(parcours['exercises'])) + 
+                  ' (' + exercise['mutation']['id'] + ') ausfuehren')
             if (bool(mutation) and 'instruction' in mutation):
-                print '- INSTRUCTION: "' + mutation['instruction'] + '"'
+                print('- INSTRUCTION: "' + mutation['instruction'] + '"')
 
 
             if bool(mutation) and 'hands' in mutation:
                 hands = mutation['hands']
-                handText(db, hands, 'left', 'linke')
-                handText(db, hands, 'right', 'rechte')
+                show_info(db, hands, 'left', 'linke')
+                show_info(db, hands, 'right', 'rechte')
 
-            print '----------------------'
+            print('----------------------')
             if exercise['signal']['beep']:
                 beep()
 
@@ -174,13 +176,14 @@ if __name__ == "__main__":
             while True:
                 cmd = getch()
                 if cmd == ' ':
-					step += 1
+                    step += 1
                     break
                 if cmd == 'x':
                     time = gloves[0].now();
-                    trainset2.update_one({ 'experiment' : { 'id' : args.experiment } },
+                    trainset.update_one({ 'experiment' : { 'id' : args.experiment } },
                                         { '$set' : { 'status' : { 'faulty' : time } } })
-                    print 'PARCOURS abgebrochen. Daten unter TRAINSET ' + trainsetName + ' abgespeichert und als fehlerhaft (TRAINSET.status.faulty) markiert.'
+                    print('PARCOURS abgebrochen. Daten unter TRAINSET ' + trainsetName 
+                        + ' abgespeichert und als fehlerhaft (TRAINSET.status.faulty) markiert.')
                     break
 
             gloves[0].recording = False
@@ -188,21 +191,21 @@ if __name__ == "__main__":
             if cmd == 'x':
                 break
 
-        trainset2.update_one({ 'experiment' : { 'id' : args.experiment } },
+        trainset.update_one({ 'experiment' : { 'id' : args.experiment } },
                              { '$set' : { 'ended' : datetime.datetime.utcnow() } })
         if cmd != 'x':
-            print 'Aufnahme beendet! PARCOURS ' + args.parcours + ' erfolgreich durchlaufen.'
+            print('Aufnahme beendet! PARCOURS ' + args.parcours + ' erfolgreich durchlaufen.')
         beep()
         beep()
-        print 'aufgenommene DATA wurde unter TRAINSET ' + trainsetName + ' abgespeichert.'
-        print 'Druecken Sie \'Leertaste\' um einen neuen PARCOURS zu laden. Programm-Argumente bleiben erhalten!'
-        print 'Druecken Sie \'STRG+C\' um das Programm zu beenden. Alle Programm-Argumente werden \'vergessen\'!\n'           
+        print('aufgenommene DATA wurde unter TRAINSET ' + trainsetName + ' abgespeichert.')
+        print('Druecken Sie \'Leertaste\' um einen neuen PARCOURS zu laden. Programm-Argumente bleiben erhalten!')
+        print('Druecken Sie \'STRG+C\' um das Programm zu beenden. Alle Programm-Argumente werden \'vergessen\'!\n')         
         while True:
             cmd = getch()
             if cmd == ' ':
                 break;
             if ord(cmd) == 3:
-               print 'Beende...'
+               gloves[0].disconnect()
                sys.exit()
             sleep(1);
 	

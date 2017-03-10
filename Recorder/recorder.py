@@ -9,7 +9,7 @@ import os, sys, tty, termios
 from subprocess import call
 
 from pymongo import MongoClient
-from glove import Glove
+from momconnectivity.glove import Glove
 
 
 def getch():

@@ -68,6 +68,10 @@ if __name__ == "__main__":
             parcours_ids.add(parcours['id'])
  
     collections = db.collection_names()
+    filter = True
+    if (not args.trainset and not args.experiment and not args.subject and not args.observer and
+	    not args.parcours and not args.collector and not args.mutation and not args.gesture and not args.host):
+        filter = False
     trainset_infos = {}
     for collection in collections:
         if not 'TRAINSET' in collection:
@@ -76,10 +80,6 @@ if __name__ == "__main__":
         parcours = 'parcours'
         if 'parkour' in trainset_info:
             parcours = 'parkour'
-            filter = True
-            if (not args.trainset and not args.experiment and not args.subject and not args.observer and
-                not args.parcours and not args.collector and not args.mutation and not args.gesture and not args.host):
-                filter = False
         if (trainset_info
             and (not filter
                 or (trainset_info['_id'] in args.trainset)

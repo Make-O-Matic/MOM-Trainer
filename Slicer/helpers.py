@@ -1,5 +1,5 @@
 import sys
-from pymongo import MongoClient
+from pymongo import MongoClient, errors
 
 def add_db_arguments(parser):
     parser.add_argument('--hostname', required=True, help='HOSTNAME')
@@ -18,7 +18,7 @@ def make_db(args):
     except (errors.ConnectionFailure, errors.InvalidURI, errors.OperationFailure):
         print('Es konnte keine Verbindung zur Datenbank hergestellt werden.')
         sys.exit()
-        
+
 def get_trainset_infos(db):
     collections = db.collection_names()
     trainset_infos = {}
@@ -30,5 +30,5 @@ def get_trainset_infos(db):
             if 'parkour' in trainset_info:
                 trainset_info['parcours'] = trainset_info['parkour']
             trainset_infos[collection] = trainset_info
-            
+
     return trainset_infos

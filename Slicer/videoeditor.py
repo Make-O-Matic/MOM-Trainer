@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import os
 import argparse
 import gi
 gi.require_version('Gst', '1.0')
@@ -32,11 +33,15 @@ def main():
     input_stop = input_start.shift(microseconds=
         (input.get_duration()/Gst.USECOND))
 
+    subtitle = Gst.ElementFactory.make('subtitleoverlay', None)
+
+
     db = helpers.make_db(args)
     trainset_infos = helpers.get_trainset_infos(db)
     for trainset in trainset_infos:
-        clip_start = max(input_start, arrow.get(trainset_infos[trainset]['created']))
-        clip_end = min(input_stop, arrow.get(trainset_infos[trainset]['ended']))
+        info = trainset_infos[trainset]
+        clip_start = max(input_start, arrow.get(info['created']))
+        clip_end = min(input_stop, arrow.get(info['ended']))
         if clip_start < clip_end:
             timeline = GES.Timeline.new_audio_video()
             layer = timeline.append_layer()
@@ -49,7 +54,12 @@ def main():
             pipeline.set_timeline(timeline)
 
             #pipeline.set_state(Gst.State.NULL)
-            if not pipeline.set_render_settings('file:///tmp/output.mp4',
+            if not pipeline.set_render_settings(
+                'file://' + os.getcwd() + '/CLIP_' + trainset + '_' +
+                    info['experiment']['id'] + '_' +
+                    info['parcours']['observer']['id'] + '_' +
+                    info['parcours']['subject']['id'] + '_' +
+                    info['parcours']['id'] + '.mp4',
                 encoding_profile):
                 raise argparse.ArgumentTypeError("Not a valid media file")
             pipeline.set_mode(GES.PipelineFlags.RENDER)
@@ -75,9 +85,10 @@ def valid_time(s):
 def handle_message(bus, message, loop):
     if message.type == Gst.MessageType.EOS:
         loop.quit()
+        exit()
     elif message.type == Gst.MessageType.ERROR:
         error = message.parse_error()
-        print error
+        print(error)
         loop.quit()
 
 

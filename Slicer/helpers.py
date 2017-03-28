@@ -32,3 +32,11 @@ def get_trainset_infos(db):
             trainset_infos[collection] = trainset_info
 
     return trainset_infos
+
+def get_exercises(db, parcours_id):
+    parcours = db.parcours.find_one({'id': parcours_id})
+    return parcours["exercises"]
+
+def get_mutation(db, exercise):
+    mutation = db.mutations.find_one({'id' : exercise['mutation']['id']})
+    return mutation

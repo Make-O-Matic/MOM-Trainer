@@ -33,8 +33,14 @@ def main():
     input_stop = input_start.shift(microseconds=
         (input.get_duration()/Gst.USECOND))
 
-    subtitle = Gst.ElementFactory.make('subtitleoverlay', None)
+    subtitle_header = '''[Script Info]
+PlayResY: 1024
 
+[V4 Styles]
+
+[Events]
+Format: Start, End, Text
+'''
 
     db = helpers.make_db(args)
     trainset_infos = helpers.get_trainset_infos(db)
@@ -43,23 +49,36 @@ def main():
         clip_start = max(input_start, arrow.get(info['created']))
         clip_end = min(input_stop, arrow.get(info['ended']))
         if clip_start < clip_end:
+            clip_file = ('CLIP_' + trainset + '_' +
+                info['experiment']['id'] + '_' +
+                info['parcours']['observer']['id'] + '_' +
+                info['parcours']['subject']['id'] + '_' +
+                info['parcours']['id'])
+            subtitle_file = clip_file + '.ass'
+            subtitles = open(subtitle_file, 'w')
+            subtitles.write(subtitle_header)
+
+            for exercise in helpers.get_exercises(db, info['parcours']['id']):
+                mutation = helpers.get_mutation(db, exercise)
+                subtitles.write('0:00:01.00,0:00:02.00,' + mutation['id'] + '\n')
+
+            subtitles.close()
+
             timeline = GES.Timeline.new_audio_video()
             layer = timeline.append_layer()
-            clip = layer.add_asset(input, 0,
+            layer.add_asset(input, 0,
                 (clip_start - input_start).seconds * Gst.SECOND,
                 (clip_end - clip_start).seconds * Gst.SECOND,
                 GES.TrackType.UNKNOWN)
+            subtitle_overlay = GES.EffectClip.new('filesrc location=' +
+                subtitle_file + ' ! subtitleoverlay', '')
+            layer.add_clip(subtitle_overlay)
             timeline.commit()
+
             pipeline = GES.Pipeline()
             pipeline.set_timeline(timeline)
-
-            #pipeline.set_state(Gst.State.NULL)
             if not pipeline.set_render_settings(
-                'file://' + os.getcwd() + '/CLIP_' + trainset + '_' +
-                    info['experiment']['id'] + '_' +
-                    info['parcours']['observer']['id'] + '_' +
-                    info['parcours']['subject']['id'] + '_' +
-                    info['parcours']['id'] + '.mp4',
+                'file://' + os.getcwd() + '/' + clip_file + '.mp4',
                 encoding_profile):
                 raise argparse.ArgumentTypeError("Not a valid media file")
             pipeline.set_mode(GES.PipelineFlags.RENDER)

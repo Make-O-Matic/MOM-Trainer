@@ -8,6 +8,7 @@ gi.require_version('GstPbutils', '1.0')
 gi.require_version('GES', '1.0')
 from gi.repository import GLib, Gst, GstPbutils, GES
 import arrow
+import aeidon
 import helpers
 
 def main():
@@ -33,42 +34,46 @@ def main():
     input_stop = input_start.shift(microseconds=
         (input.get_duration()/Gst.USECOND))
 
-    subtitle_header = '''[Script Info]
-PlayResY: 1024
-
-[V4 Styles]
-
-[Events]
-Format: Start, End, Text
-'''
-
     db = helpers.make_db(args)
     trainset_infos = helpers.get_trainset_infos(db)
     for trainset in trainset_infos:
         info = trainset_infos[trainset]
         clip_start = max(input_start, arrow.get(info['created']))
-        clip_end = min(input_stop, arrow.get(info['ended']))
-        if clip_start < clip_end:
+        clip_stop = min(input_stop, arrow.get(info['ended']))
+        if clip_start < clip_stop:
             clip_file = ('CLIP_' + trainset + '_' +
                 info['experiment']['id'] + '_' +
                 info['parcours']['observer']['id'] + '_' +
                 info['parcours']['subject']['id'] + '_' +
                 info['parcours']['id'])
             subtitle_file = clip_file + '.ass'
-            subtitles = open(subtitle_file, 'w')
-            subtitles.write(subtitle_header)
+            subtitles = aeidon.Project()
 
+            clip_start_us = helpers.get_endpoint(
+                db[trainset], { '_id' : { '$ne' : info['_id'] } }, True)
+
+            step = 1
             for exercise in helpers.get_exercises(db, info['parcours']['id']):
                 mutation = helpers.get_mutation(db, exercise)
-                subtitles.write('0:00:01.00,0:00:02.00,' + mutation['id'] + '\n')
+                filter = { 'step' :  step }
+                start = helpers.get_endpoint(db[trainset], filter, True)
+                stop = helpers.get_endpoint(db[trainset], filter, False)
+                format = 'HH:mm:ss.SSS'
+                subtitle = aeidon.Subtitle(aeidon.modes.TIME)
+                subtitle.start = arrow.get((start - clip_start_us) / 1e6).format(format)
+                subtitle.end = arrow.get((stop - clip_start_us) / 1e6).format(format)
+                subtitle.main_text = mutation['id']
+                subtitles.subtitles.append(subtitle)
+                step += 1
 
-            subtitles.close()
+            subtitles.save_main(aeidon.files.new(aeidon.formats.ASS,
+                subtitle_file, "utf_8"))
 
             timeline = GES.Timeline.new_audio_video()
             layer = timeline.append_layer()
             layer.add_asset(input, 0,
                 (clip_start - input_start).seconds * Gst.SECOND,
-                (clip_end - clip_start).seconds * Gst.SECOND,
+                (clip_stop - clip_start).seconds * Gst.SECOND,
                 GES.TrackType.UNKNOWN)
             subtitle_overlay = GES.EffectClip.new('filesrc location=' +
                 subtitle_file + ' ! subtitleoverlay', '')

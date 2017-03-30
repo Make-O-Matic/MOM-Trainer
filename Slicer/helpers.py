@@ -1,5 +1,6 @@
 import sys
-from pymongo import MongoClient, errors
+from pymongo import MongoClient, errors, ASCENDING, DESCENDING
+
 
 def add_db_arguments(parser):
     parser.add_argument('--hostname', required=True, help='HOSTNAME')
@@ -7,6 +8,7 @@ def add_db_arguments(parser):
     parser.add_argument('--db', required=True, help='DATABASE')
     parser.add_argument('--username', required=True, help='USER')
     parser.add_argument('--password', required=True, help='PASSWORT')
+
 
 def make_db(args):
     try:
@@ -18,6 +20,7 @@ def make_db(args):
     except (errors.ConnectionFailure, errors.InvalidURI, errors.OperationFailure):
         print('Es konnte keine Verbindung zur Datenbank hergestellt werden.')
         sys.exit()
+
 
 def get_trainset_infos(db):
     collections = db.collection_names()
@@ -33,10 +36,40 @@ def get_trainset_infos(db):
 
     return trainset_infos
 
+
 def get_exercises(db, parcours_id):
     parcours = db.parcours.find_one({'id': parcours_id})
     return parcours["exercises"]
 
+
 def get_mutation(db, exercise):
     mutation = db.mutations.find_one({'id' : exercise['mutation']['id']})
     return mutation
+
+
+def get_info(db, hands, side):
+    host, spot, gesture, instruction = '', '', '', ''
+    if side in hands:
+        hand = hands[side]
+        if 'host' in hand:
+            host = hand['host']['id']
+            if 'spot' in hand['host'] and 'id' in hand['host']['spot']:
+                spot = hand['host']['spot']['id']
+
+        if 'gesture' in hand:
+            gesture = db.gestures.find_one({'id' : hand['gesture']['id']})
+            gesture = gesture['name']
+
+        if 'instruction' in hand:
+            instruction = hand['instruction']
+
+    return host, spot, gesture, instruction
+
+
+def get_endpoint(trainset, filter, ascending):
+    if ascending:
+        order = ASCENDING
+    else:
+        order = DESCENDING
+    endpoint = trainset.find_one(filter, sort=[('data.stamp.microSeconds', order)])
+    return endpoint['data']['stamp']['microSeconds']

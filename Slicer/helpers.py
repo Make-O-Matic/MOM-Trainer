@@ -72,4 +72,7 @@ def get_endpoint(trainset, filter, ascending):
     else:
         order = DESCENDING
     endpoint = trainset.find_one(filter, sort=[('data.stamp.microSeconds', order)])
-    return endpoint['data']['stamp']['microSeconds']
+    if bool(endpoint):
+        return endpoint['data']['stamp']['microSeconds']
+    else:
+        return None

@@ -2,6 +2,7 @@
 
 import os
 import argparse
+import re
 import gi
 gi.require_version('Gst', '1.0')
 gi.require_version('GstPbutils', '1.0')
@@ -17,8 +18,15 @@ def main():
     parser.add_argument('-s', '--start',
         help='start UTC - format "01.01.2000 01:02:03"',
         required=True, type=valid_time)
+    parser.add_argument('-a', '--align',
+        choices=['left', 'right'], default='right',
+        help='Alignment')
     helpers.add_db_arguments(parser)
     args = parser.parse_args()
+    if args.align == 'right':
+        args.align = '9'
+    else:
+        args.align = '7'
 
     Gst.init(None)
     GES.init()
@@ -32,7 +40,6 @@ def main():
 
     input_start = args.start
     input_stop = input_start.shift(seconds=(input.get_duration()/Gst.SECOND))
-    print(input_start,input_stop)
 
     db = helpers.make_db(args)
     trainset_infos = helpers.get_trainset_infos(db)
@@ -41,6 +48,7 @@ def main():
         clip_start_us = helpers.get_endpoint(
             db[trainset], { '_id' : { '$ne' : info['_id'] } }, True) / 1e6
         clip_stop_us = helpers.get_endpoint(db[trainset], {}, False) / 1e6
+        #trainset_start = arrow.get(info['created'])
         trainset_stop = arrow.get(info['ended'])
         trainset_start = trainset_stop.shift(
             seconds=-(clip_stop_us - clip_start_us))
@@ -56,33 +64,50 @@ def main():
             subtitles = aeidon.Project()
 
             offset = clip_start_us
-
+            #clip_stop_us - (trainset_stop - clip_start).seconds
+            print(trainset)
             step = 1
             for exercise in helpers.get_exercises(db, info['parcours']['id']):
                 mutation = helpers.get_mutation(db, exercise)
                 filter = { 'step' :  step }
-                start = helpers.get_endpoint(db[trainset], filter, True) / 1e6
-                stop = helpers.get_endpoint(db[trainset], filter, False) / 1e6
+                start = helpers.get_endpoint(db[trainset], filter, True)
+                stop = helpers.get_endpoint(db[trainset], filter, False)
+                if not start:
+                    step += 1
+                    continue
                 format = 'HH:mm:ss.SSS'
                 subtitle = aeidon.Subtitle(aeidon.modes.TIME)
-                print((trainset_stop-trainset_start).seconds,
-                    (clip_stop-clip_start).seconds,
-                      clip_start_us, clip_stop_us, start, stop, offset)
-                subtitle.start = arrow.get(start - offset).format(format)
-                subtitle.end = arrow.get(stop - offset).format(format)
-                subtitle.main_text = str(step) + ' > ' + mutation['id']
-                if 'instruction' in mutation:
-                    subtitle.main_text += '\n' + mutation['instruction']
+                subtitle.start = arrow.get((start / 1e6) - offset).format(format)
+                subtitle.end = arrow.get((stop / 1e6) - offset).format(format)
+                subtitle.main_text = (trainset + '\n' +
+                    info['experiment']['id'] + ' [' +
+                    info['parcours']['subject']['id'] + ', ' +
+                    info['parcours']['observer']['id'] + ']\n' +
+                    info['parcours']['id'] + '/' + str(step) + ' > ' +
+                    mutation['id'] + '\nR:' +
+                    info['parcours']['subject']['hands']['right']['id'])
                 if 'hands' in mutation:
                     host, spot, gesture, instruction = helpers.get_info(
                         db, mutation['hands'], 'right')
-                    subtitle.main_text += '\n' + host + spot + gesture + instruction
+                    subtitle.main_text += ('[' +
+                        host + '>' + spot + ', ' + gesture + ']')
+                subtitle.main_text += ('\nL:' +
+                    info['parcours']['subject']['hands']['left']['id'])
+                if 'hands' in mutation:
+                    host, spot, gesture, instruction = helpers.get_info(
+                        db, mutation['hands'], 'left')
+                    subtitle.main_text += ('[' +
+                        host + '>' + spot + ', ' + gesture + ']')
 
                 subtitles.subtitles.append(subtitle)
                 step += 1
 
-            subtitles.save_main(aeidon.files.new(aeidon.formats.ASS,
-                subtitle_file, "utf_8"))
+            subtitles_ass = aeidon.files.new(aeidon.formats.ASS,
+                subtitle_file, 'utf_8')
+            subtitles_ass.header = re.sub(
+                '2, 30, 30, 30, 0$', args.align + ', 0, 0, 0, 0',
+                subtitles_ass.header)
+            subtitles.save_main(subtitles_ass)
 
             timeline = GES.Timeline.new_audio_video()
             layer = timeline.append_layer()
@@ -111,6 +136,8 @@ def main():
 
             loop.run()
 
+            pipeline.set_state(Gst.State.NULL)
+
 
 def valid_time(s):
     try:
@@ -123,7 +150,6 @@ def valid_time(s):
 def handle_message(bus, message, loop):
     if message.type == Gst.MessageType.EOS:
         loop.quit()
-        exit()
     elif message.type == Gst.MessageType.ERROR:
         error = message.parse_error()
         print(error)

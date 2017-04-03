@@ -29,7 +29,8 @@ def get_trainset_infos(db):
         if not 'TRAINSET' in collection:
             continue
         trainset_info = db[collection].find_one({ '_id' : collection })
-        if trainset_info:
+        if (trainset_info and
+            not ('status' in trainset_info and 'faulty' in trainset_info['status'])):
             if 'parkour' in trainset_info:
                 trainset_info['parcours'] = trainset_info['parkour']
             trainset_infos[collection] = trainset_info
@@ -47,23 +48,24 @@ def get_mutation(db, exercise):
     return mutation
 
 
-def get_info(db, hands, side):
-    host, spot, gesture, instruction = '', '', '', ''
+def get_info(db, hands, side, gesture_text):
+    info, instruction = None, None
     if side in hands:
+        info = ''
         hand = hands[side]
         if 'host' in hand:
-            host = hand['host']['id']
+            info += hand['host']['id']
             if 'spot' in hand['host'] and 'id' in hand['host']['spot']:
-                spot = hand['host']['spot']['id']
+                info += '>' + hand['host']['spot']['id']
 
         if 'gesture' in hand:
             gesture = db.gestures.find_one({'id' : hand['gesture']['id']})
-            gesture = gesture['name']
+            info += gesture_text + gesture['name']
 
         if 'instruction' in hand:
             instruction = hand['instruction']
 
-    return host, spot, gesture, instruction
+    return info, instruction
 
 
 def get_endpoint(trainset, filter, ascending):

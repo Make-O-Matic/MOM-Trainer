@@ -1,0 +1,92 @@
+ {
+    "app-id": "io.make-o-matic.VideoEditor",
+    "runtime": "org.freedesktop.Platform",
+    "runtime-version": "1.4",
+    "sdk": "org.freedesktop.Sdk",
+    "command": "videoeditor.py",
+    "modules": [
+        {
+            "name": "pkcon",
+            "sources": [
+        	    {
+                    "type": "shell",
+                    "commands": [
+        		        "pkcon install python3-dateutil python3-pymongo python3-aeidon"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "gstreamer",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://anongit.freedesktop.org/gstreamer/gstreamer"
+                }
+            ]
+        },
+        {
+            "name": "gst-plugins-base",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://anongit.freedesktop.org/gstreamer/gst-plugins-base"
+                }
+            ]
+        },
+        {
+            "name": "gst-plugins-good",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://anongit.freedesktop.org/gstreamer/gst-plugins-good"
+                }
+            ]
+        },
+        {
+            "name": "gst-libav",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://anongit.freedesktop.org/gstreamer/gst-libav"
+                }
+            ]
+        },
+        {
+            "name": "gst-python",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://anongit.freedesktop.org/gstreamer/gst-python"
+                }
+            ]
+        },
+        {
+            "name": "gst-editing-services",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://anongit.freedesktop.org/gstreamer/gst-editing-services"
+                }
+            ]
+        },
+        {
+            "name": "arrow",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/crsmithdev/arrow"
+                }
+            ]
+        },
+        {
+            "name": "videoeditor",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://github.com/make-o-matic/MOM-Trainer"
+                }
+            ]
+        }
+    ]
+}

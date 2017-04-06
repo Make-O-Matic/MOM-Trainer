@@ -41,7 +41,7 @@ def main():
     media_uri = 'file://' + args.media
     directory = args.media + arrow.now().format('-DDMMYYYYHHmmss')
     os.mkdir(directory)
-    encoding_profile = GstPbutils.EncodingProfile..from_discoverer(
+    encoding_profile = GstPbutils.EncodingProfile.from_discoverer(
         discoverer.discover_uri(media_uri))
     input = GES.UriClipAsset.request_sync(media_uri)
 
@@ -133,7 +133,7 @@ def main():
             subtitle_overlay = GES.EffectClip.new(
                 'filesrc location=' +
                 subtitle_file +
-                ' ! subtitleoverlay', '')
+                ' ! subtitle_overlay', '')
             subtitle_layer.add_clip(subtitle_overlay)
             input_layer = timeline.append_layer()
             input_layer.add_asset(input, 0,
@@ -150,6 +150,8 @@ def main():
                 raise argparse.ArgumentTypeError("Not a valid media file")
             pipeline.set_mode(GES.PipelineFlags.RENDER)
             pipeline.set_state(Gst.State.PLAYING)
+
+            #compoGst.debug_bin_to_dot_file(pipeline, Gst.DebugGraphDetails.ALL, "tmp")
 
             bus = pipeline.get_bus()
             bus.add_signal_watch()

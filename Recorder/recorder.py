@@ -127,7 +127,7 @@ def main():
             print('Jetzt EXERCISE ' + str(step) + '/' + str(len(parcours['exercises'])) + 
                   ' (' + exercise['mutation']['id'] + ') ausfuehren')
 
-            if bool(mutation)
+            if bool(mutation):
                 if 'instruction' in mutation:
                     print('- INSTRUCTION: "' + mutation['instruction'] + '"')
                 if 'hands' in mutation:

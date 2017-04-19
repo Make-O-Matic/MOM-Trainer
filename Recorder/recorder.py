@@ -12,40 +12,7 @@ from pymongo import MongoClient
 from momconnectivity.glove import Glove
 
 
-def getch():
-    fd = sys.stdin.fileno()
-    old_settings = termios.tcgetattr(fd)         
-    try:             
-        tty.setraw(sys.stdin.fileno())             
-        ch = sys.stdin.read(1)         
-    finally:             
-        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-    return ch
-
-
-def beep():
-    call(['ogg123', '-q', '/usr/share/sounds/ubuntu/stereo/dialog-information.ogg'])
-    
-    
-def show_info(db, hands, side, description):
-    text = ''
-    if side in hands:
-        hand = hands[side]
-        if 'host' in hand:
-            text += '-- HOST: ' + hand['host']['id'] 
-            if 'spot' in hand['host'] and 'id' in hand['host']['spot']:
-                text += ' > ' + hand['host']['spot']['id']
-
-        if 'gesture' in hand:
-            gesture = db.gestures.find_one({'id' : hand['gesture']['id']})
-            text += '\n-- GESTURE: "' + gesture['name'] + '"'
-
-        print('- ' + description + ' Hand\n' + text);
-        if 'instruction' in hand:
-            print('-- INSTRUCTION: "' + hand['instruction'] + '"')
-            
-
-if __name__ == "__main__":   
+def main():
     parser = argparse.ArgumentParser(description='recorder.')
     parser.add_argument('-l', '--lId', required=True, help='COLLECTOR.id fuer den linken Handschuh')
     parser.add_argument('-L', '--lMAC', required=True, help='COLLECTOR.macAddress fuer den linken Handschuh')
@@ -59,15 +26,15 @@ if __name__ == "__main__":
 
     db_client = MongoClient()
     db = db_client['makeomatic']
-    
+
     gloves = []
-    
+
     def set_connected(state):
         if state > gloves[0].state:
             beep()
-        gloves[0].state = state	
+        gloves[0].state = state
         if state == 3:
-            gloves[0].both_connected.set()		
+            gloves[0].both_connected.set()
 
     def is_recording():
         return gloves[0].recording
@@ -159,14 +126,14 @@ if __name__ == "__main__":
             gloves[0].recording = True
             print('Jetzt EXERCISE ' + str(step) + '/' + str(len(parcours['exercises'])) + 
                   ' (' + exercise['mutation']['id'] + ') ausfuehren')
-            if (bool(mutation) and 'instruction' in mutation):
-                print('- INSTRUCTION: "' + mutation['instruction'] + '"')
 
-
-            if bool(mutation) and 'hands' in mutation:
-                hands = mutation['hands']
-                show_info(db, hands, 'left', 'linke')
-                show_info(db, hands, 'right', 'rechte')
+            if bool(mutation)
+                if 'instruction' in mutation:
+                    print('- INSTRUCTION: "' + mutation['instruction'] + '"')
+                if 'hands' in mutation:
+                    hands = mutation['hands']
+                    show_info(db, hands, 'left', 'linke')
+                    show_info(db, hands, 'right', 'rechte')
 
             print('----------------------')
             if exercise['signal']['beep']:
@@ -199,7 +166,7 @@ if __name__ == "__main__":
         beep()
         print('aufgenommene DATA wurde unter TRAINSET ' + trainsetName + ' abgespeichert.')
         print('Druecken Sie \'Leertaste\' um einen neuen PARCOURS zu laden. Programm-Argumente bleiben erhalten!')
-        print('Druecken Sie \'STRG+C\' um das Programm zu beenden. Alle Programm-Argumente werden \'vergessen\'!\n')         
+        print('Druecken Sie \'STRG+C\' um das Programm zu beenden. Alle Programm-Argumente werden \'vergessen\'!\n')
         while True:
             cmd = getch()
             if cmd == ' ':
@@ -208,7 +175,40 @@ if __name__ == "__main__":
                gloves[0].disconnect()
                sys.exit()
             sleep(1);
-	
 
 
+def getch():
+    fd = sys.stdin.fileno()
+    old_settings = termios.tcgetattr(fd)
+    try:
+        tty.setraw(sys.stdin.fileno())
+        ch = sys.stdin.read(1)
+    finally:
+        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+    return ch
 
+
+def beep():
+    call(['ogg123', '-q', '/usr/share/sounds/ubuntu/stereo/dialog-information.ogg'])
+
+
+def show_info(db, hands, side, description):
+    text = ''
+    if side in hands:
+        hand = hands[side]
+        if 'host' in hand:
+            text += '-- HOST: ' + hand['host']['id']
+            if 'spot' in hand['host'] and 'id' in hand['host']['spot']:
+                text += ' > ' + hand['host']['spot']['id']
+
+        if 'gesture' in hand:
+            gesture = db.gestures.find_one({'id' : hand['gesture']['id']})
+            text += '\n-- GESTURE: "' + gesture['name'] + '"'
+
+        print('- ' + description + ' Hand\n' + text);
+        if 'instruction' in hand:
+            print('-- INSTRUCTION: "' + hand['instruction'] + '"')
+
+
+if __name__ == "__main__":
+    main()

@@ -1,27 +1,18 @@
  {
-    "app-id": "io.make-o-matic.VideoEditor",
+    "app-id": "io.makeomatic.VideoEditor",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "1.4",
+    "runtime-version": "1.6",
+    "finish-args": ["--share=network"],
     "sdk": "org.freedesktop.Sdk",
-    "command": "videoeditor.py",
+    "command": "pwd",
     "modules": [
-        {
-            "name": "pkcon",
-            "sources": [
-        	    {
-                    "type": "shell",
-                    "commands": [
-        		        "pkcon install python3-dateutil python3-pymongo python3-aeidon"
-                    ]
-                }
-            ]
-        },
         {
             "name": "gstreamer",
             "sources": [
                 {
                     "type": "git",
-                    "url": "git://anongit.freedesktop.org/gstreamer/gstreamer"
+                    "url": "git://anongit.freedesktop.org/gstreamer/gstreamer",
+                    "branch": "1.11.90"
                 }
             ]
         },
@@ -30,16 +21,30 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "git://anongit.freedesktop.org/gstreamer/gst-plugins-base"
+                    "url": "git://anongit.freedesktop.org/gstreamer/gst-plugins-base",
+                    "branch": "1.11.90"
                 }
             ]
         },
         {
             "name": "gst-plugins-good",
+            "config-opts": ["--disable-deinterlace"],
             "sources": [
                 {
                     "type": "git",
-                    "url": "git://anongit.freedesktop.org/gstreamer/gst-plugins-good"
+                    "url": "git://anongit.freedesktop.org/gstreamer/gst-plugins-good",
+                    "branch": "1.11.90"
+                }
+            ]
+        },
+        {
+            "name": "gst-plugins-bad",
+            "config-opts": ["--disable-y4m", "--disable-yadif"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://anongit.freedesktop.org/gstreamer/gst-plugins-bad",
+                    "branch": "1.11.90"
                 }
             ]
         },
@@ -48,7 +53,28 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "git://anongit.freedesktop.org/gstreamer/gst-libav"
+                    "url": "git://anongit.freedesktop.org/gstreamer/gst-libav",
+                    "branch": "1.11.90"
+                }
+            ]
+        },
+        {
+            "name": "gnome-common",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.gnome.org/browse/gnome-common"
+                }
+            ]
+        },
+        {
+            "name": "pygobject",
+            "config-opts": ["--enable-cairo=no"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.gnome.org/browse/pygobject",
+                    "branch": "3.24.0"
                 }
             ]
         },
@@ -57,34 +83,45 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "git://anongit.freedesktop.org/gstreamer/gst-python"
+                    "url": "git://anongit.freedesktop.org/gstreamer/gst-python",
+                    "branch": "1.11.90"
                 }
             ]
         },
         {
             "name": "gst-editing-services",
+            "config-opts": ["--with-bash-completion-dir=no"],
             "sources": [
                 {
                     "type": "git",
-                    "url": "git://anongit.freedesktop.org/gstreamer/gst-editing-services"
+                    "url": "git://anongit.freedesktop.org/gstreamer/gst-editing-services",
+                    "branch": "1.11.90"
                 }
             ]
         },
         {
-            "name": "arrow",
+            "name": "aeidon",
+            "build-commands": [ "python3 ./setup.py --without-gaupol install --prefix=/app" ],
+            "buildsystem": "simple",
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/crsmithdev/arrow"
+                    "url": "git://github.com/otsaloma/gaupol"
                 }
             ]
         },
         {
             "name": "videoeditor",
+            "build-commands": [ "PYTHONUSERBASE=/app/ pip3 install --user arrow pymongo;echo '-r requirements.txt'" ],
+            "build-options" : {
+                "build-args": ["--share=network"]
+            },
+            "buildsystem": "simple",
             "sources": [
                 {
                     "type": "git",
-                    "url": "git://github.com/make-o-matic/MOM-Trainer"
+                    "url": "git://github.com/make-o-matic/MOM-Trainer",
+                    "branch": "alternative"
                 }
             ]
         }

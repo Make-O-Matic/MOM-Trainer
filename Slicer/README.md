@@ -12,7 +12,9 @@ Aufnahme des letzten TRAINSET hinaus geht
       - auslesen der EXPERIMENT.id, SUBJECT.id, OBSERVER.id TRAINSET.id aus dem TRAINSET
 - hinzufügen eines Untertitels mit FFMPEG anhand von TRAINSET.created/TRAINSET.ended
   - Untertitel = TRAINSET.id(EXPERIMENT.id/SUBJECT.id/OBSERVER.id)>PARKOUR.id/STEP, MUTATION(GESTURE/HOST) <-- nur mal die rechte Hand!
+    - Untertitel: http://stackoverflow.com/questions/8672809/use-ffmpeg-to-add-text-subtitles
+    - Text in Bildbereich einfügen: https://lists.ffmpeg.org/pipermail/ffmpeg-user/2014-June/021915.html
 - zerschneiden des gesamten Videos in Stücke je PARKOUR.id
+  geht mit FFMPEG - http://superuser.com/questions/138331/using-ffmpeg-to-cut-up-video
 
  //Ideen
-  

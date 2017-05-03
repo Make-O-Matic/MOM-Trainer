@@ -1,0 +1,18 @@
+{"_id":{"$oid":"58a23a22d826756404709446"},"id":"G01","slug":"rssr","name":"Single Rotation klein rechtsrum"}
+{"_id":{"$oid":"58a23a22d826756404709447"},"id":"G02","slug":"rssl","name":"Single Rotation klein linksrum"}
+{"_id":{"$oid":"58a23a22d826756404709448"},"id":"G03","slug":"rosr","name":"Oszillierende Rotation klein rechtsrum"}
+{"_id":{"$oid":"58a23a22d826756404709449"},"id":"G04","slug":"rosl","name":"Oszillierende Rotation klein linksrum"}
+{"_id":{"$oid":"58a23a22d82675640470944a"},"id":"G05","slug":"rsbr","name":"Single Rotation groß rechtsrum"}
+{"_id":{"$oid":"58a23a22d82675640470944b"},"id":"G06","slug":"rsbl","name":"Single Rotation groß linksrum"}
+{"_id":{"$oid":"58a23a22d82675640470944c"},"id":"G07","slug":"robr","name":"Oszillierende Rotation groß rechtsrum"}
+{"_id":{"$oid":"58a23a22d82675640470944d"},"id":"G08","slug":"robl","name":"Oszillierende Rotation groß linksrum"}
+{"_id":{"$oid":"58a23a22d82675640470944e"},"id":"G09","slug":"rcbr","name":"Kontinuierliche Rotation groß rechtsrum"}
+{"_id":{"$oid":"58a23a22d82675640470944f"},"id":"G10","slug":"rcbl","name":"Kontinuierliche Rotation groß linksrum"}
+{"_id":{"$oid":"58a23a22d826756404709450"},"id":"G11","slug":"lms","name":"LinearMovement Single"}
+{"_id":{"$oid":"58a23a22d826756404709451"},"id":"G12","slug":"lmo","name":"LinearMovement Oszillierend"}
+{"_id":{"$oid":"58a23a22d826756404709452"},"id":"G13","slug":"pb","name":"Drücken"}
+{"_id":{"$oid":"58a23a22d826756404709453"},"id":"G14","slug":"rest","name":"Rest","isNesture":true,"isGarbage":true}
+{"_id":{"$oid":"58a23a22d826756404709454"},"id":"G15","slug":"grasp","name":"Greifen","isNesture":true}
+{"_id":{"$oid":"58a23a22d826756404709455"},"id":"G16","slug":"pos","name":"Positionieren","isNesture":true}
+{"_id":{"$oid":"58a23a22d826756404709456"},"id":"G17","slug":"regr","name":"Umgreifen","isNesture":true}
+{"_id":{"$oid":"58a23a22d826756404709457"},"id":"G18","slug":"release","name":"Ablegen","isNesture":true}

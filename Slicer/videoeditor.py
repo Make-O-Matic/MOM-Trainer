@@ -12,14 +12,16 @@ gi.require_version('GES', '1.0')
 from gi.repository import GLib, Gst, GstPbutils, GES
 import arrow
 import aeidon
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import helpers
 
 def main():
     parser = argparse.ArgumentParser(description='videoeditor.')
     parser.add_argument('media', help='media file')
     parser.add_argument('-s', '--start',
-        help='Startzeit UTC - Format "01.01.2000 01:02:03"',
-        required=True, type=valid_time)
+        help='Startzeitpunkt UTC - Format "01.01.2000 01:02:03"',
+        required=True, type=valid_datetime)
     parser.add_argument('-a', '--align',
         choices=['left', 'right'], default='right',
         help='Alignment')
@@ -36,8 +38,9 @@ def main():
     Gst.init(None)
     GES.init()
     loop = GLib.MainLoop()
+    GLib.log_set_handler(None, GLib.LogLevelFlags.LEVEL_CRITICAL, discard, None)
     discoverer = GstPbutils.Discoverer.new(600 * Gst.SECOND)
-
+    db = helpers.db(args)
     media_uri = 'file://' + args.media
     directory = args.media + arrow.now().format('-DDMMYYYYHHmmss')
     os.mkdir(directory)
@@ -48,13 +51,12 @@ def main():
     input_start = args.start
     input_stop = input_start.shift(seconds=(input.get_duration()/Gst.SECOND))
 
-    db = helpers.make_db(args)
-    trainset_infos = helpers.get_trainset_infos(db)
+    trainset_infos = helpers.trainset_infos(db)
     for trainset in trainset_infos:
         info = trainset_infos[trainset]
-        clip_start_us = helpers.get_endpoint(
+        clip_start_us = helpers.endpoint(
             db[trainset], { '_id' : { '$ne' : info['_id'] } }, True) / 1e6
-        clip_stop_us = helpers.get_endpoint(db[trainset], {}, False) / 1e6
+        clip_stop_us = helpers.endpoint(db[trainset], {}, False) / 1e6
         #trainset_start = arrow.get(info['created'])
         trainset_stop = arrow.get(info['ended'])
         trainset_start = trainset_stop.shift(
@@ -84,11 +86,11 @@ def main():
             subtitles.subtitles.append(subtitle)
 
             step = 1
-            for exercise in helpers.get_exercises(db, info['parcours']['id']):
-                mutation = helpers.get_mutation(db, exercise)
+            for exercise in helpers.exercises(db, info['parcours']['id']):
+                mutation = helpers.mutation(db, exercise)
                 filter = { 'step' :  step }
-                start = helpers.get_endpoint(db[trainset], filter, True)
-                stop = helpers.get_endpoint(db[trainset], filter, False)
+                start = helpers.endpoint(db[trainset], filter, True)
+                stop = helpers.endpoint(db[trainset], filter, False)
                 if not start:
                     step += 1
                     continue
@@ -99,14 +101,14 @@ def main():
                     info['parcours']['id'] + '/' + str(step) + ' > ' +
                     mutation['id'])
                 if 'hands' in mutation:
-                    text, instruction = helpers.get_info(
+                    text, instruction = helpers.info(
                         db, mutation['hands'], 'left', ', ')
                     if text != None:
                         subtitle.main_text += ('\nL:' +
                             info['parcours']['subject']['hands']['left']['id'])
                     if text:
                         subtitle.main_text += ('[' + text + ']')
-                    text, instruction = helpers.get_info(
+                    text, instruction = helpers.info(
                         db, mutation['hands'], 'right', ', ')
                     if text != None:
                         subtitle.main_text += ('\nR:' +
@@ -163,12 +165,12 @@ def main():
             pipeline.set_state(Gst.State.NULL)
 
 
-def valid_time(s):
+def valid_datetime(str):
     try:
-        return arrow.get(s, 'DD.MM.YYYY HH:mm:ss')
+        return arrow.get(str, 'DD.MM.YYYY HH:mm:ss')
     except ValueError:
-        msg = "Not a valid date: '{0}'.".format(s)
-        raise argparse.ArgumentTypeError(msg)
+        message = "Not a valid date and time: '{0}'.".format(str)
+        raise argparse.ArgumentTypeError(message)
 
 
 def handle_message(bus, message, loop):
@@ -179,6 +181,8 @@ def handle_message(bus, message, loop):
         print(error)
         loop.quit()
 
+def discard(log_domain, log_level, message, user_data):
+    return
 
 if __name__ == "__main__":
     main()

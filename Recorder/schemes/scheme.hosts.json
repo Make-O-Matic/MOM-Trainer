@@ -1,0 +1,24 @@
+{
+    "_id" : ObjectId(""),
+    "id" : "H036", //<-- wird vom USER hinzugefügt
+    "name" : "Säulenbohrmaschine", //<-- wird vom USER hinzugefügt
+    "spots" : [
+        {
+            "id" : "A", //<-- wird vom USER hinzugefügt
+            "name" : "Griff 1 (hinten Mitte)" //<-- wird vom USER hinzugefügt
+        },
+        {
+            "id" : "B",
+            "name" : "Griff 2 (vorne oben)"
+        }
+    ],
+    "research" : { //<-- wird vom Admin hinzugefügt
+        "gestureGroups" : [
+            {
+                "id" : "A",
+                "name" : "Drehbewegung / Rotation (ganze Hand)"
+            }
+        ],
+        "prio" : "1.0"
+    }
+}

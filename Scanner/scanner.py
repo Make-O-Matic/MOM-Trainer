@@ -4,6 +4,9 @@ import argparse
 import sys
 from os import path
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+import functools
+import threading
+import asyncio
 import helpers
 
 def main():
@@ -17,29 +20,40 @@ def main():
     hosts = db['hosts']
     print('Datenbankverbindung hergestellt.')
 
-    gloves = helpers.connected_gloves(args, 1, True)
+    event = threading.Event()
+    gloves = None
+    def set_rfid(rfid):
+        if event.is_set():
+            return
+        gloves.rfid = rfid
+        event.set()
+
+    gloves = helpers.connected_gloves(args, 1, set_rfid)
     hand = 'L'
     if gloves.state == 2:
         hand = 'R'
     print('Verbindung zu mind. einem Handschuh hergestellt.')
     print('SCANNER bereit.')
-    
+
+    got_rfid = False
     while True:
-        gloves.rfid_received.clear()
-        print('Bewegen sie einen GLOVE ueber einen TAG um diesen auszulesen oder neu anzulegen')
-        gloves.rfid_received.wait()
+        if not got_rfid:
+            event.clear()
+            print('Bewegen sie einen GLOVE ueber einen TAG um diesen auszulesen oder neu anzulegen')
+            event.wait()
         print(hand + ': TAG "' + gloves.rfid + '" erkannt!')
         host = hosts.find_one({'spots.rfid': gloves.rfid})
         if bool(host):
 
             spot = hosts.find_one({'spots.rfid': gloves.rfid}, {'spots.$': 1})['spots'][0]
             helpers.print_line()
-            print(host['name'] + ' (' + hand + ')')
+            print(host['name'] + ' > ' + spot['name'] + ' (' + hand + ')')
             print(host['id'] + ' > ' + spot['id'])
             helpers.print_line()
-            print('[X] druecken und neuen TAG scannen oder [D] druecken um TAG von HOST zu loeschen')
-            restart = choose('DX')
-            if not restart:
+            got_rfid = raw_input_or_rfid(
+                'Neuen TAG scannen oder [D] druecken um TAG von HOST zu loeschen',
+                'Dd', event, gloves)
+            if not got_rfid:
                 hosts.update_one({'_id': host['_id']}, 
                                  {'$pull': {'spots': {'rfid': gloves.rfid}}})
                 print('TAG wurde von ' + host['id'] + ' geloescht')
@@ -47,9 +61,10 @@ def main():
         else:
 
             print('TAG nicht vorhanden.')
-            print('Druecken sie [N] um zum Anzulegen ODER [X] und beruehren Sie einen anderen Tag.')
-            restart = choose('NX')
-            if not restart:
+            got_rfid = raw_input_or_rfid(
+                'Druecken sie [N] um zum Anzulegen ODER beruehren Sie einen anderen Tag.',
+                'Nn', event, gloves)
+            if not got_rfid:
                 while True:
                     host_id = input('Bitte geben sie die ID des HOSTs an, auf dem sich der TAG befindet: ')
                     host = hosts.find_one({'id': host_id})
@@ -91,9 +106,44 @@ def add_spot(hosts, host_id, rfid):
     return True
 
 
-def choose(keys):
-    key = wait_for(keys)
-    return (key == keys[1])
+def raw_input_or_rfid(prompt, keys, event, gloves):
+    got_rfid = helpers.wrap_raw(sys.stdin, 
+        functools.partial(input_or_rfid, prompt, keys, event, gloves))
+    print('')
+    return got_rfid
+
+
+def input_or_rfid(prompt, keys, event, gloves):
+    event.clear()
+    old_rfid = gloves.rfid
+    gloves.rfid = None
+    loop = asyncio.get_event_loop()
+    loop.add_reader(sys.stdin, event.set)
+    sys.stdout.write(prompt)
+    sys.stdout.flush()
+    got_rfid = None
+    
+    async def wait():
+        await loop.run_in_executor(None, event.wait)
+    
+    while True:
+        loop.run_until_complete(wait())
+        if gloves.rfid:
+            if gloves.rfid != old_rfid:
+                got_rfid = True
+                break
+            gloves.rfid = None
+        else:
+            key = sys.stdin.read(1)
+            if key in keys:
+                got_rfid = False
+                break
+        event.clear()
+
+    loop.remove_reader(sys.stdin)
+    if not got_rfid:
+        gloves.rfid = old_rfid
+    return got_rfid
 
 
 def wait_for(keys):

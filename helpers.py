@@ -5,6 +5,7 @@ import argparse
 import threading
 from time import sleep
 from subprocess import call
+import functools
 import uuid
 
 from pymongo import MongoClient, errors, ASCENDING, DESCENDING
@@ -96,41 +97,33 @@ def endpoint(trainset, filter, ascending):
         return None
 
 
-def connected_gloves(args, minimum, rfid):
+def connected_gloves(args, minimum, set_rfid):
     minimum_state = 3
     if minimum == 1:
         minimum_state = 1
-    gloves = []
-
+    gloves = None
     def set_connected(state):
-        if state > gloves[0].state:
+        if state > gloves.state:
             beep()
-        gloves[0].state = state
+        gloves.state = state
         if state >= minimum_state:
-            gloves[0].connected.set()
+            gloves.connected.set()
 
     def is_recording():
-        return gloves[0].recording
-
-    def set_rfid(rfid):
-        if gloves[0].rfid_received.is_set():
-            return;
-        gloves[0].rfid = rfid
-        gloves[0].rfid_received.set()
+        return gloves.recording
 
     lUUID = str(uuid.uuid4())
     rUUID = str(uuid.uuid4())
     try:
-        gloves = [Glove(args.lMAC, args.rMAC, set_connected, is_recording, lUUID, rUUID)]
-        if rfid:
-            gloves[0].processRFID = set_rfid
-        gloves[0].state = 0
-        gloves[0].connected = threading.Event()
-        gloves[0].recording = False
-        gloves[0].rfid_received = threading.Event()
-        gloves[0].connect()
-        gloves[0].connected.wait()
-        return gloves[0]
+        gloves = Glove(args.lMAC, args.rMAC, set_connected, is_recording, lUUID, rUUID)
+        if set_rfid:
+            gloves.processRFID = set_rfid
+        gloves.state = 0
+        gloves.connected = threading.Event()
+        gloves.recording = False
+        gloves.connect()
+        gloves.connected.wait()
+        return gloves
     except RuntimeError:
             print('Verbindung zu (mind.) einem COLLECTOR konnte nicht hergestellt werden.')
             print('Bitte pruefen Sie die Bluetooth-Verbindung und starten Sie das Programm erneut.')
@@ -152,11 +145,15 @@ def print_line():
 
 
 def getch():
-    fd = sys.stdin.fileno()
+    return wrap_raw(sys.stdin, functools.partial(sys.stdin.read,1))
+
+
+def wrap_raw(stream, reader):
+    fd = stream.fileno()
     old_settings = termios.tcgetattr(fd)
     try:
-        tty.setraw(sys.stdin.fileno())
-        ch = sys.stdin.read(1)
+        tty.setraw(stream.fileno())
+        result = reader()
     finally:
         termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-    return ch
+    return result

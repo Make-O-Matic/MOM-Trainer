@@ -132,7 +132,7 @@ def connected_gloves(args, minimum, set_rfid):
                 try:
                     sleep(1)
                 except KeyboardInterrupt:
-                    gloves[0].disconnect()
+                    gloves.disconnect()
                     sys.exit()
 
 
@@ -145,10 +145,10 @@ def print_line():
 
 
 def getch():
-    return wrap_raw(sys.stdin, functools.partial(sys.stdin.read,1))
+    return raw_wrap(sys.stdin, functools.partial(sys.stdin.read,1))
 
 
-def wrap_raw(stream, reader):
+def raw_wrap(stream, reader):
     fd = stream.fileno()
     old_settings = termios.tcgetattr(fd)
     try:

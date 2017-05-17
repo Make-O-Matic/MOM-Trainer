@@ -20,13 +20,16 @@ def main():
     hosts = db['hosts']
     print('Datenbankverbindung hergestellt.')
 
-    event = threading.Event()
+    user_acted = threading.Event()
     gloves = None
-    def set_rfid(rfid):
-        if event.is_set():
+    def set_rfid(rfid, left):
+        if user_acted.is_set():
             return
         gloves.rfid = rfid
-        event.set()
+        gloves.rfid_side = 'R'
+        if left:
+            gloves.rfid_side = 'L'
+        user_acted.set()
 
     gloves = helpers.connected_gloves(args, 1, set_rfid)
     hand = 'L'
@@ -38,21 +41,21 @@ def main():
     got_rfid = False
     while True:
         if not got_rfid:
-            event.clear()
+            user_acted.clear()
             print('Bewegen sie einen GLOVE ueber einen TAG um diesen auszulesen oder neu anzulegen')
-            event.wait()
-        print(hand + ': TAG "' + gloves.rfid + '" erkannt!')
+            user_acted.wait()
+        print(gloves.rfid_side + ': TAG "' + gloves.rfid + '" erkannt!')
         host = hosts.find_one({'spots.rfid': gloves.rfid})
         if bool(host):
 
             spot = hosts.find_one({'spots.rfid': gloves.rfid}, {'spots.$': 1})['spots'][0]
             helpers.print_line()
-            print(host['name'] + ' > ' + spot['name'] + ' (' + hand + ')')
+            print(host['name'] + ' > ' + spot['name'] + ' (' + gloves.rfid_side + ')')
             print(host['id'] + ' > ' + spot['id'])
             helpers.print_line()
             got_rfid = raw_input_or_rfid(
                 'Neuen TAG scannen oder [D] druecken um TAG von HOST zu loeschen',
-                'Dd', event, gloves)
+                'Dd', user_acted, gloves)
             if not got_rfid:
                 hosts.update_one({'_id': host['_id']}, 
                                  {'$pull': {'spots': {'rfid': gloves.rfid}}})
@@ -63,7 +66,7 @@ def main():
             print('TAG nicht vorhanden.')
             got_rfid = raw_input_or_rfid(
                 'Druecken sie [N] um zum Anzulegen ODER beruehren Sie einen anderen Tag.',
-                'Nn', event, gloves)
+                'Nn', user_acted, gloves)
             if not got_rfid:
                 while True:
                     host_id = input('Bitte geben sie die ID des HOSTs an, auf dem sich der TAG befindet: ')
@@ -106,25 +109,25 @@ def add_spot(hosts, host_id, rfid):
     return True
 
 
-def raw_input_or_rfid(prompt, keys, event, gloves):
-    got_rfid = helpers.wrap_raw(sys.stdin, 
-        functools.partial(input_or_rfid, prompt, keys, event, gloves))
+def raw_input_or_rfid(prompt, keys, user_acted, gloves):
+    got_rfid = helpers.raw_wrap(sys.stdin, 
+        functools.partial(input_or_rfid, prompt, keys, user_acted, gloves))
     print('')
     return got_rfid
 
 
-def input_or_rfid(prompt, keys, event, gloves):
-    event.clear()
+def input_or_rfid(prompt, keys, user_acted, gloves):
+    user_acted.clear()
     old_rfid = gloves.rfid
     gloves.rfid = None
     loop = asyncio.get_event_loop()
-    loop.add_reader(sys.stdin, event.set)
+    loop.add_reader(sys.stdin, user_acted.set)
     sys.stdout.write(prompt)
     sys.stdout.flush()
     got_rfid = None
     
     async def wait():
-        await loop.run_in_executor(None, event.wait)
+        await loop.run_in_executor(None, user_acted.wait)
     
     while True:
         loop.run_until_complete(wait())
@@ -138,7 +141,7 @@ def input_or_rfid(prompt, keys, event, gloves):
             if key in keys:
                 got_rfid = False
                 break
-        event.clear()
+        user_acted.clear()
 
     loop.remove_reader(sys.stdin)
     if not got_rfid:

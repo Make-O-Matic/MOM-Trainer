@@ -25,9 +25,12 @@ def main():
     parser.add_argument('-a', '--align',
         choices=['left', 'right'], default='right',
         help='Alignment')
-    parser.add_argument('-m', '--nomute', action='store_const',
-        const=GES.TrackType.UNKNOWN, default=GES.TrackType.VIDEO,
-        help='Nicht stumm')
+    parser.add_argument('-m', '--mute', action='store_const',
+        const=GES.TrackType.VIDEO, default=GES.TrackType.UNKNOWN,
+        help='Stumm')
+    parser.add_argument('-r', '--rotate', action='store_const',
+        const=True, default=False,
+        help='Drehen')
     helpers.add_db_arguments(parser)
     args = parser.parse_args()
     if args.align == 'right':
@@ -46,10 +49,20 @@ def main():
     os.mkdir(directory)
     encoding_profile = GstPbutils.EncodingProfile.from_discoverer(
         discoverer.discover_uri(media_uri))
-    input = GES.UriClipAsset.request_sync(media_uri)
+    if args.rotate:
+        for profile in encoding_profile.get_profiles():
+            caps = profile.get_format()
+            flipped_caps = caps.copy_nth(0)
+            info = flipped_caps.get_structure(0)
+            if info.get_value('height'):
+                flipped_caps.set_value('width', info.get_value('height'))
+                flipped_caps.set_value('height', info.get_value('width'))
+            profile.set_format(flipped_caps)
+
+    media = GES.UriClipAsset.request_sync(media_uri)
 
     input_start = args.start
-    input_stop = input_start.shift(seconds=(input.get_duration()/Gst.SECOND))
+    input_stop = input_start.shift(seconds=(media.get_duration()/Gst.SECOND))
 
     trainset_infos = helpers.trainset_infos(db)
     for trainset in trainset_infos:
@@ -68,12 +81,12 @@ def main():
             offset = clip_start_us
             #clip_stop_us - (trainset_stop - clip_start).seconds
 
-            clip = ('CLIP_' + trainset + '_' +
+            clip_name = ('CLIP_' + trainset + '_' +
                 info['experiment']['id'] + '_' +
                 info['parcours']['observer']['id'] + '_' +
                 info['parcours']['subject']['id'] + '_' +
                 info['parcours']['id'])
-            subtitle_file = clip + '.ass'
+            subtitle_file = clip_name + '.ass'
             subtitle = aeidon.Subtitle(aeidon.modes.TIME)
             format = 'HH:mm:ss.SSS'
             subtitle.start = arrow.get(0).format(format)
@@ -127,27 +140,21 @@ def main():
             subtitles.save_main(subtitles_ass)
 
             timeline = GES.Timeline.new_audio_video()
-
-            #GES.Track.new(GES_TRACK_TYPE_TEXT, caps)
-            #timeline.add_track()
-            #"select-tracks-for-object"
-            subtitle_layer = timeline.append_layer()
-            subtitle_overlay = GES.EffectClip.new(
-                'filesrc location=' +
-                subtitle_file +
-                ' ! subtitle_overlay', '')
-            subtitle_layer.add_clip(subtitle_overlay)
             input_layer = timeline.append_layer()
-            input_layer.add_asset(input, 0,
+            clip = input_layer.add_asset(media, 0,
                 (clip_start - input_start).seconds * Gst.SECOND,
                 (clip_duration.seconds + 1) * Gst.SECOND,
-                args.nomute)
-            timeline.commit()
+                args.mute)
+            if args.rotate:
+                effect = GES.Effect.new('videoflip')
+                effect.set_child_property('video-direction', 1)
+                clip.add(effect)
+            timeline.commit_sync()
 
             pipeline = GES.Pipeline()
             pipeline.set_timeline(timeline)
             if not pipeline.set_render_settings(
-                'file://' + directory + '/' + clip + '.mp4',
+                'file://' + directory + '/' + clip_name + '.mp4',
                 encoding_profile):
                 raise argparse.ArgumentTypeError("Not a valid media file")
             pipeline.set_mode(GES.PipelineFlags.RENDER)

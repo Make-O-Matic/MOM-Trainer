@@ -13,12 +13,12 @@ def main():
     parser = argparse.ArgumentParser(description='tagreader.')
     helpers.add_MAC_arguments(parser)
     helpers.add_db_arguments(parser)
-    
+
     args = parser.parse_args()
-    
+
     db = helpers.db(args)
     hosts = db['hosts']
-    print('Datenbankverbindung hergestellt.')
+    print('+) Datenbankverbindung hergestellt.')
 
     user_acted = threading.Event()
     gloves = None
@@ -32,86 +32,117 @@ def main():
         user_acted.set()
 
     gloves = helpers.connected_gloves(args, 1, set_rfid)
-    hand = 'L'
-    if gloves.state == 2:
-        hand = 'R'
-    print('Verbindung zu mind. einem Handschuh hergestellt.')
-    print('SCANNER bereit.')
+    gloves.rfid = None
+    gloves.rfid_side = None
+    print('+) Verbindung zu mind. einem Handschuh hergestellt.')
+    print('SCANNER bereit.\n')
 
     got_rfid = False
     while True:
         if not got_rfid:
-            user_acted.clear()
-            print('Bewegen sie einen GLOVE ueber einen TAG um diesen auszulesen oder neu anzulegen')
-            user_acted.wait()
-        print(gloves.rfid_side + ': TAG "' + gloves.rfid + '" erkannt!')
+            print('\nzum Scannen GLOVE ueber TAG bewegen')
+            helpers.print_line()
+            got_rfid = raw_input_or_rfid('oder Programm mit [ESC] beenden',
+                chr(27), user_acted, gloves)
+            print('')
+            if not got_rfid:
+                end(gloves)
+        print(gloves.rfid_side + ':\nTAG "' + gloves.rfid + '" erkannt!\n')
         host = hosts.find_one({'spots.rfid': gloves.rfid})
         if bool(host):
 
             spot = hosts.find_one({'spots.rfid': gloves.rfid}, {'spots.$': 1})['spots'][0]
+            print('')
             helpers.print_line()
-            print(host['name'] + ' > ' + spot['name'] + ' (' + gloves.rfid_side + ')')
-            print(host['id'] + ' > ' + spot['id'])
+            print('|')
+            print('|' + host['name'] + ' > ' + spot['name'] + ' (' + gloves.rfid_side + ')')
+            print('|' + host['id'] + ' > ' + spot['id'])
+            print('|')
             helpers.print_line()
+            print('')
             got_rfid = raw_input_or_rfid(
                 'Neuen TAG scannen oder [D] druecken um TAG von HOST zu loeschen',
                 'Dd', user_acted, gloves)
             if not got_rfid:
                 hosts.update_one({'_id': host['_id']}, 
                                  {'$pull': {'spots': {'rfid': gloves.rfid}}})
-                print('TAG wurde von ' + host['id'] + ' geloescht')
+                print('TAG wurde von HOST"' + host['id'] + '" geloescht')
 
         else:
 
             print('TAG nicht vorhanden.')
             got_rfid = raw_input_or_rfid(
-                'Druecken sie [N] um zum Anzulegen ODER beruehren Sie einen anderen Tag.',
+                'Druecken sie [N] zum Anzulegen '
+                'ODER beruehren Sie einen anderen TAG.',
                 'Nn', user_acted, gloves)
+            print('')
             if not got_rfid:
                 while True:
-                    host_id = input('Bitte geben sie die ID des HOSTs an, auf dem sich der TAG befindet: ')
+                    host_id = input('Bitte geben sie die ID des HOST(.id) an, '
+                        'auf dem sich der TAG befindet '
+                        'und bestaetigen Sie mit [ENTER]: ')
                     host = hosts.find_one({'id': host_id})
                     if bool(host):
                         add_spot(hosts, host_id, gloves.rfid)
                         break
                     else:
-                        print(host_id + ' wurde nicht gefunden.')
-                        print('[ENTER] um neuen HOST anzulegen.')
-                        print('[ESC] um neue HOST.ID anzugeben')
+                        print('\nHOST "' + host_id + '" wurde nicht gefunden.')
+                        print('Bitte um Eingabe:')
+                        print('+) [ENTER] um neuen HOST anzulegen')
+                        print('+) [ESC] um neue HOST.ID anzugeben\n')
                         key = wait_for('\n\r' + chr(27))
                         if key != chr(27):
-                            host_name = input('Geben Sie HOST.name ein: ')
-                            print('[ENTER] um neuen HOST anzulegen.')
-                            print('[ESC] um neuen TAG zu scannen.')
+                            host_name = input('Geben Sie den Namen des HOST(.name) an '
+                                'und bestaetigen Sie mit [ENTER]: ')
+                            print('- [ENTER] um neuen HOST anzulegen')
+                            print('- [ESC] um neuen TAG zu scannen\n')
                             key = wait_for('\n\r' + chr(27))
                             if key != chr(27):
                                 hosts.insert_one({'id': host_id, 'name': host_name})
-                                print('Neuer HOST: ' + host_id + ', ' + host_name + ' wurde in Datenbank angelegt.')
+                                print('+) HOST "' + host_name + '" ("' + 
+                                    host_id + '") wurde angelegt.')
                                 add_spot(hosts, host_id, gloves.rfid)
                             break
 
 
 def add_spot(hosts, host_id, rfid):
-    print('Geben Sie eine SPOT.ID an und bestaetigen Sie mit [ENTER]:')
-    spot_id = input('ACHTUNG: Wenn SPOT.ID bereits vorhanden ist, dann wird dieser einfach ueberschrieben!\n')
-    spot_name = input('Geben Sie einen SPOT.name an und bestaetigen Sie mit [ENTER]: ')
-    print('[ENTER] um den neuen SPOT anzulegen.')
-    print('[ESC] um anderen TAG zu scannen.')
+    spot_id = input('\nGeben Sie die ID des SPOT(.id) an '
+        'und bestaetigen Sie mit [ENTER]:')
+    spot_name = input('Geben Sie den Namen des SPOT(.name) an '
+        'und bestaetigen Sie mit [ENTER]: ')
+    print('\nEingaben wurden verarbeitet. Bitte um Eingabe:\n')
+    print('- [ENTER] um den neuen SPOT anzulegen')
+    print('- [ESC] um anderen TAG zu scannen\n')
     key = wait_for('\n\r' + chr(27))
     if key == chr(27):
         return False
     hosts.update_one({'id': host_id}, 
                      {'$push': {'spots': {'id' : spot_id, 'name': spot_name, 'rfid': rfid}}})
-    print('SPOT ' + spot_id + ', ' + spot_name + ' wurde angelegt')
-    print('SPOT ' + spot_id + ' wurde HOST ' + host_id + ' zugewiesen')
-    print('TAG ' + rfid + ' wurde angelegt.')
-    print('TAG ' + rfid + ' wurde ' + host_id + ' > ' + spot_id + ' zugewiesen')
+    print('+) SPOT "' + spot_name + '" ("' + spot_id + '") wurde angelegt')
+    print('+) SPOT "' + spot_id + '" wurde HOST "' + host_id + '" zugewiesen.')
+    print('+) TAG "' + rfid + '" wurde angelegt.')
+    print('+) TAG "' + rfid + '" wurde "' + host_id + '" > "' + spot_id + '" zugewiesen')
     return True
 
 
+def end(gloves):
+    print('SCANNER wird beendet...')
+    print('-) Bluetoothverbindung wird geschlossen.')
+    gloves.disconnect()
+    print('-) Datenbankverbindung wird getrennt')
+    sys.exit()
+
+
 def raw_input_or_rfid(prompt, keys, user_acted, gloves):
-    got_rfid = helpers.raw_wrap(sys.stdin, 
-        functools.partial(input_or_rfid, prompt, keys, user_acted, gloves))
+    try:
+        got_rfid = helpers.raw_wrap(sys.stdin, 
+            functools.partial(input_or_rfid, prompt, keys, user_acted, gloves))
+    except Exception:
+        print('\nVerbindung zu mind. einem Handschuh wurde unterbrochen.')
+        print('Programm mit [ESC] beenden.')
+        wait_for(chr(27))
+        end(gloves)
+
     print('')
     return got_rfid
 
@@ -119,6 +150,7 @@ def raw_input_or_rfid(prompt, keys, user_acted, gloves):
 def input_or_rfid(prompt, keys, user_acted, gloves):
     user_acted.clear()
     old_rfid = gloves.rfid
+    old_side = gloves.rfid_side
     gloves.rfid = None
     loop = asyncio.get_event_loop()
     loop.add_reader(sys.stdin, user_acted.set)
@@ -126,13 +158,17 @@ def input_or_rfid(prompt, keys, user_acted, gloves):
     sys.stdout.flush()
     got_rfid = None
     
-    async def wait():
+    async def wait_user():
         await loop.run_in_executor(None, user_acted.wait)
-    
+        
     while True:
-        loop.run_until_complete(wait())
+        loop.run_until_complete(asyncio.wait([gloves.io_done, wait_user()],
+            return_when=asyncio.FIRST_COMPLETED))
+        if not user_acted.is_set():
+            user_acted.set()
+            raise Exception
         if gloves.rfid:
-            if gloves.rfid != old_rfid:
+            if gloves.rfid != old_rfid or gloves.rfid_side != old_side:
                 got_rfid = True
                 break
             gloves.rfid = None

@@ -7,6 +7,7 @@ from time import sleep
 from subprocess import call
 import functools
 import uuid
+import asyncio
 
 from pymongo import MongoClient, errors, ASCENDING, DESCENDING
 from momconnectivity.glove import Glove
@@ -118,6 +119,12 @@ def connected_gloves(args, minimum, set_rfid):
         gloves = Glove(args.lMAC, args.rMAC, set_connected, is_recording, lUUID, rUUID)
         if set_rfid:
             gloves.processRFID = set_rfid
+        loop = asyncio.get_event_loop()
+        gloves.io_done = loop.create_future()
+        def set_io_done():
+            loop.call_soon_threadsafe(gloves.io_done.set_result, None)
+            
+        gloves.setIODone(set_io_done)
         gloves.state = 0
         gloves.connected = threading.Event()
         gloves.recording = False

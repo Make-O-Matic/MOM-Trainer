@@ -22,26 +22,26 @@ def main():
     parser.add_argument('-s', '--start',
         help='Startzeitpunkt UTC - Format "01.01.2000 01:02:03"',
         required=True, type=valid_datetime)
+    parser.add_argument('-S', '--soft', action='store_true',
+        help='softsubs')
     parser.add_argument('-a', '--align',
         choices=['left', 'right'], default='right',
         help='Alignment')
     parser.add_argument('-m', '--mute', action='store_const',
         const=GES.TrackType.VIDEO, default=GES.TrackType.UNKNOWN,
         help='Stumm')
-    parser.add_argument('-r', '--rotate', action='store_const',
-        const=True, default=False,
+    parser.add_argument('-r', '--rotate', action='store_true',
         help='Drehen')
     helpers.add_db_arguments(parser)
     args = parser.parse_args()
     if args.align == 'right':
-        args.align = '9'
+        args.align = '2'
     else:
-        args.align = '7'
+        args.align = '0'
 
     Gst.init(None)
     GES.init()
     loop = GLib.MainLoop()
-    GLib.log_set_handler(None, GLib.LogLevelFlags.LEVEL_CRITICAL, discard, None)
     discoverer = GstPbutils.Discoverer.new(600 * Gst.SECOND)
     db = helpers.db(args)
     media_uri = 'file://' + args.media
@@ -57,7 +57,7 @@ def main():
             if info.get_value('height'):
                 flipped_caps.set_value('width', info.get_value('height'))
                 flipped_caps.set_value('height', info.get_value('width'))
-            profile.set_format(flipped_caps)
+                profile.set_format(flipped_caps)
 
     media = GES.UriClipAsset.request_sync(media_uri)
 
@@ -86,15 +86,17 @@ def main():
                 info['parcours']['observer']['id'] + '_' +
                 info['parcours']['subject']['id'] + '_' +
                 info['parcours']['id'])
-            subtitle_file = clip_name + '.ass'
+            subtitle_file = clip_name + '.vtt'
             subtitle = aeidon.Subtitle(aeidon.modes.TIME)
+            stop = helpers.endpoint(db[trainset],  {'step': {"$exists": True}}, True)
             format = 'HH:mm:ss.SSS'
             subtitle.start = arrow.get(0).format(format)
-            subtitle.end = arrow.get(clip_duration.seconds + 1).format(format)
-            subtitle.main_text = (trainset + '\n' +
+            subtitle.end = arrow.get((stop / 1e6) - offset).format(format)
+            main_text = (trainset + '\n' +
                 info['experiment']['id'] + ' [' +
                 info['parcours']['subject']['id'] + ', ' +
-                info['parcours']['observer']['id'] + ']')
+                info['parcours']['observer']['id'] + ']\n \n')
+            subtitle.main_text = main_text
             subtitles = aeidon.Project()
             subtitles.subtitles.append(subtitle)
 
@@ -103,14 +105,16 @@ def main():
                 mutation = helpers.mutation(db, exercise)
                 filter = { 'step' :  step }
                 start = helpers.endpoint(db[trainset], filter, True)
-                stop = helpers.endpoint(db[trainset], filter, False)
+                stop = helpers.endpoint(db[trainset], {'step': {"$gt": step}}, True)
+                if not stop:
+                    stop = helpers.endpoint(db[trainset], filter, False)
                 if not start:
                     step += 1
                     continue
                 subtitle = aeidon.Subtitle(aeidon.modes.TIME)
                 subtitle.start = arrow.get((start / 1e6) - offset).format(format)
                 subtitle.end = arrow.get((stop / 1e6) - offset).format(format)
-                subtitle.main_text += ('\n' +
+                subtitle.main_text += (main_text +
                     info['parcours']['id'] + '/' + str(step) + ' > ' +
                     mutation['id'])
                 if 'hands' in mutation:
@@ -131,20 +135,41 @@ def main():
 
                 subtitles.subtitles.append(subtitle)
                 step += 1
+                
+            subtitle = aeidon.Subtitle(aeidon.modes.TIME)
+            start = helpers.endpoint(db[trainset],  {'step': {"$exists": True}}, False)
+            subtitle.start = arrow.get((start / 1e6) - offset).format(format)
+            subtitle.end = arrow.get(clip_duration.seconds + 3600).format(format)
+            # +3600 is a workaround for bug in subparse
+            subtitle.main_text = main_text
+            subtitles.subtitles.append(subtitle)
 
-            subtitles_ass = aeidon.files.new(aeidon.formats.ASS,
+            subtitles_ass = aeidon.files.new(aeidon.formats.WEBVTT,
                 directory + '/' + subtitle_file, 'utf_8')
-            subtitles_ass.header = re.sub(
-                '2, 30, 30, 30, 0$', args.align + ', 30, 30, 30, 0',
-                subtitles_ass.header)
+            #subtitles_ass.header = re.sub(
+            #    '2, 30, 30, 30, 0$', args.align + ', 30, 30, 30, 0',
+            #    subtitles_ass.header)
             subtitles.save_main(subtitles_ass)
 
             timeline = GES.Timeline.new_audio_video()
+            
+            if not args.soft:
+                subtitle_layer = timeline.append_layer()
+                overlay = GES.EffectClip.new(
+                    'textoverlay name=o valignment=2 font-desc="Sans" ' +
+                    'halignment=' + args.align +
+                    ' line-alignment=' + args.align +
+                    ' filesrc location=' + directory + '/' + subtitle_file + 
+                    ' ! typefind ! subparse ! o.text_sink o.', 'identity')
+                overlay.set_duration((clip_start - input_start).seconds * Gst.SECOND)
+                overlay.set_start(0)
+                subtitle_layer.add_clip(overlay)
             input_layer = timeline.append_layer()
             clip = input_layer.add_asset(media, 0,
                 (clip_start - input_start).seconds * Gst.SECOND,
                 (clip_duration.seconds + 1) * Gst.SECOND,
                 args.mute)
+
             if args.rotate:
                 effect = GES.Effect.new('videoflip')
                 effect.set_child_property('video-direction', 1)
@@ -160,8 +185,6 @@ def main():
             pipeline.set_mode(GES.PipelineFlags.RENDER)
             pipeline.set_state(Gst.State.PLAYING)
 
-            #compoGst.debug_bin_to_dot_file(pipeline, Gst.DebugGraphDetails.ALL, "tmp")
-
             bus = pipeline.get_bus()
             bus.add_signal_watch()
             bus.connect("message",
@@ -170,6 +193,8 @@ def main():
             loop.run()
 
             pipeline.set_state(Gst.State.NULL)
+            if not args.soft:
+                os.remove(directory + '/' + subtitle_file)
 
 
 def valid_datetime(str):
@@ -188,8 +213,6 @@ def handle_message(bus, message, loop):
         print(error)
         loop.quit()
 
-def discard(log_domain, log_level, message, user_data):
-    return
 
 if __name__ == "__main__":
     main()

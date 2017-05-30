@@ -47,6 +47,7 @@ def main():
             print('')
             if not got_rfid:
                 end(gloves)
+        helpers.beep()
         print(gloves.rfid_side + ':\nTAG "' + gloves.rfid + '" erkannt!\n')
         host = hosts.find_one({'spots.rfid': gloves.rfid})
         if bool(host):

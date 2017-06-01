@@ -25,7 +25,7 @@ def main():
     parser.add_argument('-S', '--soft', action='store_true',
         help='softsubs')
     parser.add_argument('-a', '--align',
-        choices=['left', 'right'], default='right',
+        choices=['L', 'R'], default='R',
         help='Alignment')
     parser.add_argument('-m', '--mute', action='store_const',
         const=GES.TrackType.VIDEO, default=GES.TrackType.UNKNOWN,
@@ -34,7 +34,7 @@ def main():
         help='Drehen')
     helpers.add_db_arguments(parser)
     args = parser.parse_args()
-    if args.align == 'right':
+    if args.align == 'R':
         args.align = '2'
     else:
         args.align = '0'
@@ -45,7 +45,7 @@ def main():
     discoverer = GstPbutils.Discoverer.new(600 * Gst.SECOND)
     db = helpers.db(args)
     media_uri = 'file://' + args.media
-    directory = args.media + arrow.now().format('-DDMMYYYYHHmmss')
+    directory = args.media + '_SlicedAt_' + arrow.now().format('DDMMYYYYHHmmss')
     os.mkdir(directory)
     encoding_profile = GstPbutils.EncodingProfile.from_discoverer(
         discoverer.discover_uri(media_uri))
@@ -81,11 +81,11 @@ def main():
             offset = clip_start_us
             #clip_stop_us - (trainset_stop - clip_start).seconds
 
-            clip_name = ('CLIP_' + trainset + '_' +
+            clip_name = ('SLICE_' +
                 info['experiment']['id'] + '_' +
-                info['parcours']['observer']['id'] + '_' +
+                info['parcours']['id'] + '_' +
                 info['parcours']['subject']['id'] + '_' +
-                info['parcours']['id'])
+                trainset)
             subtitle_file = clip_name + '.vtt'
             subtitle = aeidon.Subtitle(aeidon.modes.TIME)
             stop = helpers.endpoint(db[trainset],  {'step': {"$exists": True}}, True)
@@ -157,7 +157,7 @@ def main():
                 subtitle_layer = timeline.append_layer()
                 overlay = GES.EffectClip.new(
                     'textoverlay name=o valignment=2 font-desc="Sans" ' +
-                    'halignment=' + args.align +
+                    'auto-resize=false halignment=' + args.align +
                     ' line-alignment=' + args.align +
                     ' filesrc location=' + directory + '/' + subtitle_file + 
                     ' ! typefind ! subparse ! o.text_sink o.', 'identity')
@@ -172,7 +172,7 @@ def main():
 
             if args.rotate:
                 effect = GES.Effect.new('videoflip')
-                effect.set_child_property('video-direction', 1)
+                effect.set_child_property('video-direction', 3)
                 clip.add(effect)
             timeline.commit_sync()
 

@@ -3,7 +3,6 @@
 import sys
 from subprocess import call
 import argparse
-from sets import Set
 import datetime
 import tempfile
 from pymongo import MongoClient, errors, ASCENDING
@@ -37,8 +36,25 @@ if __name__ == "__main__":
         print('Es konnte keine Verbindung zur Datenbank hergestellt werden.')
         sys.exit()
         
-    parcours_ids = Set(args.parcours)
-    if args.mutation or args.gesture or args.host:
+    match_mutation = []
+    if args.mutation:
+        match_mutation.add({ 'mutation.id' : { '$in' : args.mutation } })
+    if args.gesture:
+        match_mutation.add(
+        { '$or' : [
+            { 'mutation.hands.left.gesture.id' : { '$in' : args.gesture } },
+            { 'mutation.hands.right.gesture.id' : { '$in' : args.gesture } }
+        ]})
+    if args.host:
+        match_mutation.add(
+        { '$or' : [
+            { 'mutation.hands.left.host.id' : { '$in' : args.host } },
+            { 'mutation.hands.right.host.id' : { '$in' : args.host } }
+        ]})
+    parcours_ids = set()
+    if not match_mutation:
+        parcours_ids = set(args.parcours)
+    else:
         selected_parcours = db.parcours.aggregate([
         {
             '$unwind' : '$exercises'
@@ -55,40 +71,35 @@ if __name__ == "__main__":
             '$unwind' : '$mutation'
         },       
         {
-            '$match' : { '$or' : [
-                { 'mutation.id' : { '$in' : args.mutation } },
-                { 'mutation.hands.left.gesture.id' : { '$in' : args.gesture } },
-                { 'mutation.hands.right.gesture.id' : { '$in' : args.gesture } },
-                { 'mutation.hands.left.host.id' : { '$in' : args.host } },
-                { 'mutation.hands.right.host.id' : { '$in' : args.host } }
-            ]}
+            '$match' : { '$and' : match_mutation }
         }
         ])
         for parcours in selected_parcours:
             parcours_ids.add(parcours['id'])
+        if args.parcours:
+            parcours_ids &= args.parcours
+        if not parcours_ids:
+            print('keine Daten zum Export verfuegbar.')
+            sys.exit()
+
  
     collections = db.collection_names()
-    filter = True
-    if (not args.trainset and not args.experiment and not args.subject and not args.observer and
-	    not args.parcours and not args.collector and not args.mutation and not args.gesture and not args.host):
-        filter = False
     trainset_infos = {}
     for collection in collections:
         if not 'TRAINSET' in collection:
             continue
-        trainset_info = db[collection].find_one({ '_id' : collection })
+        trainset_info = db[collection].find_one({'experiment': {'$exists': True}})
         parcours = 'parcours'
         if 'parkour' in trainset_info:
             parcours = 'parkour'
         if (trainset_info
-            and (not filter
-                or (trainset_info['_id'] in args.trainset)
-                or (trainset_info['experiment']['id'] in args.experiment)
-                or (trainset_info[parcours]['subject']['id'] in args.subject)
-                or (trainset_info[parcours]['observer']['id'] in args.observer)
-                or (trainset_info[parcours]['id'] in parcours_ids)
-                or (trainset_info[parcours]['subject']['hands']['left']['id'] in args.collector)
-                or (trainset_info[parcours]['subject']['hands']['right']['id'] in args.collector))):
+            and (not args.trainset or trainset_info['_id'] in args.trainset)
+            and (not args.experiment or trainset_info['experiment']['id'] in args.experiment)
+            and (not args.subject or trainset_info[parcours]['subject']['id'] in args.subject)
+            and (not args.observer or trainset_info[parcours]['observer']['id'] in args.observer)
+            and (not parcours_ids or trainset_info[parcours]['id'] in parcours_ids)
+            and (not args.collector or trainset_info[parcours]['subject']['hands']['left']['id'] in args.collector)
+            and (not args.collector or trainset_info[parcours]['subject']['hands']['right']['id'] in args.collector)):
             if not ('status' in trainset_info and 'faulty' in trainset_info['status']):
                 trainset_infos[collection] = trainset_info
     
@@ -126,14 +137,15 @@ info.active.gesture
 
     tmpCollection = 'tmpexportercollection'
 
-    fieldFile = tempfile.NamedTemporaryFile()
+    fieldFile = tempfile.NamedTemporaryFile(mode='w+')
     fieldFile.write(fields)
     fieldFile.flush()
     
     outputFile = 'EXPORT_' + datetime.datetime.now().strftime('%d%m%Y%H%M%S') 
-    for filter in (args.trainset + args.experiment + args.subject + args.observer +
-                   args.parcours + args.collector + args.mutation + args.gesture + args.host):
-        outputFile += '_' + filter
+    for filters in [args.trainset, args.experiment, args.gesture, args.host,
+                    args.subject, args.observer, args.mutation, args.collector, args.parcours]:
+        if filters:
+	        outputFile += '_' + '-'.join(filters)
     outputFile += '.csv'
     output = open(outputFile, 'a+')
     output.write('# creator Make-O-Matic\n')

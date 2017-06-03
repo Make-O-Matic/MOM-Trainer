@@ -35,7 +35,6 @@ if __name__ == "__main__":
     except (errors.ConnectionFailure, errors.InvalidURI, errors.OperationFailure):
         print('Es konnte keine Verbindung zur Datenbank hergestellt werden.')
         sys.exit()
-        
     match_mutation = []
     if args.mutation:
         match_mutation.add({ 'mutation.id' : { '$in' : args.mutation } })
@@ -107,48 +106,78 @@ if __name__ == "__main__":
         print('keine Daten zum Export verfuegbar.')
         sys.exit()
 
-    fields = '''trainset
-experiment
-subject
-observer
-info.side
-info.collector
-data.stamp.microSeconds
-data.rfid
-data.grasp.sensorA
-data.grasp.sensorB
-data.grasp.sensorC
-data.acceleration.x
-data.acceleration.y
-data.acceleration.z
-data.rotation.x
-data.rotation.y
-data.rotation.z
-data.interface.userInputButton
-data.interface.handIsInGlove
-parcours
-step
-mutation.id
-info.active.hand
-info.active.host
-info.active.spot
-info.active.gesture
-'''
+    fields = {
+        'trainset': ['trainset ID', ''],
+        'experiment' : ['experiment ID', ''],
+        'subject': ['subject ID', ''],
+        'observer': ['observer ID', ''],
+        'info.side': ['collected by hand', 'left/right', 'boolean'],
+        'info.collector': ['collector ID', ''],
+        'data.stamp.microSeconds': ['timestamp', 'microseconds', 'time'],
+        'data.rfid': ['RFID', ''],
+        'data.grasp.sensorA': ['GRASP-A', '0,1023', 'integer'],
+        'data.grasp.sensorB': ['GRASP-B', '0,1023', 'integer'],
+        'data.grasp.sensorC': ['GRASP-C', '0,1023', 'integer'],
+        'data.acceleration.x': ['AX', '-7,+7', 'float'],
+        'data.acceleration.y': ['AY', '-7,+7', 'float'],
+        'data.acceleration.z': ['AZ', '-7,+7', 'float'],
+        'data.rotation.x': ['EX', '-90,+90', 'float'],
+        'data.rotation.y': ['EY', '-90,+90', 'float'],
+        'data.rotation.z': ['EZ', '-90,+90', 'float'],
+        'data.interface.userInputButton': ['user input', 'true/false', 'boolean'],
+        'data.interface.handIsInGlove': ['hand in glove', 'true/false', 'boolean'],
+        'parcours': ['parcours ID', ''],
+        'step': ['parcours step', '', 'integer'],
+        'mutation.id': ['mutation ID', ''],
+        'info.active.hand': ['mutation/hand is active', 'true/false', 'boolean'],
+        'info.active.host': ['host ID', ''],
+        'info.active.spot': ['host/spot ID', ''],
+        'info.active.gesture': ['gesture ID', '']
+    }
 
     tmpCollection = 'tmpexportercollection'
 
     fieldFile = tempfile.NamedTemporaryFile(mode='w+')
-    fieldFile.write(fields)
+    fieldFile.write('\n'.join(list(fields)) + '\n')
     fieldFile.flush()
     
-    outputFile = 'EXPORT_' + datetime.datetime.now().strftime('%d%m%Y%H%M%S') 
+    outputID = 'EXPORT_' + datetime.datetime.now().strftime('%d%m%Y%H%M%S') 
+    outputFile = outputID
     for filters in [args.trainset, args.experiment, args.gesture, args.host,
                     args.subject, args.observer, args.mutation, args.collector, args.parcours]:
         if filters:
 	        outputFile += '_' + '-'.join(filters)
     outputFile += '.csv'
     output = open(outputFile, 'a+')
-    output.write('# creator Make-O-Matic\n')
+    output.write('#id: ' + outputID + '\n#filename: ' + outputFile + '\n')
+    output.write('#created: ' + datetime.datetime.now().strftime('%d.%m.%Y') + '\n')
+    output.write('#creator: Make-O-Matic\n##\n')
+    db_args = '#arguments:'
+    filter_args = '#filters:'
+    for arg, values in vars(args).items():
+        if isinstance(values, str):
+            text = ' --' + arg + ': ' + values + ','
+            if arg == 'hand':
+                filter_args += text
+            else:
+                db_args += text
+        else:
+            if values:
+                filter_args += ' --' + arg + ':'
+            for value in values:
+                filter_args += ' ' + value + ','
+    output.write(db_args + '\n' + filter_args + '\n')
+    output.write('#data from: ' + ', '.join(list(trainset_infos)) + '\n##\n')
+    typerow = []
+    rangerow = []
+    namerow = []
+    for field, info in fields.items():
+        namerow.append(info[0])
+        rangerow.append(info[1])
+        info.append('string')
+        typerow.append(info[2])
+    output.write(','.join(typerow) + '\n' + ','.join(rangerow) + '\n'
+        + ','.join(namerow) + '\n')
     output.flush()
 
     for trainset in sorted(trainset_infos, key=lambda trainset: trainset_infos[trainset]['created']):
@@ -159,8 +188,7 @@ info.active.gesture
         match = { '_id' : { '$ne' : info['_id'] } }
         if args.hand and args.hand != 'both':
             match.update({ 'collector.id': info[parcours]['subject']['hands'][args.hand]['uuid'] })
-        db[trainset].aggregate([
-        {
+        db[trainset].aggregate([{
             '$match' : match
         },
         {
@@ -223,8 +251,7 @@ info.active.gesture
         },
         {
             '$out' : tmpCollection
-        }
-        ])
+        }])
         
         start = db[tmpCollection].find_one({}, sort=[('data.stamp.microSeconds', ASCENDING)])
         if start:
@@ -245,6 +272,8 @@ info.active.gesture
     
     output.close()        
     call(['sed', '-i', '/data\.stamp\.microSeconds/d', outputFile])
+
+    
     
 
 

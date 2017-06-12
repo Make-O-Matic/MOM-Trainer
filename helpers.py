@@ -13,12 +13,18 @@ from pymongo import MongoClient, errors, ASCENDING, DESCENDING
 from momconnectivity.glove import Glove
 
 
-def add_db_arguments(parser):
-    parser.add_argument('--hostname', required=True, help='HOSTNAME')
-    parser.add_argument('--port', required=True, help='PORT')
-    parser.add_argument('--db', required=True, help='DATABASE')
-    parser.add_argument('--username', required=True, help='USER')
-    parser.add_argument('--password', required=True, help='PASSWORT')
+def add_db_arguments(parser, time_series):
+    #parser.add_argument('--hostname', required=True, help='HOSTNAME')
+    #parser.add_argument('--port', required=True, help='PORT')
+    #parser.add_argument('--db', required=True, help='DATABASE')
+    #parser.add_argument('--username', required=True, help='USER')
+    #parser.add_argument('--password', required=True, help='PASSWORT')
+    db_type = 'gen'
+    if time_series:
+        db_type = 'ts'
+    parser.add_argument('--db' + db_type, required=True, 
+        help='Datenbank ' + db_type
+        + ' - Format USER:PASSWORT@HOSTNAME:PORT/DATENBANK oder HOSTNAME:PORT/DATENBANK')
 
 
 def add_MAC_arguments(parser):
@@ -28,16 +34,17 @@ def add_MAC_arguments(parser):
         help='COLLECTOR.macAddress fuer den rechten Handschuh')
 
 
-def db(args):
+def db(uri):
+    db_client = MongoClient(uri)
     try:
-        db_client = MongoClient('mongodb://' + args.username + ':' + args.password + 
-                                '@' + args.hostname + ':' + args.port + '/' + args.db)
+        #db_client = MongoClient('mongodb://' + args.username + ':' + args.password + 
+        #                        '@' + args.hostname + ':' + args.port + '/' + args.db)
         db_client.admin.command('ismaster')
-        db = db_client[args.db]
-        return db
     except (errors.ConnectionFailure, errors.InvalidURI, errors.OperationFailure):
         print('Es konnte keine Verbindung zur Datenbank hergestellt werden.')
         sys.exit()
+        
+    return db_client.get_default_database()#[args.db]
 
 
 def trainset_infos(db):
@@ -152,15 +159,15 @@ def print_line():
 
 
 def getch():
-    return raw_wrap(sys.stdin, functools.partial(sys.stdin.read,1))
+    return sys.stdin.read(1)
 
 
-def raw_wrap(stream, reader):
+def raw_getch():
     fd = stream.fileno()
     old_settings = termios.tcgetattr(fd)
     try:
         tty.setraw(stream.fileno())
-        result = reader()
+        result = getch()
     finally:
         termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
     return result

@@ -32,7 +32,8 @@ def main():
         help='Stumm')
     parser.add_argument('-r', '--rotate', action='store_true',
         help='Drehen')
-    helpers.add_db_arguments(parser)
+    helpers.add_db_arguments(parser, False)
+    helpers.add_db_arguments(parser, True)    
     args = parser.parse_args()
     if args.align == 'R':
         args.align = '2'
@@ -43,7 +44,8 @@ def main():
     GES.init()
     loop = GLib.MainLoop()
     discoverer = GstPbutils.Discoverer.new(600 * Gst.SECOND)
-    db = helpers.db(args)
+    db_generic = helpers.db(args.dbgen)
+    db_ts = helpers.db(args.dbts)
     media_uri = 'file://' + args.media
     directory = args.media + '_SlicedAt_' + arrow.now().format('DDMMYYYYHHmmss')
     os.mkdir(directory)
@@ -64,21 +66,22 @@ def main():
     input_start = args.start
     input_stop = input_start.shift(seconds=(media.get_duration()/Gst.SECOND))
 
-    trainset_infos = helpers.trainset_infos(db)
-    for trainset in trainset_infos:
-        info = trainset_infos[trainset]
-        clip_start_us = helpers.endpoint(
-            db[trainset], { '_id' : { '$ne' : info['_id'] } }, True) / 1e6
-        clip_stop_us = helpers.endpoint(db[trainset], {}, False) / 1e6
+    trainset_infos = helpers.trainset_infos(db_ts)
+    for trainset_name in trainset_infos:
+        info = trainset_infos[trainset_name]
+        trainset = db_ts[trainset_name]
+        trainset_start_us = helpers.endpoint(
+            trainset, { '_id' : { '$ne' : info['_id'] } }, True) / 1e6
+        trainset_stop_us = helpers.endpoint(trainset, {}, False) / 1e6
         #trainset_start = arrow.get(info['created'])
         trainset_stop = arrow.get(info['ended'])
         trainset_start = trainset_stop.shift(
-            seconds=-(clip_stop_us - clip_start_us))
+            seconds=-(trainset_stop_us - trainset_start_us))
         clip_start = max(input_start, trainset_start)
         clip_stop = min(input_stop, trainset_stop)
         if clip_start < clip_stop:
             clip_duration = clip_stop - clip_start
-            offset = clip_start_us
+            offset = trainset_start_us
             #clip_stop_us - (trainset_stop - clip_start).seconds
 
             clip_name = ('SLICE_' +
@@ -88,11 +91,11 @@ def main():
                 trainset)
             subtitle_file = clip_name + '.vtt'
             subtitle = aeidon.Subtitle(aeidon.modes.TIME)
-            stop = helpers.endpoint(db[trainset],  {'step': {"$exists": True}}, True)
+            intro_stop = helpers.endpoint(trainset,  {'step': {"$exists": True}}, True)
             format = 'HH:mm:ss.SSS'
             subtitle.start = arrow.get(0).format(format)
-            subtitle.end = arrow.get((stop / 1e6) - offset).format(format)
-            main_text = (trainset + '\n' +
+            subtitle.end = arrow.get((intro_stop / 1e6) - offset).format(format)
+            main_text = (trainset_name + '\n' +
                 info['experiment']['id'] + ' [' +
                 info['parcours']['subject']['id'] + ', ' +
                 info['parcours']['observer']['id'] + ']\n \n')
@@ -101,13 +104,13 @@ def main():
             subtitles.subtitles.append(subtitle)
 
             step = 1
-            for exercise in helpers.exercises(db, info['parcours']['id']):
-                mutation = helpers.mutation(db, exercise)
+            for exercise in helpers.exercises(db_gen, info['parcours']['id']):
+                mutation = helpers.mutation(db_gen, exercise)
                 filter = { 'step' :  step }
-                start = helpers.endpoint(db[trainset], filter, True)
-                stop = helpers.endpoint(db[trainset], {'step': {"$gt": step}}, True)
+                start = helpers.endpoint(trainset, filter, True)
+                stop = helpers.endpoint(trainset, {'step': {"$gt": step}}, True)
                 if not stop:
-                    stop = helpers.endpoint(db[trainset], filter, False)
+                    stop = helpers.endpoint(trainset, filter, False)
                 if not start:
                     step += 1
                     continue
@@ -137,8 +140,8 @@ def main():
                 step += 1
                 
             subtitle = aeidon.Subtitle(aeidon.modes.TIME)
-            start = helpers.endpoint(db[trainset],  {'step': {"$exists": True}}, False)
-            subtitle.start = arrow.get((start / 1e6) - offset).format(format)
+            concl_start = helpers.endpoint(trainset,  {'step': {"$exists": True}}, False)
+            subtitle.start = arrow.get((concl_start / 1e6) - offset).format(format)
             subtitle.end = arrow.get(clip_duration.seconds + 3600).format(format)
             # +3600 is a workaround for bug in subparse
             subtitle.main_text = main_text
@@ -154,7 +157,7 @@ def main():
             timeline = GES.Timeline.new_audio_video()
             
             if not args.soft:
-                subtitle_layer = timeline.append_layer()
+                overlay_layer = timeline.append_layer()
                 overlay = GES.EffectClip.new(
                     'textoverlay name=o valignment=2 font-desc="Sans" ' +
                     'auto-resize=false halignment=' + args.align +
@@ -163,7 +166,7 @@ def main():
                     ' ! typefind ! subparse ! o.text_sink o.', 'identity')
                 overlay.set_duration((clip_start - input_start).seconds * Gst.SECOND)
                 overlay.set_start(0)
-                subtitle_layer.add_clip(overlay)
+                overlay_layer.add_clip(overlay)
             input_layer = timeline.append_layer()
             clip = input_layer.add_asset(media, 0,
                 (clip_start - input_start).seconds * Gst.SECOND,
@@ -171,9 +174,9 @@ def main():
                 args.mute)
 
             if args.rotate:
-                effect = GES.Effect.new('videoflip')
-                effect.set_child_property('video-direction', 3)
-                clip.add(effect)
+                rotate = GES.Effect.new('videoflip')
+                rotate.set_child_property('video-direction', 3)
+                clip.add(rotate)
             timeline.commit_sync()
 
             pipeline = GES.Pipeline()

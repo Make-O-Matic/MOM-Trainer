@@ -1,4 +1,5 @@
 import sys
+import os
 import tty
 import termios
 import argparse
@@ -8,6 +9,7 @@ from subprocess import call
 import functools
 import uuid
 import asyncio
+import signal
 
 from pymongo import MongoClient, errors, ASCENDING, DESCENDING
 from momconnectivity.glove import Glove
@@ -35,7 +37,7 @@ def add_MAC_arguments(parser):
 
 
 def db(uri):
-    db_client = MongoClient(uri)
+    db_client = MongoClient('mongodb://' + uri)
     try:
         #db_client = MongoClient('mongodb://' + args.username + ':' + args.password + 
         #                        '@' + args.hostname + ':' + args.port + '/' + args.db)
@@ -122,6 +124,12 @@ def connected_gloves(args, minimum, set_rfid):
 
     lUUID = str(uuid.uuid4())
     rUUID = str(uuid.uuid4())
+    
+    def end(signal, frame):
+        gloves.disconnect()
+        sys.exit()
+    
+    signal.signal(signal.SIGINT, end)
     try:
         gloves = Glove(args.lMAC, args.rMAC, set_connected, is_recording, lUUID, rUUID)
         if set_rfid:
@@ -137,17 +145,13 @@ def connected_gloves(args, minimum, set_rfid):
         gloves.recording = False
         gloves.connect()
         gloves.connected.wait()
-        return gloves
     except RuntimeError:
             print('Verbindung zu (mind.) einem COLLECTOR konnte nicht hergestellt werden.')
             print('Bitte pruefen Sie die Bluetooth-Verbindung und starten Sie das Programm erneut.')
             print('Programm mit \'STRG+C\' beenden.')
-            while True:
-                try:
-                    sleep(1)
-                except KeyboardInterrupt:
-                    gloves.disconnect()
-                    sys.exit()
+            signal.pause()
+
+    return gloves, lUUID, rUUID
 
 
 def beep():
@@ -159,15 +163,20 @@ def print_line():
 
 
 def getch():
-    return sys.stdin.read(1)
+    ch = raw_wrap(sys.stdin, functools.partial(sys.stdin.read,1))
+    if ord(ch) == 3:
+        handler = signal.getsignal(signal.SIGINT)
+        if handler:
+            handler()
+    return ch
 
 
-def raw_getch():
+def raw_wrap(stream, reader):
     fd = stream.fileno()
     old_settings = termios.tcgetattr(fd)
     try:
         tty.setraw(stream.fileno())
-        result = getch()
+        result = reader()
     finally:
         termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
     return result

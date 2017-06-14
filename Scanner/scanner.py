@@ -7,6 +7,7 @@ sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 import functools
 import threading
 import asyncio
+
 import helpers
 
 def main():
@@ -31,7 +32,7 @@ def main():
             gloves.rfid_side = 'L'
         user_acted.set()
 
-    gloves = helpers.connected_gloves(args, 1, set_rfid)
+    gloves = helpers.connected_gloves(args, 1, set_rfid)[0]
     gloves.rfid = None
     gloves.rfid_side = None
     print('+) Verbindung zu mind. einem Handschuh hergestellt.')
@@ -42,8 +43,8 @@ def main():
         if not got_rfid:
             print('\nzum Scannen GLOVE ueber TAG bewegen')
             helpers.print_line()
-            got_rfid = input_or_rfid('oder Programm mit [ESC] beenden',
-                chr(27), user_acted, gloves)
+            print('oder Programm mit [ESC] beenden')
+            got_rfid = raw_input_or_rfid(chr(27), user_acted, gloves)
             print('')
             if not got_rfid:
                 end(gloves)
@@ -60,10 +61,8 @@ def main():
             print('|' + host['id'] + ' > ' + spot['id'])
             print('|')
             helpers.print_line()
-            print('')
-            got_rfid = input_or_rfid(
-                'Neuen TAG scannen oder [D] druecken um TAG von HOST zu loeschen',
-                'Dd', user_acted, gloves)
+            print('\nNeuen TAG scannen oder [D] druecken um TAG von HOST zu loeschen')
+            got_rfid = raw_input_or_rfid('Dd', user_acted, gloves)
             if not got_rfid:
                 hosts.update_one({'_id': host['_id']}, 
                                  {'$pull': {'spots': {'rfid': gloves.rfid}}})
@@ -72,10 +71,9 @@ def main():
         else:
 
             print('TAG nicht vorhanden.')
-            got_rfid = input_or_rfid(
-                'Druecken sie [N] zum Anzulegen '
-                'ODER beruehren Sie einen anderen TAG.',
-                'Nn', user_acted, gloves)
+            print('Druecken sie [N] zum Anzulegen '
+                  'ODER beruehren Sie einen anderen TAG.')
+            got_rfid = raw_input_or_rfid('Nn', user_acted, gloves)
             print('')
             if not got_rfid:
                 while True:
@@ -134,14 +132,25 @@ def end(gloves):
     sys.exit()
 
 
-def input_or_rfid(prompt, keys, user_acted, gloves):
+def raw_input_or_rfid(keys, user_acted, gloves):
+    try:
+        got_rfid = helpers.raw_wrap(sys.stdin,
+            functools.partial(input_or_rfid, prompt, keys, user_acted, gloves))
+    except Exception:
+        print('Verbindung zu mind. einem Handschuh wurde unterbrochen.')
+        print('Programm mit [ESC] beenden.')
+        wait_for(chr(27))
+        end(gloves)
+    return got_rfid
+
+
+def input_or_rfid(keys, user_acted, gloves):
     user_acted.clear()
     old_rfid = gloves.rfid
     old_side = gloves.rfid_side
     gloves.rfid = None
     loop = asyncio.get_event_loop()
     loop.add_reader(sys.stdin, user_acted.set)
-    print(prompt)
     got_rfid = None
     
     async def wait_user():
@@ -152,10 +161,7 @@ def input_or_rfid(prompt, keys, user_acted, gloves):
             return_when=asyncio.FIRST_COMPLETED))
         if not user_acted.is_set():
             user_acted.set()
-            print('\nVerbindung zu mind. einem Handschuh wurde unterbrochen.')
-            print('Programm mit [ESC] beenden.')
-            wait_for(chr(27))
-            end(gloves)
+            raise Exception
         if gloves.rfid:
             if gloves.rfid != old_rfid or gloves.rfid_side != old_side:
                 got_rfid = True

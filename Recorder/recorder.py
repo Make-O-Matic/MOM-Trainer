@@ -14,18 +14,18 @@ import signal
 
 from pymongo import MongoClient
 from momconnectivity.glove import Glove
-
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import helpers
 
 def main():
     parser = argparse.ArgumentParser(description='recorder.')
+    helpers.add_db_arguments(parser, False)
+    helpers.add_db_arguments(parser, True)
+    helpers.add_MAC_arguments(parser)
     parser.add_argument('-l', '--lId', required=True,
                         help='COLLECTOR.id fuer den linken Handschuh')
-    parser.add_argument('-L', '--lMAC', required=True,
-                        help='COLLECTOR.macAddress fuer den linken Handschuh')
     parser.add_argument('-r', '--rId', required=True,
                         help='COLLECTOR.id fuer den rechten Handschuh')
-    parser.add_argument('-R', '--rMAC', required=True,
-                        help='COLLECTOR.macAddress fuer den rechten Handschuh')
     parser.add_argument('-e', '--experiment', required=True,
                         help='EXPERIMENT.id (neu)')
     parser.add_argument('-o', '--observer', required=True,
@@ -35,49 +35,16 @@ def main():
 
     args = parser.parse_args()
 
-    db_client = MongoClient()
-    db = db_client['makeomatic']
+    db_generic = helpers.db(args.dbgen)
+    db_ts = helpers.db(args.dbts)
 
-    gloves = []
-
-    def set_connected(state):
-        if state > gloves[0].state:
-            beep()
-        gloves[0].state = state
-        if state == 3:
-            gloves[0].both_connected.set()
-
-    def is_recording():
-        return gloves[0].recording
-
-    lUUID = str(uuid.uuid4())
-    rUUID = str(uuid.uuid4())
-    
-    def end():
-        gloves[0].disconnect()
-        sys.exit()
-    
-    signal.signal(signal.SIGINT, end)
-    try:
-        gloves = [Glove(args.lMAC, args.rMAC, set_connected, is_recording,
-                        lUUID, rUUID)]
-        gloves[0].state = 0
-        gloves[0].recording = False
-        gloves[0].both_connected = threading.Event()
-        gloves[0].connect()
-        gloves[0].both_connected.wait()
-    except RuntimeError:
-        print('Verbindung zu (mind.) einem COLLECTOR konnte nicht hergestellt werden.')
-        print('Bitte pruefen Sie die Bluetooth-Verbindung und '
-              'starten Sie das Programm erneut.')
-        print('Programm mit \'STRG+C\' beenden.')
-        signal.pause()
+    gloves, lUUID, rUUID = helpers.connected_gloves(args, 3, None)
 
     while True:
         args.parcours = input('Valide PARCOURS.id angeben um Aufzeichnung zu starten: ')
 
         while True:
-            parcours = db.parcours.find_one({'id': args.parcours})
+            parcours = db_generic.parcours.find_one({'id': args.parcours})
             if bool(parcours):
                 break
             args.parcours = input(
@@ -85,13 +52,13 @@ def main():
                 + '" existiert nicht. Zum Aufzeichnen bitte valide PARKOUR.id angeben: ')
 
         now = datetime.datetime.utcnow()
-        trainsetName = 'TRAINSET' + now.strftime('%d%m%Y%H%M%S')
+        trainset_name = 'TRAINSET' + now.strftime('%d%m%Y%H%M%S')
         print('PARCOURS gefunden. EXERCISEs werden geladen, '
-              + trainsetName + ' wird erstellt...\n')
-        gloves[0].setTrainsetExercise(trainsetName, 0, '', '')
-        trainset = db[trainsetName]
+              + trainset_name + ' wird erstellt...\n')
+        gloves.setTrainsetExercise(trainset_name, 0, '', '')
+        trainset = db_ts[trainset_name]
         trainset.insert_one({
-            '_id': trainsetName,
+            '_id': trainset_name,
             'created': now,
             'experiment': {'id': args.experiment},
             'parcours': {
@@ -117,7 +84,7 @@ def main():
 
         mutations = {}
         for exercise in parcours['exercises']:
-            mutations[exercise['mutation']['id']] = db.mutations.find_one(
+            mutations[exercise['mutation']['id']] = db_generic.mutations.find_one(
                 {'id': exercise['mutation']['id']})
 
         step = 1
@@ -139,7 +106,7 @@ def main():
         
         cmd = ''
         while True:
-            cmd = getch()
+            cmd = helpers.getch()
             if cmd == ' ':
                 break;
                 
@@ -148,9 +115,9 @@ def main():
         step = 1
         for exercise in parcours['exercises']:
             mutation = mutations[exercise['mutation']['id']]
-            gloves[0].setTrainsetExercise('', step, exercise['mutation']['id'], 
-                mutation['_id'])
-            gloves[0].recording = True
+            gloves.setTrainsetExercise('', step, exercise['mutation']['id'], 
+                str(mutation['_id']))
+            gloves.recording = True
             if ('slug' in mutation):
                 slug = mutation['slug']
             print('Jetzt EXERCISE ' + str(step) + '/' + str(len(parcours['exercises'])) + 
@@ -160,8 +127,8 @@ def main():
                 print('- INSTRUCTION: "' + mutation['instruction'] + '"')
             if 'hands' in mutation:
                 hands = mutation['hands']
-                print_info(db, hands, 'left', 'linke')
-                print_info(db, hands, 'right', 'rechte')
+                print_info(db_generic, hands, 'left', 'linke')
+                print_info(db_generic, hands, 'right', 'rechte')
 
             print('----------------------')
             if exercise['signal']['beep']:
@@ -174,14 +141,14 @@ def main():
                     step += 1
                     break
                 if cmd == 'x':
-                    time = gloves[0].now();
+                    time = gloves.now();
                     trainset.update_one({ 'experiment' : { 'id' : args.experiment } },
                                         { '$set' : { 'status' : { 'faulty' : time } } })
                     print('PARCOURS abgebrochen. Daten unter TRAINSET ' + trainsetName 
                         + ' abgespeichert und als fehlerhaft (TRAINSET.status.faulty) markiert.')
                     break
 
-            gloves[0].recording = False
+            gloves.recording = False
 
             if cmd == 'x':
                 break

@@ -1,2 +1,2 @@
-git+git://github.com/otsaloma/gaupol.git@1.2 --global-option="--without-gaupol"
+git+git://github.com/otsaloma/gaupol.git@1.2
 git+git://github.com/Make-O-Matic/mom-connectivity.git@alternative

@@ -14,6 +14,7 @@ import arrow
 import aeidon
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import helpers
 
 def main():
@@ -43,6 +44,8 @@ def main():
     Gst.init(None)
     GES.init()
     loop = GLib.MainLoop()
+    Gst.debug_remove_log_function(Gst.debug_log_default)
+    GLib.log_set_handler(None, GLib.LogLevelFlags.LEVEL_CRITICAL, discard, None)
     discoverer = GstPbutils.Discoverer.new(600 * Gst.SECOND)
     db_generic = helpers.db(args.dbgen)
     db_ts = helpers.db(args.dbts)
@@ -67,12 +70,14 @@ def main():
     input_stop = input_start.shift(seconds=(media.get_duration()/Gst.SECOND))
 
     trainset_infos = helpers.trainset_infos(db_ts)
-    for trainset_name in trainset_infos:
-        info = trainset_infos[trainset_name]
+    for trainset_name, info in trainset_infos.items():
         trainset = db_ts[trainset_name]
         trainset_start_us = helpers.endpoint(
-            trainset, { '_id' : { '$ne' : info['_id'] } }, True) / 1e6
-        trainset_stop_us = helpers.endpoint(trainset, {}, False) / 1e6
+            trainset, {'_id': {'$ne': info['_id']}}, True)
+        if not trainset_start_us or not 'ended' in info:
+            continue
+        trainset_start_us = int(trainset_start_us) / 1e6
+        trainset_stop_us = int(helpers.endpoint(trainset, {}, False)) / 1e6
         #trainset_start = arrow.get(info['created'])
         trainset_stop = arrow.get(info['ended'])
         trainset_start = trainset_stop.shift(
@@ -88,7 +93,7 @@ def main():
                 info['experiment']['id'] + '_' +
                 info['parcours']['id'] + '_' +
                 info['parcours']['subject']['id'] + '_' +
-                trainset)
+                trainset_name)
             subtitle_file = clip_name + '.vtt'
             subtitle = aeidon.Subtitle(aeidon.modes.TIME)
             intro_stop = helpers.endpoint(trainset,  {'step': {"$exists": True}}, True)
@@ -104,8 +109,8 @@ def main():
             subtitles.subtitles.append(subtitle)
 
             step = 1
-            for exercise in helpers.exercises(db_gen, info['parcours']['id']):
-                mutation = helpers.mutation(db_gen, exercise)
+            for exercise in helpers.exercises(db_generic, info['parcours']['id']):
+                mutation = helpers.mutation(db_generic, exercise)
                 filter = { 'step' :  step }
                 start = helpers.endpoint(trainset, filter, True)
                 stop = helpers.endpoint(trainset, {'step': {"$gt": step}}, True)
@@ -122,14 +127,14 @@ def main():
                     mutation['id'])
                 if 'hands' in mutation:
                     text, instruction = helpers.info(
-                        db, mutation['hands'], 'left', ', ')
+                        db_generic, mutation['hands'], 'left', ', ')
                     if text != None:
                         subtitle.main_text += ('\nL:' +
                             info['parcours']['subject']['hands']['left']['id'])
                     if text:
                         subtitle.main_text += ('[' + text + ']')
                     text, instruction = helpers.info(
-                        db, mutation['hands'], 'right', ', ')
+                        db_generic, mutation['hands'], 'right', ', ')
                     if text != None:
                         subtitle.main_text += ('\nR:' +
                             info['parcours']['subject']['hands']['right']['id'])
@@ -164,7 +169,7 @@ def main():
                     ' line-alignment=' + args.align +
                     ' filesrc location=' + directory + '/' + subtitle_file + 
                     ' ! typefind ! subparse ! o.text_sink o.', 'identity')
-                overlay.set_duration((clip_start - input_start).seconds * Gst.SECOND)
+                overlay.set_duration(clip_duration.seconds * Gst.SECOND)
                 overlay.set_start(0)
                 overlay_layer.add_clip(overlay)
             input_layer = timeline.append_layer()
@@ -215,6 +220,10 @@ def handle_message(bus, message, loop):
         error = message.parse_error()
         print(error)
         loop.quit()
+
+
+def discard(log_domain, log_level, message, user_data):
+    return
 
 
 if __name__ == "__main__":

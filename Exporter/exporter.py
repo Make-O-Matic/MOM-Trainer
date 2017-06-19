@@ -5,16 +5,17 @@ from subprocess import call
 import argparse
 import datetime
 import tempfile
-from pymongo import MongoClient, errors, ASCENDING
+from collections import OrderedDict
 
+from pymongo import MongoClient, errors, ASCENDING, uri_parser
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import helpers
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='exporter.', add_help=False)
-    parser.add_argument('--hostname', required=True, help='HOSTNAME')
-    parser.add_argument('--port', required=True, help='PORT')
-    parser.add_argument('--db', required=True, help='DATABASE')
-    parser.add_argument('--username', required=True, help='USER')
-    parser.add_argument('--password', required=True, help='PASSWORT')
+    helpers.add_db_arguments(parser, False)
+    helpers.add_db_arguments(parser, True)
     parser.add_argument('--hand', choices=['left', 'right', 'both'], default='both', help='HAND')
     parser.add_argument('-t', '--trainset', nargs='+', default= [], help='TRAINSET.id')
     parser.add_argument('-e', '--experiment', nargs='+', default= [], help='EXPERIMENT.id')
@@ -27,52 +28,46 @@ if __name__ == "__main__":
     parser.add_argument('-h', '--host', nargs='+', default= [], help='HOST.id')
 
     args = parser.parse_args()
-    try:
-        db_client = MongoClient('mongodb://' + args.username + ':' + args.password + 
-                                '@' + args.hostname + ':' + args.port + '/' + args.db)
-        db_client.admin.command('ismaster')
-        db = db_client[args.db]
-    except (errors.ConnectionFailure, errors.InvalidURI, errors.OperationFailure):
-        print('Es konnte keine Verbindung zur Datenbank hergestellt werden.')
-        sys.exit()
+    db_generic = helpers.db(args.dbgen)
+    db_ts = helpers.db(args.dbts)
     match_mutation = []
     if args.mutation:
-        match_mutation.add({ 'mutation.id' : { '$in' : args.mutation } })
+        match_mutation.append({'mutation.id': {'$in': args.mutation}})
     if args.gesture:
-        match_mutation.add(
-        { '$or' : [
-            { 'mutation.hands.left.gesture.id' : { '$in' : args.gesture } },
-            { 'mutation.hands.right.gesture.id' : { '$in' : args.gesture } }
-        ]})
+        match_mutation.append({ 
+            '$or': [
+                {'mutation.hands.left.gesture.id': {'$in' :args.gesture}},
+                {'mutation.hands.right.gesture.id': {'$in' :args.gesture}}
+            ]
+        })
     if args.host:
-        match_mutation.add(
-        { '$or' : [
-            { 'mutation.hands.left.host.id' : { '$in' : args.host } },
-            { 'mutation.hands.right.host.id' : { '$in' : args.host } }
-        ]})
+        match_mutation.append({
+            '$or': [
+                {'mutation.hands.left.host.id': {'$in': args.host}},
+                {'mutation.hands.right.host.id': {'$in': args.host}}
+            ]
+        })
     parcours_ids = set()
     if not match_mutation:
         parcours_ids = set(args.parcours)
     else:
-        selected_parcours = db.parcours.aggregate([
-        {
-            '$unwind' : '$exercises'
+        selected_parcours = db_generic.parcours.aggregate([{
+            '$unwind': '$exercises'
         },
         {
-            '$lookup' : {
-                    'from' : 'mutations',
-                    'localField' : 'exercises.mutation.id',
-                    'foreignField' : 'id',
-                    'as' : 'mutation'
+            '$lookup': {
+                'from': 'mutations',
+                'localField': 'exercises.mutation.id',
+                'foreignField': 'id',
+                'as': 'mutation'
             }
         },
         {
-            '$unwind' : '$mutation'
+            '$unwind': '$mutation'
         },       
         {
-            '$match' : { '$and' : match_mutation }
-        }
-        ])
+            '$match': {'$and': match_mutation}
+        }])
         for parcours in selected_parcours:
             parcours_ids.add(parcours['id'])
         if args.parcours:
@@ -82,12 +77,12 @@ if __name__ == "__main__":
             sys.exit()
 
  
-    collections = db.collection_names()
+    collections = db_ts.collection_names()
     trainset_infos = {}
     for collection in collections:
         if not 'TRAINSET' in collection:
             continue
-        trainset_info = db[collection].find_one({'experiment': {'$exists': True}})
+        trainset_info = db_ts[collection].find_one({'experiment': {'$exists': True}})
         parcours = 'parcours'
         if 'parkour' in trainset_info:
             parcours = 'parkour'
@@ -106,34 +101,34 @@ if __name__ == "__main__":
         print('keine Daten zum Export verfuegbar.')
         sys.exit()
 
-    fields = {
-        'trainset': ['trainset ID', ''],
-        'experiment' : ['experiment ID', ''],
-        'subject': ['subject ID', ''],
-        'observer': ['observer ID', ''],
-        'info.side': ['collected by hand', 'left/right', 'boolean'],
-        'info.collector': ['collector ID', ''],
-        'data.stamp.microSeconds': ['timestamp', 'microseconds', 'time'],
-        'data.rfid': ['RFID', ''],
-        'data.grasp.sensorA': ['GRASP-A', '0,1023', 'integer'],
-        'data.grasp.sensorB': ['GRASP-B', '0,1023', 'integer'],
-        'data.grasp.sensorC': ['GRASP-C', '0,1023', 'integer'],
-        'data.acceleration.x': ['AX', '-7,+7', 'float'],
-        'data.acceleration.y': ['AY', '-7,+7', 'float'],
-        'data.acceleration.z': ['AZ', '-7,+7', 'float'],
-        'data.rotation.x': ['EX', '-90,+90', 'float'],
-        'data.rotation.y': ['EY', '-90,+90', 'float'],
-        'data.rotation.z': ['EZ', '-90,+90', 'float'],
-        'data.interface.userInputButton': ['user input', 'true/false', 'boolean'],
-        'data.interface.handIsInGlove': ['hand in glove', 'true/false', 'boolean'],
-        'parcours': ['parcours ID', ''],
-        'step': ['parcours step', '', 'integer'],
-        'mutation.id': ['mutation ID', ''],
-        'info.active.hand': ['mutation/hand is active', 'true/false', 'boolean'],
-        'info.active.host': ['host ID', ''],
-        'info.active.spot': ['host/spot ID', ''],
-        'info.active.gesture': ['gesture ID', '']
-    }
+    fields = OrderedDict([
+        ('trainset', ['trainset ID', '']),
+        ('experiment', ['experiment ID', '']),
+        ('subject', ['subject ID', '']),
+        ('observer', ['observer ID', '']),
+        ('info.side', ['collected by hand', 'left/right', 'boolean']),
+        ('info.collector', ['collector ID', '']),
+        ('data.stamp.microSeconds', ['timestamp', 'microseconds', 'time']),
+        ('data.rfid', ['RFID', '']),
+        ('data.grasp.sensorA', ['GRASP-A', '0,1023', 'integer']),
+        ('data.grasp.sensorB', ['GRASP-B', '0,1023', 'integer']),
+        ('data.grasp.sensorC', ['GRASP-C', '0,1023', 'integer']),
+        ('data.acceleration.x', ['AX', '-7,+7', 'float']),
+        ('data.acceleration.y', ['AY', '-7,+7', 'float']),
+        ('data.acceleration.z', ['AZ', '-7,+7', 'float']),
+        ('data.rotation.x', ['EX', '-90,+90', 'float']),
+        ('data.rotation.y', ['EY', '-90,+90', 'float']),
+        ('data.rotation.z', ['EZ', '-90,+90', 'float']),
+        ('data.interface.userInputButton', ['user input', 'true/false', 'boolean']),
+        ('data.interface.handIsInGlove', ['hand in glove', 'true/false', 'boolean']),
+        ('parcours', ['parcours ID', '']),
+        ('step', ['parcours step', '', 'integer']),
+        ('mutation.id', ['mutation ID', '']),
+        ('info.active.hand', ['mutation/hand is active', 'true/false', 'boolean']),
+        ('info.active.host', ['host ID', '']),
+        ('info.active.spot', ['host/spot ID', '']),
+        ('info.active.gesture', ['gesture ID', ''])
+    ])
 
     tmpCollection = 'tmpexportercollection'
 
@@ -188,62 +183,61 @@ if __name__ == "__main__":
         match = { '_id' : { '$ne' : info['_id'] } }
         if args.hand and args.hand != 'both':
             match.update({ 'collector.id': info[parcours]['subject']['hands'][args.hand]['uuid'] })
-        db[trainset].aggregate([{
-            '$match' : match
+        db_ts[trainset].aggregate([{
+            '$match': match
         },
         {
-            '$lookup' :
-                {
-                    'from' : 'mutations',
-                    'localField' : 'mutation.id',
-                    'foreignField' : 'id',
-                    'as' : 'mutationInfo'
-                }
+            '$lookup': {
+                'from': 'mutations',
+                'localField': 'mutation.id',
+                 'foreignField': 'id',
+                 'as': 'mutationInfo'
+            }
         },    
         {
-            '$unwind' : '$mutationInfo'
+            '$unwind': '$mutationInfo'
         },    
         {
-            '$addFields' : {
-                'trainset' : info['_id'],
-                'experiment' : info['experiment']['id'],
-                'subject' : info[parcours]['subject']['id'],
-                'observer' : info[parcours]['observer']['id'],
-                'parcours' : info[parcours]['id'],
-                'info' : {
-                    '$cond' : { 
-                        'if' : { '$eq' : [ '$collector.id', info[parcours]['subject']['hands']['left']['uuid'] ] }, 
-                        'then' : { 
-                            'side' : 'left', 
-                            'collector' : info[parcours]['subject']['hands']['left']['id'],
-                            'active' : {'$cond' : { 
-                                'if' : { '$gt' : [ '$mutationInfo.hands.left', None ] },
-                                'then' : { 
-                                    'hand' : True,
-                                    'host' : '$mutationInfo.hands.left.host.id',
-                                    'spot' : '$mutationInfo.hands.left.host.spot.id',
-                                    'gesture' : '$mutationInfo.hands.left.gesture.id'
+            '$addFields': {
+                'trainset': info['_id'],
+                'experiment': info['experiment']['id'],
+                'subject': info[parcours]['subject']['id'],
+                'observer': info[parcours]['observer']['id'],
+                'parcours': info[parcours]['id'],
+                'info': {
+                    '$cond': { 
+                        'if': {'$eq': ['$collector.id', info[parcours]['subject']['hands']['left']['uuid']]}, 
+                        'then': { 
+                            'side': 'left', 
+                            'collector': info[parcours]['subject']['hands']['left']['id'],
+                            'active': {'$cond': { 
+                                'if': { '$gt': ['$mutationInfo.hands.left', None]},
+                                'then': { 
+                                    'hand': True,
+                                    'host': '$mutationInfo.hands.left.host.id',
+                                    'spot': '$mutationInfo.hands.left.host.spot.id',
+                                    'gesture': '$mutationInfo.hands.left.gesture.id'
                                 },
-                                'else' : {
-                                    'hand' : False
+                                'else': {
+                                    'hand': False
                                 }
-                            } }
+                            }}
                         },
-                        'else' : { 
-                            'side' : 'right', 
-                            'collector' : info[parcours]['subject']['hands']['right']['id'],
-                            'active' : {'$cond' : { 
-                                'if' : { '$gt' : [ '$mutationInfo.hands.right', None ] },
-                                'then' : { 
-                                    'hand' : True,
-                                    'host' : '$mutationInfo.hands.right.host.id',
-                                    'spot' : '$mutationInfo.hands.right.host.spot.id',
-                                    'gesture' : '$mutationInfo.hands.right.gesture.id'
+                        'else': { 
+                            'side': 'right', 
+                            'collector': info[parcours]['subject']['hands']['right']['id'],
+                            'active': {'$cond': { 
+                                'if': {'$gt': ['$mutationInfo.hands.right', None]},
+                                'then': { 
+                                    'hand': True,
+                                    'host': '$mutationInfo.hands.right.host.id',
+                                    'spot': '$mutationInfo.hands.right.host.spot.id',
+                                    'gesture': '$mutationInfo.hands.right.gesture.id'
                                 },
-                                'else' : {
-                                    'hand' : False
+                                'else': {
+                                    'hand': False
                                 }  
-                            } }
+                            }}
                         }
                     }
                 }
@@ -253,16 +247,17 @@ if __name__ == "__main__":
             '$out' : tmpCollection
         }])
         
-        start = db[tmpCollection].find_one({}, sort=[('data.stamp.microSeconds', ASCENDING)])
+        start = db_ts[tmpCollection].find_one({}, sort=[('data.stamp.microSeconds', ASCENDING)])
         if start:
-            db[tmpCollection].update_many({}, { '$inc' : { 'data.stamp.microSeconds' : -start['data']['stamp']['microSeconds'] } })
+            db_ts[tmpCollection].update_many({}, { '$inc' : { 'data.stamp.microSeconds' : -start['data']['stamp']['microSeconds'] } })
                 
+            uri = uri_parser.parse_uri('mongodb://' + args.dbts)
             call(['mongoexport', '--quiet',
-            '--host', args.hostname,
-            '--port', args.port,
-            '--username', args.username,
-            '--password', args.password,
-            '--db', args.db,
+            '--host', uri['nodelist'][0][0],
+            '--port', str(uri['nodelist'][0][1]),
+            '--username', uri['username'],
+            '--password', uri['password'],
+            '--db', uri['database'],
             '--collection', tmpCollection,           
             '--fieldFile', fieldFile.name,
             '--type', 'csv',

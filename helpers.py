@@ -101,7 +101,7 @@ def endpoint(trainset, filter, ascending):
     else:
         order = DESCENDING
     endpoint = trainset.find_one(filter, sort=[('data.stamp.microSeconds', order)])
-    if bool(endpoint):
+    if bool(endpoint) and 'data' in endpoint:
         return endpoint['data']['stamp']['microSeconds']
     else:
         return None
@@ -167,7 +167,7 @@ def getch():
     if ord(ch) == 3:
         handler = signal.getsignal(signal.SIGINT)
         if handler:
-            handler()
+            handler(None, None)
     return ch
 
 

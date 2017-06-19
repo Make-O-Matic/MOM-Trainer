@@ -136,7 +136,7 @@ def main():
 
             cmd = ''
             while True:
-                cmd = getch()
+                cmd = helpers.getch()
                 if cmd == ' ':
                     step += 1
                     break
@@ -144,7 +144,7 @@ def main():
                     time = gloves.now();
                     trainset.update_one({ 'experiment' : { 'id' : args.experiment } },
                                         { '$set' : { 'status' : { 'faulty' : time } } })
-                    print('PARCOURS abgebrochen. Daten unter TRAINSET ' + trainsetName 
+                    print('PARCOURS abgebrochen. Daten unter TRAINSET ' + trainset_name 
                         + ' abgespeichert und als fehlerhaft (TRAINSET.status.faulty) markiert.')
                     break
 
@@ -159,17 +159,13 @@ def main():
             print('Aufnahme beendet! PARCOURS ' + args.parcours + ' erfolgreich durchlaufen.')
         beep()
         beep()
-        print('aufgenommene DATA wurde unter TRAINSET ' + trainsetName + ' abgespeichert.')
+        print('aufgenommene DATA wurde unter TRAINSET ' + trainset_name + ' abgespeichert.')
         print('Druecken Sie \'Leertaste\' um einen neuen PARCOURS zu laden. Programm-Argumente bleiben erhalten!')
         print('Druecken Sie \'STRG+C\' um das Programm zu beenden. Alle Programm-Argumente werden \'vergessen\'!\n')
         while True:
-            cmd = getch()
+            cmd = helpers.getch()
             if cmd == ' ':
                 break;
-
-
-def getch():
-    return sys.stdin.read(1)
 
 
 def beep():

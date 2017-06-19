@@ -135,7 +135,7 @@ def end(gloves):
 def raw_input_or_rfid(keys, user_acted, gloves):
     try:
         got_rfid = helpers.raw_wrap(sys.stdin,
-            functools.partial(input_or_rfid, prompt, keys, user_acted, gloves))
+            functools.partial(input_or_rfid, keys, user_acted, gloves))
     except Exception:
         print('Verbindung zu mind. einem Handschuh wurde unterbrochen.')
         print('Programm mit [ESC] beenden.')

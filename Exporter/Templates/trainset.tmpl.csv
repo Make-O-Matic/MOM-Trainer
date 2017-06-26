@@ -1,6 +1,6 @@
 #id: %Export-ID% //<-- ID des Exports z.B.: "EXPORT_14022017163906"
 #filename: %FileName% //<-- der Dateiname dieser .CSV Datei z.B.: "EXPORT_14022017163906_G14-G10_H001-H005-H100_Clemens_Andreas_M508-M101_C03-C04_P105-P110-P204.csv"
-#created: %DateOfExport[dd.mm.YYYY]% //<-- Erstellungsdatum des Exports. Bsp: "05.02.2017"
+#created: %DateOfExport[dd.mm.YYYY]%, %TimeOfExport[hh:mm:ss]% //<-- Erstellungsdatum und -Uhrzeit des Exports. Bsp: "05.02.2017, 14:32:10"
 #creator: "Make-O-Matic" //<-- ist immer fix mit "Make-O-Matic" angegeben
 ##
 #Arguments: --hostname: "localhost", --port: "27017",... //<-- hier stehen dann alle Parameter die in der Console mitgegeben wurden
